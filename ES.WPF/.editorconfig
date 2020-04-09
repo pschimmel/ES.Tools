@@ -1,0 +1,17 @@
+root=true
+; Top-most http://editorconfig.org/ file
+
+[*]
+end_of_line=crlf
+
+[*.{cs,xaml,xml,nuspec}]
+indent_style=space
+indent_size=2
+
+[*.{md,yml}]
+indent_style=space
+indent_size=2
+
+[*.{csproj,props,targets}]
+indent_style=space
+indent_size=2
