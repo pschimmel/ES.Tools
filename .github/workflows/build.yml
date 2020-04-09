@@ -31,9 +31,9 @@ jobs:
       
     # Restore Nuget packages
     #- name: Restore Nuget packages
-    #  run: nuget restore ES.WPF/ES.WPF/ES.WPF.sln
+    #  run: nuget restore ES.WPF/ES.WPF.sln
     
     #Build solution
     - name: Build solution
-      run: msbuild  ES.WPF/ES.WPF/ES.WPF.sln -p:Configuration=Release
+      run: msbuild  ES.WPF/ES.WPF.sln -p:Configuration=Release
       
