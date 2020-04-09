@@ -6,7 +6,9 @@ name: ES.WPF.Build
 on:
   push:
     branches: [ master ]
-
+  pull_request:
+    branches: [ master ]
+    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -18,20 +20,20 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+      
+    # Setup MSBuild
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    
     # Setting up Nuget
-    - name: Setup Nuget.exe
-      uses: warrenbuckley/Setup-Nuget@v1
-
+    - name: Setup NuGet.exe
+      uses: NuGet/setup-nuget@v1.0.2
+      
     # Restore Nuget packages
     - name: Restore Nuget packages
       run: nuget restore ES.WPF/ES.WPF/ES.WPF.sln
-      
-    # Setup MSBuild
-    - name: Restore Nuget packages
-      uses: warrenbuckley/Setup-MSBuild@v1
     
-    #Build with MSBuild
-    - name: Build
+    #Build solution
+    - name: Build solution
       run: msbuild  ES.WPF/ES.WPF/ES.WPF.sln -p:Configuration=Release
       
