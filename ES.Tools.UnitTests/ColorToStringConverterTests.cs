@@ -10,6 +10,7 @@ namespace ES.Tools.UnitTests
   {
     // Don't use black, it is an indication that the test failed.
     private static readonly List<string> validValues = new List<string> { "Yellow", "#aacc44", "#ffaacc44", "#aaaacc44" };
+    private static readonly List<string> invalidValues = new List<string> { "Blah", "#aagg44", "#44" };
 
     [SetUp]
     public void Setup()
@@ -22,9 +23,22 @@ namespace ES.Tools.UnitTests
       var converter = new ColorToStringConverter();
       foreach (string validValue in validValues)
       {
-        object result = converter.Convert(validValue, typeof(Color), null, CultureInfo.InvariantCulture);
+        var result = (Color)converter.Convert(validValue, typeof(Color), null, CultureInfo.InvariantCulture);
         Assert.IsNotNull(result);
         Assert.AreNotEqual(Colors.Black, result);
+      }
+    }
+
+    [Test]
+    public void ColorToStringConverterTestInvalidValues()
+    {
+      var converter = new ColorToStringConverter();
+
+      foreach (string validValue in invalidValues)
+      {
+        var result = (Color)converter.Convert(validValue, typeof(Color), null, CultureInfo.InvariantCulture);
+        Assert.IsNotNull(result);
+        Assert.AreEqual(Colors.Black, result);
       }
     }
   }

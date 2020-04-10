@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Tools.TestApp", "ES.Tool
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Tools.UnitTests", "ES.Tools.UnitTests\ES.Tools.UnitTests.csproj", "{1CD60B7F-D9B6-46A9-8B7F-C386D501AEDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.MVVM", "ES.MVVM\ES.MVVM.csproj", "{3E0645B7-4E71-4140-8A2A-02B4277853C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{1CD60B7F-D9B6-46A9-8B7F-C386D501AEDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CD60B7F-D9B6-46A9-8B7F-C386D501AEDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CD60B7F-D9B6-46A9-8B7F-C386D501AEDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0645B7-4E71-4140-8A2A-02B4277853C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0645B7-4E71-4140-8A2A-02B4277853C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0645B7-4E71-4140-8A2A-02B4277853C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0645B7-4E71-4140-8A2A-02B4277853C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
