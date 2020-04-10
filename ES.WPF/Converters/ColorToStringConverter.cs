@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -28,10 +27,8 @@ namespace ES.WPF.Converters
         }
         catch (Exception ex)
         {
-          Debug.Fail(ex.Message);
+          throw new ApplicationException($"Unable to convert string {value} to color.", ex);
         }
-
-        return Colors.Black;
       }
 
       public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

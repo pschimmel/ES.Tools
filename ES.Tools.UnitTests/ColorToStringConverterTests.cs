@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Media;
@@ -36,9 +37,7 @@ namespace ES.Tools.UnitTests
 
       foreach (string validValue in invalidValues)
       {
-        var result = (Color)converter.Convert(validValue, typeof(Color), null, CultureInfo.InvariantCulture);
-        Assert.IsNotNull(result);
-        Assert.AreEqual(Colors.Black, result);
+        Assert.Throws<ApplicationException>(() => converter.Convert(validValue, typeof(Color), null, CultureInfo.InvariantCulture));
       }
     }
   }
