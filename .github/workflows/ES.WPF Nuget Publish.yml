@@ -1,0 +1,43 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  release:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      
+    # Runs a single command using the runners shell
+    - name: Run a one-line script
+      run: echo Hello, world!
+
+    - name: Publish ES.WPF NuGet
+      uses: rohith/publish-nuget@v2.2.1
+      with:
+        # Filepath of the project to be packaged, relative to root of repository
+        PROJECT_FILE_PATH: ES.WPF
+        # Filepath containing version info, relative to root of repository. Defaults to `PROJECT_FILE_PATH` if not specified
+        #VERSION_FILE_PATH: # optional
+        # Regex (with version in a capturing group) to extract the version from `VERSION_FILE_PATH`
+        #VERSION_REGEX: # optional, default is <Version>(.*)<\/Version>
+        # Bypasses version resolution; useful for external providers like Nerdbank.GitVersioning
+        #VERSION_STATIC: # optional
+        # Whether to create a tag when there's a version change
+        #TAG_COMMIT: # optional, default is true
+        # Format of the tag, `*` is the placeholder for actual version
+        #TAG_FORMAT: # optional, default is v*
+        # API key for the NuGet feed
+        #NUGET_KEY: # optional
+        # NuGet package name, required when it's different from the project name
+        #PACKAGE_NAME: # optional
