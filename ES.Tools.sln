@@ -6,15 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C77DF1B7-7CAD-480E-A96A-201F6D760606}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		MIT.txt = MIT.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.WPF", "ES.WPF\ES.WPF.csproj", "{6B873B57-FCB0-44D8-BB2B-DC47972EDB33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Tools.TestApp", "ES.Tools.TestApp\ES.Tools.TestApp.csproj", "{4A2419E5-50AE-4C87-9F1A-DDF2B562E1D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.Tools.TestApp", "ES.Tools.TestApp\ES.Tools.TestApp.csproj", "{4A2419E5-50AE-4C87-9F1A-DDF2B562E1D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Tools.UnitTests", "ES.Tools.UnitTests\ES.Tools.UnitTests.csproj", "{1CD60B7F-D9B6-46A9-8B7F-C386D501AEDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.Tools.UnitTests", "ES.Tools.UnitTests\ES.Tools.UnitTests.csproj", "{1CD60B7F-D9B6-46A9-8B7F-C386D501AEDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.MVVM", "ES.MVVM\ES.MVVM.csproj", "{3E0645B7-4E71-4140-8A2A-02B4277853C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.MVVM", "ES.MVVM\ES.MVVM.csproj", "{3E0645B7-4E71-4140-8A2A-02B4277853C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
