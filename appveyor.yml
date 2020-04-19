@@ -19,7 +19,8 @@ nuget:
 #       build configuration       #
 #---------------------------------#  
 before_build: before_build.cmd
-publish_nuget: true   
+build:
+  publish_nuget: true   
 
 #---------------------------------#
 #      artifacts configuration    #
