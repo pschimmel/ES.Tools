@@ -22,4 +22,4 @@ deploy:
       secure: zHgjBmjUru7lq9Uc/C6ypg==
     skip_symbols: true
     symbol_server: https://your.symbol.server/feed
-    artifact: artifact: /.*\.nupkg/
+    artifact: /.*\.nupkg/
