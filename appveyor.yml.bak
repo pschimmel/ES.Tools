@@ -18,8 +18,8 @@ before_build: before_build.cmd
 deploy:
    # Deploying to NuGet feed
   - provider: NuGet
-    server: https://my.nuget.server/feed
-    api_key: oy2a5dmvdz6laphnpulqxanqyki2cvhe7lcx3jy7du6oom
+    api_key: 
+      secure: zHgjBmjUru7lq9Uc/C6ypg==
     skip_symbols: false
     symbol_server: https://your.symbol.server/feed
     artifact: MyPackage.nupkg
