@@ -20,6 +20,6 @@ deploy:
   - provider: NuGet
     api_key: 
       secure: zHgjBmjUru7lq9Uc/C6ypg==
-    skip_symbols: false
+    skip_symbols: true
     symbol_server: https://your.symbol.server/feed
-    artifact: MyPackage.nupkg
+    artifact: artifact: /.*\.nupkg/
