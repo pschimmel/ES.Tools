@@ -37,6 +37,7 @@ artifacts:
 deploy:
    # Deploying to NuGet feed
   - provider: NuGet
+    server: https://www.nuget.org/packages/ES.WPF
     api_key: 
       secure: zHgjBmjUru7lq9Uc/C6ypg==
     skip_symbols: true
