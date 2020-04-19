@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace ES.WPF.Adorners
+namespace ES.Tools.Adorners
 {
   public class DataTemplateAdorner : Adorner, IDisposable
   {

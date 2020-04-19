@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
-namespace ES.MVVM
+namespace ES.Tools.MVVM
 {
   public abstract class NotifyObject : INotifyPropertyChanged
   {

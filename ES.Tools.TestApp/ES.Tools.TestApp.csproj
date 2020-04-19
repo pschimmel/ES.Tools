@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ES.MVVM\ES.MVVM.csproj" />
-    <ProjectReference Include="..\ES.WPF\ES.WPF.csproj" />
+    <ProjectReference Include="..\ES.Tools\ES.Tools.csproj" />
   </ItemGroup>
 
   <ItemGroup>

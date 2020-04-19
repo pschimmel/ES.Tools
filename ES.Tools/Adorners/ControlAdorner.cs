@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
-using ES.WPF.Helpers;
+using ES.Tools.Helpers;
 
-namespace ES.WPF.Adorners
+namespace ES.Tools.Adorners
 {
   /// <summary>
   /// Adorner that renders a control.

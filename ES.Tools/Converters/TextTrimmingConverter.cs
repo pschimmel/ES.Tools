@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace ES.WPF.Converters
+namespace ES.Tools.Converters
 {
   /// <summary>
   /// Converts a string to a string with a maximum length. Converter parameter is used to transfer the number of letters.

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ES.WPF\ES.WPF.csproj" />
+    <ProjectReference Include="..\ES.Tools\ES.Tools.csproj" />
   </ItemGroup>
 
 </Project>

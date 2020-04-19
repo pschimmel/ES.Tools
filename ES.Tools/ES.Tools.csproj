@@ -3,10 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>ES.WPF</AssemblyName>
-    <RootNamespace>ES.WPF</RootNamespace>
+    <AssemblyName>ES.Tools</AssemblyName>
+    <RootNamespace>ES.Tools</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
+    <Version>0.0.1</Version>
+    <PackageId>ES.Tools</PackageId>
+    <Authors>Patrick Schimmel</Authors>
+    <Company>Engineering Solutions</Company>
+    <Product>ES.Tools</Product>
+    <Description>General useful WPF controls and helpers.</Description>
+    <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

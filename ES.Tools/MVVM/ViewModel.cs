@@ -1,13 +1,9 @@
 ﻿using System;
 
-namespace ES.MVVM
+namespace ES.Tools.MVVM
 {
   public abstract class ViewModel : NotifyObject, IDisposable
   {
-    protected ViewModel()
-    {
-    }
-
     // Dispose() calls Dispose(true)
     public void Dispose()
     {
