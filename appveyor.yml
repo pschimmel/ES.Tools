@@ -24,6 +24,7 @@ publish_nuget: true
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
+artifacts:
 # pushing all *.nupkg files in build directory recursively
   - path: '**\*.nupkg'
   
