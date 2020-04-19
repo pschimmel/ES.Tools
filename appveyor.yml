@@ -8,3 +8,18 @@ image: Visual Studio 2019
 nuget:
   disable_publish_on_pr: true
 before_build: before_build.cmd
+
+#---------------------------------#
+#     deployment configuration    #
+#---------------------------------#
+
+# providers: Local, FTP, WebDeploy, AzureCS, AzureBlob, S3, NuGet, Environment
+# provider names are case-sensitive!
+deploy:
+   # Deploying to NuGet feed
+  - provider: NuGet
+    server: https://my.nuget.server/feed
+    api_key: oy2a5dmvdz6laphnpulqxanqyki2cvhe7lcx3jy7du6oom
+    skip_symbols: false
+    symbol_server: https://your.symbol.server/feed
+    artifact: MyPackage.nupkg
