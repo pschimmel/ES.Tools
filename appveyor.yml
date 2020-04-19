@@ -1,0 +1,45 @@
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+version: '{build}'
+branches:
+  only:
+    - master
+pull_requests:
+  do_not_increment_build_number: true
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+image: Visual Studio 2019
+nuget:
+  disable_publish_on_pr: true
+  
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#  
+before_build: before_build.cmd
+build:
+  publish_nuget: true   
+
+#---------------------------------#
+#      artifacts configuration    #
+#---------------------------------#
+artifacts:
+# pushing all *.nupkg files in build directory recursively
+  - path: '**\*.nupkg'
+  
+#---------------------------------#
+#     deployment configuration    #
+#---------------------------------#
+# providers: Local, FTP, WebDeploy, AzureCS, AzureBlob, S3, NuGet, Environment
+# provider names are case-sensitive!
+deploy:
+   # Deploying to NuGet feed
+  - provider: NuGet
+    server: https://www.nuget.org/packages/ES.WPF
+    api_key: 
+      secure: zHgjBmjUru7lq9Uc/C6ypg==
+    skip_symbols: true
+    symbol_server: https://your.symbol.server/feed
+    artifact: /.*\.nupkg/
