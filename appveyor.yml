@@ -37,7 +37,7 @@ artifacts:
 deploy:
    # Deploying to NuGet feed
   - provider: NuGet
-    server: https://www.nuget.org/packages/ES.Toold
+    server: https://www.nuget.org/packages/ES.Tools
     api_key:
       secure: zHgjBmjUru7lq9Uc/C6ypg==
     skip_symbols: true
