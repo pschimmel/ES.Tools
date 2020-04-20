@@ -17,3 +17,5 @@ Everything you need to do basic MVVM.
 
 - **NotifyObject** - Basic abstract implementation of INotifyPropertyChanged.
 - **ViewModel** - Basic abstract implementation of a ViewModel. Inherits from NotifyObject and implements IDisposable.
+
+[![Build status](https://ci.appveyor.com/api/projects/status/jd0r84sejxmxysr3/branch/master?svg=true)](https://ci.appveyor.com/project/pschimmel/es-tools/branch/master)
