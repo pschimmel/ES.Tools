@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Media;
-using ES.Tools.Converters;
 using NUnit.Framework;
 
-namespace ES.Tools.UnitTests
+namespace ES.Tools.Converters.UnitTests
 {
   public class ColorToStringConverterTests
   {

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;NET472</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <AssemblyName>ES.Tools</AssemblyName>
     <RootNamespace>ES.Tools</RootNamespace>
@@ -14,8 +14,9 @@
     <Product>ES.Tools</Product>
     <Description>General useful WPF controls and helpers.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
+    <PackageIcon>Engineering Solutions Logo.png</PackageIcon>
   </PropertyGroup>
-
+  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
@@ -29,6 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\Logos\Engineering Solutions Logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\MIT.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

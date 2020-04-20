@@ -1,4 +1,4 @@
-﻿namespace ES.Tools.TestApp.ViewModel
+﻿namespace ES.Tools.TestApp.ViewModels
 {
   public abstract class ConverterViewModel : MVVM.ViewModel
   {

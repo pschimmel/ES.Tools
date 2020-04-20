@@ -14,13 +14,13 @@ pull_requests:
 image: Visual Studio 2019
 nuget:
   disable_publish_on_pr: true
-  
+
 #---------------------------------#
 #       build configuration       #
-#---------------------------------#  
+#---------------------------------#
 before_build: before_build.cmd
 build:
-  publish_nuget: true   
+  publish_nuget: true
 
 #---------------------------------#
 #      artifacts configuration    #
@@ -28,7 +28,7 @@ build:
 artifacts:
 # pushing all *.nupkg files in build directory recursively
   - path: '**\*.nupkg'
-  
+
 #---------------------------------#
 #     deployment configuration    #
 #---------------------------------#
@@ -37,8 +37,8 @@ artifacts:
 deploy:
    # Deploying to NuGet feed
   - provider: NuGet
-    server: https://www.nuget.org/packages/ES.WPF
-    api_key: 
+    server: https://www.nuget.org/packages/ES.Toold
+    api_key:
       secure: zHgjBmjUru7lq9Uc/C6ypg==
     skip_symbols: true
     symbol_server: https://your.symbol.server/feed

@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace ES.Tools.TestApp.ViewModel
+namespace ES.Tools.TestApp.ViewModels
 {
-  public class MainViewModel
+  public class MainViewModel : MVVM.ViewModel
   {
     public MainViewModel()
     {
       Converters = new List<ConverterViewModel>
       {
-        new ColorToStringConverterViewModel()
+        new ColorToStringConverterViewModel(),
+        new TextTrimmingConverterViewModel()
       };
     }
 

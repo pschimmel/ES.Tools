@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace ES.Tools.TestApp.View
+namespace ES.Tools.TestApp.Views
 {
   public class CustomItemsControl : ItemsControl
   {

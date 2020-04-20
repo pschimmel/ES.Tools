@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
@@ -19,8 +20,15 @@ namespace ES.Tools.Converters
       }
 
       string s = value.ToString();
-      int.TryParse(parameter.ToString(), out int length);
-      return s.Length < length ? s : s.Substring(0, length).Trim() + "...";
+      if (parameter != null && int.TryParse(parameter.ToString(), out int length))
+      {
+        return s.Length < length ? s : s.Substring(0, length).Trim() + "...";
+      }
+      else
+      {
+        Debug.Fail("No length provided. Add length as converter parameter.");
+        return string.Empty;
+      }
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
