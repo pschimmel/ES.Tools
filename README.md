@@ -1,7 +1,8 @@
-# ES.WPF
+# ES.Tools
 General useful WPF controls and helpers.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/jd0r84sejxmxysr3?svg=true)](https://ci.appveyor.com/project/pschimmel/es-tools)
+![Test status](http://teststatusbadge.azurewebsites.net/api/status/pschimmel/es-tools)
 
 ## Adorner Controls
 - **DataTemplateAdorner** - Adorner that will take a DataTemplate and a data object to render the adorner.
@@ -14,8 +15,6 @@ General useful WPF controls and helpers.
 ## Helpers
 - **TreeHelperExtensions** - Extension methods that help navigate the WPF visual tree and logical tree.
 
-# ES.MVVM
-Everything you need to do basic MVVM.
-
+## ES.MVVM
 - **NotifyObject** - Basic abstract implementation of INotifyPropertyChanged.
 - **ViewModel** - Basic abstract implementation of a ViewModel. Inherits from NotifyObject and implements IDisposable.
