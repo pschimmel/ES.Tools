@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>netcoreapp3.1;NET472</TargetFrameworks>
     <UseWPF>true</UseWPF>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

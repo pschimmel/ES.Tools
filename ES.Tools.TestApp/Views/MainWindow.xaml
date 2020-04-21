@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:ES.Tools.TestApp.Views"
+        xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
         xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
         Title="MainWindow"
         Width="800"
@@ -22,8 +23,8 @@
   <Grid>
     <TabControl>
       <TabItem Header="Converters">
-        <view:CustomItemsControl Focusable="False" ItemsSource="{Binding Converters}">
-          <view:CustomItemsControl.ItemContainerStyle>
+        <controls:CustomItemsControl Focusable="False" ItemsSource="{Binding Converters}">
+          <controls:CustomItemsControl.ItemContainerStyle>
             <Style TargetType="ContentControl">
               <Setter Property="HorizontalAlignment" Value="Stretch" />
               <Setter Property="Focusable" Value="False" />
@@ -42,8 +43,8 @@
                 </Setter.Value>
               </Setter>
             </Style>
-          </view:CustomItemsControl.ItemContainerStyle>
-        </view:CustomItemsControl>
+          </controls:CustomItemsControl.ItemContainerStyle>
+        </controls:CustomItemsControl>
       </TabItem>
       <TabItem Header="Adorners">
         <WrapPanel Background="Transparent" MouseMove="AdornersWrapPanel_MouseMove" MouseDown="AdornersWrapPanel_MouseDown">

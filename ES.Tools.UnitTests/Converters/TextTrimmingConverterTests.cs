@@ -13,11 +13,6 @@ namespace ES.Tools.Converters.UnitTests
       { ("A bit longer test text", 5), "A bit..."}
     };
 
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
     public void ColorToStringConverterTestValidValues()
     {

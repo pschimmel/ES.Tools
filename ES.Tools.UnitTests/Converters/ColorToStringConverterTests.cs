@@ -12,11 +12,6 @@ namespace ES.Tools.Converters.UnitTests
     private static readonly List<string> validValues = new List<string> { "Yellow", "#aacc44", "#ffaacc44", "#aaaacc44" };
     private static readonly List<string> invalidValues = new List<string> { "Blah", "#aagg44", "#44" };
 
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
     public void ColorToStringConverterTestValidValues()
     {

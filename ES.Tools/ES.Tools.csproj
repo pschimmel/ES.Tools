@@ -15,6 +15,7 @@
     <Description>General useful WPF controls and helpers.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
     <PackageIcon>Engineering Solutions Logo.png</PackageIcon>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
