@@ -14,10 +14,21 @@ namespace ES.Tools.Adorners
     private FrameworkElement _child;
     private readonly AdornerLayer _adornerLayer;
 
-    public ControlAdorner(UIElement adornedElement, AdornerLayer adornerLayer = null)
+    public ControlAdorner(UIElement adornedElement, FrameworkElement child = null, AdornerLayer adornerLayer = null)
       : base(adornedElement)
     {
+      if (child != null)
+      {
+        Child = child;
+      }
+
       _adornerLayer = adornerLayer ?? AdornerLayer.GetAdornerLayer(adornedElement);
+
+      // Automatically add to adorner layer of control
+      if (adornerLayer == null)
+      {
+        _adornerLayer.Add(this);
+      }
     }
 
     protected override int VisualChildrenCount => 1;
@@ -92,6 +103,7 @@ namespace ES.Tools.Adorners
       if (disposing)
       {
         _adornerLayer.Remove(this);
+        Child = null;
       }
     }
   }

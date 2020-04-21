@@ -45,6 +45,12 @@
           </view:CustomItemsControl.ItemContainerStyle>
         </view:CustomItemsControl>
       </TabItem>
+      <TabItem Header="Adorners">
+        <WrapPanel Background="Transparent" MouseMove="AdornersWrapPanel_MouseMove" MouseDown="AdornersWrapPanel_MouseDown">
+          <Button x:Name="ShowDataTemplateAdornerButton" Width="200" Height="50" Margin="5" Click="ShowDataTemplateAdornerButton_Click">Show DataTemplateAdorner</Button>
+          <Button x:Name="ShowControlAdornerButton" Width="200" Height="50" Margin="0,5,5,5" Click="ShowControlAdornerButton_Click">Show ControlAdorner</Button>
+        </WrapPanel>
+      </TabItem>
     </TabControl>
 
   </Grid>

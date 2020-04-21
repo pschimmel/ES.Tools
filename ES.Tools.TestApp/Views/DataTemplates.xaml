@@ -29,4 +29,11 @@
     </Grid>
   </DataTemplate>
 
+  <DataTemplate x:Key="YellowCircleText">
+    <Grid>
+      <Ellipse Fill="LightYellow" Stroke="Black" StrokeThickness="1" />
+      <TextBlock Text="{Binding Text}" Margin="10" />
+    </Grid>
+  </DataTemplate>
+
 </ResourceDictionary>

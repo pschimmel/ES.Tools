@@ -16,9 +16,14 @@ namespace ES.Tools.Adorners
     public DataTemplateAdorner(object content, DataTemplate dataTemplate, UIElement adornedElement, AdornerLayer adornerLayer = null)
       : base(adornedElement)
     {
-      _adornerLayer = adornerLayer ?? AdornerLayer.GetAdornerLayer(adornedElement);
       _contentPresenter = new ContentPresenter { Content = content, ContentTemplate = dataTemplate };
-      _adornerLayer.Add(this);
+      _adornerLayer = adornerLayer ?? AdornerLayer.GetAdornerLayer(adornedElement);
+
+      // Automatically add to adorner layer of control
+      if (adornerLayer == null)
+      {
+        _adornerLayer.Add(this);
+      }
     }
 
     protected override Size MeasureOverride(Size constraint)
