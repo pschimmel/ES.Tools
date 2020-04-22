@@ -9,7 +9,9 @@ namespace ES.Tools.UnitTests.Adorners
   public class ControlAdornerTests
   {
     private Button _button;
+#pragma warning disable IDE0052 // Remove unread private members
     private AdornerDecorator _decorator;
+#pragma warning restore IDE0052 // Remove unread private members
 
     [SetUp]
     public void Setup()
@@ -37,6 +39,7 @@ namespace ES.Tools.UnitTests.Adorners
       Assert.IsNotNull(adornersOfButton);
       Assert.AreEqual(1, adornersOfButton.Length);
       Assert.AreSame(adorner, adornersOfButton[0]);
+      Assert.AreSame(_button, adornersOfButton[0].AdornedElement);
     }
   }
 }

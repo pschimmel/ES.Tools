@@ -27,6 +27,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Effects\Grayscale.ps" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Behaviors\" />
   </ItemGroup>
 
@@ -39,6 +43,12 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Effects\Grayscale.ps">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
