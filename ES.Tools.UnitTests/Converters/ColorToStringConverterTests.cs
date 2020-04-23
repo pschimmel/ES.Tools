@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Media;
+using ES.Tools.Converters;
 using NUnit.Framework;
 
-namespace ES.Tools.Converters.UnitTests
+namespace ES.Tools.UnitTests.Converters
 {
+  /// <summary>
+  /// Unit tests testing the <see cref="ColorToStringConverter"/>
+  /// </summary>
   public class ColorToStringConverterTests
   {
     // Don't use black, it is an indication that the test failed.

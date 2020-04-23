@@ -6,6 +6,9 @@ using NUnit.Framework;
 
 namespace ES.Tools.UnitTests.Adorners
 {
+  /// <summary>
+  /// Unit tests testing the <see cref="ControlAdorner"/>.
+  /// </summary>
   public class ControlAdornerTests
   {
     private Button _button;

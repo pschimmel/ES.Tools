@@ -9,6 +9,9 @@ using NUnit.Framework;
 
 namespace ES.Tools.UnitTests.Adorners
 {
+  /// <summary>
+  /// Unit tests testing the <see cref="DataTemplateAdorner"/>.
+  /// </summary>
   public class DataTemplateAdornerTests
   {
     private Button _button;

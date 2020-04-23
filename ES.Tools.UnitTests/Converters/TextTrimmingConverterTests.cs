@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using System.Globalization;
+using ES.Tools.Converters;
 using NUnit.Framework;
 
-namespace ES.Tools.Converters.UnitTests
+namespace ES.Tools.UnitTests.Converters
 {
+  /// <summary>
+  /// Unit tests testing the <see cref="TextTrimmingConverter"/>
+  /// </summary>
   public class TextTrimmingConverterTests
   {
     private static readonly Dictionary<(string Input, int Number), string> values = new Dictionary<(string, int), string>
