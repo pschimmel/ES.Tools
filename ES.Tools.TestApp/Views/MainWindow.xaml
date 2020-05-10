@@ -38,7 +38,7 @@
   </Window.Resources>
   <Grid>
     <TabControl>
-      <TabItem Header="Converters">
+      <TabItem Header="Converters" Grid.IsSharedSizeScope="True">
         <controls:CustomItemsControl Focusable="False" ItemsSource="{Binding Converters}">
           <controls:CustomItemsControl.ItemContainerStyle>
             <Style TargetType="ContentControl">
@@ -49,11 +49,11 @@
                   <ControlTemplate>
                     <Grid>
                       <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Header" />
                         <ColumnDefinition />
                       </Grid.ColumnDefinitions>
                       <TextBlock Margin="2" FontWeight="Bold" Text="{Binding Description}" />
-                      <ContentPresenter Grid.Column="1" Margin="0,2,2,2" Content="{Binding}" />
+                      <ContentPresenter Grid.Column="1" Margin="2" Content="{Binding}" />
                     </Grid>
                   </ControlTemplate>
                 </Setter.Value>

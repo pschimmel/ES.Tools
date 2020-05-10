@@ -9,7 +9,8 @@ namespace ES.Tools.TestApp.ViewModels
       Converters = new List<ConverterViewModel>
       {
         new ColorToStringConverterViewModel(),
-        new TextTrimmingConverterViewModel()
+        new TextTrimmingConverterViewModel(),
+        new DateTimeToTimeSpanConverterViewModel()
       };
     }
 

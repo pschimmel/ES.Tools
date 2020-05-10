@@ -5,6 +5,7 @@
     <TargetFrameworks>netcoreapp3.1;NET472</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>8.0</LangVersion>
+    <ApplicationIcon>ES.Tools Logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

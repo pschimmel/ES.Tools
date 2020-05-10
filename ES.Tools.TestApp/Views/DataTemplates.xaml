@@ -2,6 +2,7 @@
 
   <converters:ColorToStringConverter x:Key="ColorToStringConverter" />
   <converters:TextTrimmingConverter x:Key="TextTrimmingConverter" />
+  <converters:DateTimeToTimeSpanConverter x:Key="DateTimeToTimeSpanConverter" />
 
   <DataTemplate DataType="{x:Type vm:ColorToStringConverterViewModel}">
     <Grid>
@@ -26,6 +27,17 @@
       </Grid.ColumnDefinitions>
       <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
       <TextBlock Grid.Column="1" Margin="10,0" Text="{Binding Text, Converter={StaticResource TextTrimmingConverter}, ConverterParameter=15}" />
+    </Grid>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:DateTimeToTimeSpanConverterViewModel}">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+      <TextBox Text="{Binding Time, UpdateSourceTrigger=PropertyChanged}" />
+      <TextBlock Grid.Column="1" Margin="10,0" Text="{Binding Time, Converter={StaticResource DateTimeToTimeSpanConverter}}" />
     </Grid>
   </DataTemplate>
 

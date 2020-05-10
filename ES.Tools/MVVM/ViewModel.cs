@@ -2,6 +2,9 @@
 
 namespace ES.Tools.MVVM
 {
+  /// <summary>
+  /// Base class for View Models. Implements IDisposable.
+  /// </summary>
   public abstract class ViewModel : NotifyObject, IDisposable
   {
     // Dispose() calls Dispose(true)
