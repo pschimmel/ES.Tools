@@ -37,7 +37,7 @@ namespace ES.Tools.Adorners
     {
       if (index != 0)
       {
-        throw new ArgumentOutOfRangeException();
+        throw new ArgumentOutOfRangeException(nameof(index));
       }
 
       return _child;

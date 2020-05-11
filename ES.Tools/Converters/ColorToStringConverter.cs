@@ -37,7 +37,7 @@ namespace ES.Tools.Converters
       }
 
       var color = (Color)value;
-      return color.ToString();
+      return color.ToString(CultureInfo.InvariantCulture);
     }
   }
 }

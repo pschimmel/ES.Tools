@@ -27,6 +27,11 @@ namespace ES.Tools.MVVM
 
     protected virtual void OnPropertyChanged<T>(Expression<Func<T>> expression)
     {
+      if (expression == null)
+      {
+        throw new ArgumentNullException(nameof(expression));
+      }
+
       var memberExpression = (MemberExpression)expression.Body;
       OnPropertyChanged(memberExpression.Member.Name);
     }

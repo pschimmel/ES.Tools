@@ -20,7 +20,7 @@ namespace ES.Tools.Controls
     {
       base.OnPropertyChanged(e);
 
-      if (e.Property.Name.Equals(nameof(IsEnabled)))
+      if (e.Property.Name == nameof(IsEnabled))
       {
         if (IsEnabled)
         {
