@@ -39,10 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviors\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Effects\Grayscale.ps">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
