@@ -14,6 +14,7 @@ namespace ES.Tools.UnitTests.Behaviors
     private ListBox _listBox;
     private ListView _listView;
     private DataGrid _dataGrid;
+    private TreeView _treeView;
     private readonly string[] items = new string[] { "a", "b", "c", "d", "e", "f" };
 
     [SetUp]
@@ -22,9 +23,14 @@ namespace ES.Tools.UnitTests.Behaviors
       _listBox = new ListBox { ItemsSource = items.ToList() };
       _listView = new ListView { ItemsSource = items.ToList() };
       _dataGrid = new DataGrid { ItemsSource = items.ToList() };
-      AutoScrollToCurrentItemBehavior.SetAutoScroll(_listBox, true);
-      AutoScrollToCurrentItemBehavior.SetAutoScroll(_listView, true);
-      AutoScrollToCurrentItemBehavior.SetAutoScroll(_dataGrid, true);
+      _treeView = new TreeView { ItemsSource = items.ToList().ConvertAll(x => new TreeViewItem { Header = x }) };
+      AutoScrollToCurrentItemBehavior.SetAutoScrollToCurrentItem(_listBox, true);
+      AutoScrollToCurrentItemBehavior.SetAutoScrollToCurrentItem(_listView, true);
+      AutoScrollToCurrentItemBehavior.SetAutoScrollToCurrentItem(_dataGrid, true);
+      foreach (var treeViewItem in _treeView.Items.OfType<TreeViewItem>())
+      {
+        AutoScrollToCurrentItemBehavior.SetAutoBringIntoView(treeViewItem, true);
+      }
     }
 
     /// <summary>
@@ -34,9 +40,13 @@ namespace ES.Tools.UnitTests.Behaviors
     public void AutoScrollToCurrentItemBehaviorBasicTest()
     {
       // Testing the scrolling is quite hard. So for now we only test if the attached propery is set correctly.
-      Assert.IsTrue(AutoScrollToCurrentItemBehavior.GetAutoScroll(_listBox));
-      Assert.IsTrue(AutoScrollToCurrentItemBehavior.GetAutoScroll(_listView));
-      Assert.IsTrue(AutoScrollToCurrentItemBehavior.GetAutoScroll(_dataGrid));
+      Assert.IsTrue(AutoScrollToCurrentItemBehavior.GetAutoScrollToCurrentItem(_listBox));
+      Assert.IsTrue(AutoScrollToCurrentItemBehavior.GetAutoScrollToCurrentItem(_listView));
+      Assert.IsTrue(AutoScrollToCurrentItemBehavior.GetAutoScrollToCurrentItem(_dataGrid));
+      foreach (var treeViewItem in _treeView.Items.OfType<TreeViewItem>())
+      {
+        Assert.IsTrue(AutoScrollToCurrentItemBehavior.GetAutoBringIntoView(treeViewItem));
+      }
     }
   }
 }

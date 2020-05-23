@@ -1,6 +1,7 @@
 ﻿<Window x:Class="ES.Tools.TestApp.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="clr-namespace:ES.Tools.Behaviors;assembly=ES.Tools"
         xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
@@ -38,7 +39,74 @@
   </Window.Resources>
   <Grid>
     <TabControl>
-      <TabItem Header="Converters" Grid.IsSharedSizeScope="True">
+      <TabItem Header="Adorners">
+        <WrapPanel Background="Transparent" MouseDown="AdornersWrapPanel_MouseDown" MouseMove="AdornersWrapPanel_MouseMove">
+          <Button x:Name="ShowDataTemplateAdornerButton"
+                  Width="200"
+                  Height="50"
+                  Margin="5"
+                  Click="ShowDataTemplateAdornerButton_Click">
+            Show DataTemplateAdorner
+          </Button>
+          <Button x:Name="ShowControlAdornerButton"
+                  Width="200"
+                  Height="50"
+                  Margin="0,5,5,5"
+                  Click="ShowControlAdornerButton_Click">
+            Show ControlAdorner
+          </Button>
+        </WrapPanel>
+      </TabItem>
+      <TabItem Header="Behaviors">
+        <WrapPanel>
+          <WrapPanel.DataContext>
+            <viewmodel:AutoScrollToCurrentItemViewModel />
+          </WrapPanel.DataContext>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2,2,2,0" HorizontalAlignment="Center" FontWeight="Bold" Text="AutoScrollToCurrentItemBehavior" />
+            <ListBox Grid.Row="1"
+                     Height="100"
+                     behaviors:AutoScrollToCurrentItemBehavior.AutoScrollToCurrentItem="{Binding IsChecked, ElementName=AutoScrollBehaviorSwitch}"
+                     ItemsSource="{Binding Items}"
+                     SelectedItem="{Binding SelectedItem}" />
+            <DockPanel Grid.Row="2">
+              <CheckBox x:Name="AutoScrollBehaviorSwitch" Margin="2" VerticalAlignment="Center" IsChecked="True">On</CheckBox>
+              <Button Margin="2" Command="{Binding SelectNextItemCommand}">Select Next</Button>
+            </DockPanel>
+          </Grid>
+        </WrapPanel>
+      </TabItem>
+      <TabItem Header="Controls">
+        <WrapPanel>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2,2,2,0" HorizontalAlignment="Center" FontWeight="Bold" Text="AutoGrayableImage" />
+            <controls:AutoGrayableImage Grid.Row="1" Width="300" Margin="2" Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg">
+              <controls:AutoGrayableImage.Style>
+                <Style TargetType="{x:Type controls:AutoGrayableImage}">
+                  <Setter Property="IsEnabled" Value="False" />
+                  <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsChecked, ElementName=AutoGrayableImageSwitch}" Value="True">
+                      <Setter Property="IsEnabled" Value="True" />
+                    </DataTrigger>
+                  </Style.Triggers>
+                </Style>
+              </controls:AutoGrayableImage.Style>
+            </controls:AutoGrayableImage>
+            <CheckBox x:Name="AutoGrayableImageSwitch" Grid.Row="2" Margin="2,0,2,2" IsChecked="True">Enabled</CheckBox>
+          </Grid>
+        </WrapPanel>
+      </TabItem>
+      <TabItem Grid.IsSharedSizeScope="True" Header="Converters">
         <controls:CustomItemsControl Focusable="False" ItemsSource="{Binding Converters}">
           <controls:CustomItemsControl.ItemContainerStyle>
             <Style TargetType="ContentControl">
@@ -62,24 +130,6 @@
           </controls:CustomItemsControl.ItemContainerStyle>
         </controls:CustomItemsControl>
       </TabItem>
-      <TabItem Header="Adorners">
-        <WrapPanel Background="Transparent" MouseDown="AdornersWrapPanel_MouseDown" MouseMove="AdornersWrapPanel_MouseMove">
-          <Button x:Name="ShowDataTemplateAdornerButton"
-                  Width="200"
-                  Height="50"
-                  Margin="5"
-                  Click="ShowDataTemplateAdornerButton_Click">
-            Show DataTemplateAdorner
-          </Button>
-          <Button x:Name="ShowControlAdornerButton"
-                  Width="200"
-                  Height="50"
-                  Margin="0,5,5,5"
-                  Click="ShowControlAdornerButton_Click">
-            Show ControlAdorner
-          </Button>
-        </WrapPanel>
-      </TabItem>
       <TabItem Header="Effects">
         <WrapPanel>
           <ContentControl Content="No effect" Template="{StaticResource ColorBoxTemplate}" />
@@ -88,31 +138,6 @@
               <effects:GrayscaleEffect />
             </ContentControl.Effect>
           </ContentControl>
-        </WrapPanel>
-      </TabItem>
-      <TabItem Header="Controls">
-        <WrapPanel>
-          <Grid>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="Auto" />
-              <RowDefinition />
-              <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <TextBlock Margin="2,2,2,0" HorizontalAlignment="Center" FontWeight="Bold" Text="AutoGrayableImage" />
-            <controls:AutoGrayableImage Grid.Row="1" Width="300" Margin="2" Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg">
-              <controls:AutoGrayableImage.Style>
-                <Style TargetType="{x:Type controls:AutoGrayableImage}">
-                  <Setter Property="IsEnabled" Value="False" />
-                  <Style.Triggers>
-                    <DataTrigger Binding="{Binding IsChecked, ElementName=cb}" Value="True">
-                      <Setter Property="IsEnabled" Value="True" />
-                    </DataTrigger>
-                  </Style.Triggers>
-                </Style>
-              </controls:AutoGrayableImage.Style>
-            </controls:AutoGrayableImage>
-            <CheckBox x:Name="cb" Grid.Row="2" Margin="2,0,2,2" IsChecked="True">Enabled</CheckBox>
-          </Grid>
         </WrapPanel>
       </TabItem>
     </TabControl>
