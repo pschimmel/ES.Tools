@@ -56,19 +56,19 @@ namespace ES.Tools.Behaviors
         {
           selector.Dispatcher.BeginInvoke(new Action(() =>
           {
-            if (sender is DataGrid dataGrid)
+            if (sender is DataGrid dataGrid && dataGrid.SelectedItem != null)
             {
               dataGrid.ScrollIntoView(dataGrid.SelectedItem);
             }
-            else if (sender is ListBox listBox)
+            else if (sender is ListBox listBox && listBox.SelectedItem != null)
             {
               listBox.ScrollIntoView(listBox.SelectedItem);
             }
-            else if (sender is ListView listView)
+            else if (sender is ListView listView && listView.SelectedItem != null)
             {
               listView.ScrollIntoView(listView.SelectedItem);
             }
-            else
+            else if (selector.SelectedItem != null)
             {
               var dependencyObject = selector.ItemContainerGenerator.ContainerFromItem(selector.SelectedItem);
               if (dependencyObject is FrameworkElement frameworkElement)
