@@ -4,6 +4,9 @@ using System.Windows.Input;
 
 namespace ES.Tools.MVVM
 {
+  /// <summary>
+  /// Implementation of a generic action command.
+  /// </summary>
   public class ActionCommand<T> : ICommand
   {
     private event EventHandler InternalCanExecuteChanged;
@@ -39,7 +42,7 @@ namespace ES.Tools.MVVM
     [DebuggerStepThrough]
     public bool CanExecute(object parameter)
     {
-      return canExecute == null ? true : canExecute((T)parameter);
+      return canExecute == null || canExecute((T)parameter);
     }
 
     /// <summary>

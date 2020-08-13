@@ -5,8 +5,14 @@ using System.Runtime.CompilerServices;
 
 namespace ES.Tools.MVVM
 {
+  /// <summary>
+  /// Base class that implements <see cref="INotifyPropertyChanged"./>
+  /// </summary>
   public abstract class NotifyObject : INotifyPropertyChanged
   {
+    /// <summary>
+    /// Event is cast whenever a property changes.
+    /// </summary>
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void SetProperty<T>(ref T member, T val, [CallerMemberName] string propertyName = null)

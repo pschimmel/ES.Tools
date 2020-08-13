@@ -2,10 +2,13 @@
 
 namespace ES.Tools.MVVM
 {
+  /// <summary>
+  /// Action command without a specific object as parameter.
+  /// </summary>
   public class ActionCommand : ActionCommand<object>
   {
-    public ActionCommand(Action execute, Func<bool> canExecute = null) :
-      base(x => execute(), canExecute == null ? (Func<object, bool>)null : x => canExecute())
+    public ActionCommand(Action execute, Func<bool> canExecute = null)
+      : base(x => execute(), canExecute == null ? (Func<object, bool>)null : x => canExecute())
     { }
   }
 }
