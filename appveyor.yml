@@ -39,7 +39,7 @@ deploy:
   - provider: NuGet
     server: https://www.nuget.org
     api_key:
-      secure: zHgjBmjUru7lq9Uc/C6ypg==
+      secure: oy2i46c6om7beckascwqcgcb4o4i2z3unkjbfwofnjmgy4
     skip_symbols: true
     symbol_server: https://your.symbol.server/feed
     artifact: /.*\.nupkg/
