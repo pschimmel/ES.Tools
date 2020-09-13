@@ -21,7 +21,7 @@ General useful WPF controls and helpers.
 - **TextBoxBehavior** - Use the property *SelectAllTextOnFocus* to automatically select the whole text when the control is focused. 
  
 ## Controls
-- [**AutoGrayableImage**](AutoGrayableImage.md) - Image control that automatically turns itself into a grayscale image when disabled.
+- [**AutoGrayableImage**](Documentation/AutoGrayableImage.md) - Image control that automatically turns itself into a grayscale image when disabled.
 - **CustomItemsControl** - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
 
 ## Converters
@@ -31,7 +31,7 @@ General useful WPF controls and helpers.
 - **TextTrimmingConverter** - Converts a string into a string with a limited number of characters. If the text exceeds the number of characters "..." is added.
 
 ## Effects
-- **GrayscaleEffect** - WPF *Effect* that turns the control into a monochrome colored control.
+- [**GrayscaleEffect**](Documentation/GrayscaleEffect.md) - WPF *Effect* that turns the control into a monochrome colored control.
 
 ## Helpers
 - **TreeHelperExtensions** - Extension methods that help navigate the WPF visual tree and logical tree.
