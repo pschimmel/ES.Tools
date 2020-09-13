@@ -1,7 +1,7 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: '{build}'
+version: 0.2.{build}
 branches:
   only:
     - master
