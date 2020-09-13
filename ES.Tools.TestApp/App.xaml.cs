@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Markup;
+using System.Xml;
 
 namespace ES.Tools.TestApp
 {
@@ -13,5 +10,19 @@ namespace ES.Tools.TestApp
   /// </summary>
   public partial class App : Application
   {
+    public App()
+    {
+      SaveDefaultTemplate();
+    }
+
+    public static void SaveDefaultTemplate()
+    {
+      object control = Application.Current.FindResource(typeof(MenuItem));
+      using (var writer = new XmlTextWriter(@"c:\Temp\MenuItem.xml", System.Text.Encoding.UTF8))
+      {
+        writer.Formatting = Formatting.Indented;
+        XamlWriter.Save(control, writer);
+      }
+    }
   }
 }

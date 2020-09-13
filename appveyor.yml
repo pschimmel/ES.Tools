@@ -37,7 +37,7 @@ build:
 deploy:
    # Deploying to NuGet feed
   - provider: NuGet
-    server: https://www.nuget.org/packages/ES.Tools
+    server: https://www.nuget.org
     api_key:
       secure: zHgjBmjUru7lq9Uc/C6ypg==
     skip_symbols: true
