@@ -7,16 +7,28 @@ General useful WPF controls and helpers.
 [![GitHub issues](https://img.shields.io/github/issues/pschimmel/es.tools)](https://github.com/pschimmel/ES.Tools/issues)
 
 ## Adorners
-- **DataTemplateAdorner** - Adorner that will take a DataTemplate and a data object to render the adorner.
 - **ControlAdorner** - Adorner that renders any control.
+- **DataTemplateAdorner** - Adorner that will take a DataTemplate and a data object to render the adorner.
+
+## Base
+- **DependencyPropertyHelper** - Watches a dependency property and casts an event when the value changes.
+- **DispatcherWrapper** - Wrapper that wraps a WPF dispatcher. In unit tests you can easily replace the default dispatcher by a tesing implementation.
+- **Tools** - Useful tools and extensions.
+
+## Behaviors
+- **AutoScrollToCurrentItemBehavior** - Tries to bring the current item into the view. Works with any *Selector* control. 
+- **PasswordBoxBehavior** - Same as *TextBoxBehavior*, but for the WPF *PasswordBox* control.
+- **TextBoxBehavior** - Use the property *SelectAllTextOnFocus* to automatically select the whole text when the control is focused. 
  
 ## Controls
-- **AutoGrayableImage** - Image control that automatically turns itself into a grayscale image when disabled.
+- [**AutoGrayableImage**](AutoGrayableImage.md) - Image control that automatically turns itself into a grayscale image when disabled.
 - **CustomItemsControl** - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
 
 ## Converters
-- **ColorToStringConverter** - Converts a WPF *Color* to a string and back.
-- **TextTrimmingConverter** - Converts a string into a string with a limited amount of characters.
+- **BooleanToVisibilityConverter** - Converts a boolean value to a *System.Windows.Visibility*.
+- **ColorToStringConverter** - Converts a WPF *System.Windows.Media.Color* to a string and back.
+- **DateTimeToTimeSpanConverter** - Converts a *System.DateTime* into a *System.TimeSpan*. This can be used for data binding when the model property has to be a *System.DateTime*.
+- **TextTrimmingConverter** - Converts a string into a string with a limited number of characters. If the text exceeds the number of characters "..." is added.
 
 ## Effects
 - **GrayscaleEffect** - WPF *Effect* that turns the control into a monochrome colored control.
@@ -24,7 +36,7 @@ General useful WPF controls and helpers.
 ## Helpers
 - **TreeHelperExtensions** - Extension methods that help navigate the WPF visual tree and logical tree.
 
-## ES.MVVM
+## MVVM
 - **NotifyObject** - Basic abstract implementation of *INotifyPropertyChanged*.
 - **ViewModel** - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
 - **ActionCommand** - *ICommand* implementation, updating automatically when the CanExecute changes.
