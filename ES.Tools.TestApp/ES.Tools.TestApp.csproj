@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
     <LangVersion>8.0</LangVersion>
     <ApplicationIcon>ES.Tools Logo.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

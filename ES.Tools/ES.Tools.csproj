@@ -7,7 +7,7 @@
     <RootNamespace>ES.Tools</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <PackageId>ES.Tools</PackageId>
     <Authors>Patrick Schimmel</Authors>
     <Company>Engineering Solutions</Company>

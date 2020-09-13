@@ -22,16 +22,15 @@ before_build:
 - cmd: nuget restore
 
 build:
-  publish_wap_octopus: true
   publish_nuget: true
   verbosity: minimal
 
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
-#artifacts:
+artifacts:
 # pushing all *.nupkg files in build directory recursively
-#  - path: '**\*.nupkg'
+  - path: '**\*.nupkg'
 
 #---------------------------------#
 #     deployment configuration    #
