@@ -18,9 +18,13 @@ nuget:
 #---------------------------------#
 #       build configuration       #
 #---------------------------------#
-before_build: before_build.cmd
+before_build:
+- cmd: nuget restore
+
 build:
+  publish_wap_octopus: true
   publish_nuget: true
+  verbosity: minimal
 
 #---------------------------------#
 #      artifacts configuration    #
@@ -34,3 +38,7 @@ build:
 #---------------------------------#
 # providers: Local, FTP, WebDeploy, AzureCS, AzureBlob, S3, NuGet, Environment
 # provider names are case-sensitive!
+deploy:
+- provider: NuGet
+  api_key:
+    secure: aghej3K2icV+eTZwMgUA64jKO6JwNL5VXGRvEPW0E/so6g1dvcrBfqz/w6EeD22l
