@@ -15,6 +15,10 @@ image: Visual Studio 2019
 nuget:
   disable_publish_on_pr: true
 
+environment:
+  NuGetKey:
+    secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
+
 #---------------------------------#
 #       build configuration       #
 #---------------------------------#
@@ -40,4 +44,4 @@ build:
 deploy:
 - provider: NuGet
   api_key:
-    secure: aghej3K2icV+eTZwMgUA64jKO6JwNL5VXGRvEPW0E/so6g1dvcrBfqz/w6EeD22l
+    secure: NuGetKey
