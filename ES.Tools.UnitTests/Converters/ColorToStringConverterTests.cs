@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace ES.Tools.UnitTests.Converters
 {
   /// <summary>
-  /// Unit tests testing the <see cref="ColorToStringConverter"/>
+  /// Unit tests testing the <see cref="ColorToStringConverter"/>.
   /// </summary>
   public class ColorToStringConverterTests
   {

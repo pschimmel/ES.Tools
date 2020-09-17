@@ -6,6 +6,9 @@ using System.Windows.Media;
 
 namespace ES.Tools.Adorners
 {
+  /// <summary>
+  /// Adorner that takes a data template and a ViewModel.
+  /// </summary>
   public class DataTemplateAdorner : Adorner, IDisposable
   {
     private readonly ContentPresenter _contentPresenter;
@@ -13,7 +16,14 @@ namespace ES.Tools.Adorners
     private double _leftOffset;
     private double _topOffset;
 
-    public DataTemplateAdorner(object content, DataTemplate dataTemplate, UIElement adornedElement, AdornerLayer adornerLayer = null)
+    /// <summary>
+    /// Constructor. Creates a new <see cref="DataTemplateAdorner"/> instance.
+    /// </summary>
+    /// <param name="adornedElement">The adorned element.</param>
+    /// <param name="content">The content (usually the ViewModel).</param>
+    /// <param name="dataTemplate">DataTemplate</param>
+    /// <param name="adornerLayer">The adorner layer where the adorner will be rendered on (optionally)</param>
+    public DataTemplateAdorner(UIElement adornedElement, object content, DataTemplate dataTemplate, AdornerLayer adornerLayer = null)
       : base(adornedElement)
     {
       _contentPresenter = new ContentPresenter { Content = content, ContentTemplate = dataTemplate };

@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using ES.Tools.Adorners;
@@ -12,18 +13,26 @@ namespace ES.Tools.UnitTests.Adorners
   public class ControlAdornerTests
   {
     private Button _button;
-#pragma warning disable IDE0052 // Remove unread private members
-    private AdornerDecorator _decorator;
-#pragma warning restore IDE0052 // Remove unread private members
+    private Window _window;
 
     [SetUp]
     public void Setup()
     {
       _button = new Button { Content = "Test" };
-      _button.UpdateLayout();
+      _window = new Window { Content = _button };
+      _window.Show();
+    }
 
-      // Surround control with adorner layer
-      _decorator = new AdornerDecorator { Child = _button };
+    [TearDown]
+    public void Cleanup()
+    {
+      if (_window != null)
+      {
+        _window.Close();
+        _window = null;
+      }
+
+      _button = null;
     }
 
     [Test, Apartment(ApartmentState.STA)]
@@ -43,6 +52,12 @@ namespace ES.Tools.UnitTests.Adorners
       Assert.AreEqual(1, adornersOfButton.Length);
       Assert.AreSame(adorner, adornersOfButton[0]);
       Assert.AreSame(_button, adornersOfButton[0].AdornedElement);
+
+      adorner.UpdateLayout();
+      Assert.AreNotEqual(0, adorner.ActualWidth);
+      Assert.AreNotEqual(0, adorner.ActualHeight);
+      Assert.AreEqual(checkBox.ActualWidth, adorner.ActualWidth);
+      Assert.AreEqual(checkBox.ActualHeight, adorner.ActualHeight);
     }
   }
 }

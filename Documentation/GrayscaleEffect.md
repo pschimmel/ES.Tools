@@ -1,9 +1,13 @@
 # GrayscaleEffect
 Namespace: **ES.Tools.Effects**
 
-Shader effect that turns any control into a grayscale representation of it.
+The **GrayscaleEffect** is a shader effect that turns any control into a grayscale representation of it.
 
-Usage:
+**Example**
+
+![Grayscale effect example](Images/GrayscaleEffect.png "Grayscale effect example")
+
+**Usage**
 
 ``` XML
 <Button Content="GrayscaleEffect">

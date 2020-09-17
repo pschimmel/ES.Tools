@@ -30,7 +30,7 @@ namespace ES.Tools.TestApp.Views
       {
         var vm = new DataTemplateAdornerViewModel { Text = "Test" };
         var template = (DataTemplate)TryFindResource("YellowCircleText");
-        dataTemplateAdorner = new DataTemplateAdorner(vm, template, ShowDataTemplateAdornerButton);
+        dataTemplateAdorner = new DataTemplateAdorner(ShowDataTemplateAdornerButton, vm, template);
       }
     }
 
@@ -38,7 +38,7 @@ namespace ES.Tools.TestApp.Views
     {
       if (controlAdorner == null)
       {
-        var progressBar = new ProgressBar{ Value = 20, Width = ShowControlAdornerButton.ActualWidth, Height = 10 };
+        var progressBar = new ProgressBar { Value = 20, Width = ShowControlAdornerButton.ActualWidth, Height = 10 };
         controlAdorner = new ControlAdorner(ShowControlAdornerButton, progressBar);
       }
       else

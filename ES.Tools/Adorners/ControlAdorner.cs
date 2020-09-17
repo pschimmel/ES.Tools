@@ -7,13 +7,19 @@ using ES.Tools.Helpers;
 namespace ES.Tools.Adorners
 {
   /// <summary>
-  /// Adorner that renders a control.
+  /// Adorner that renders any WPF control.
   /// </summary>
   public class ControlAdorner : Adorner, IDisposable
   {
     private FrameworkElement _child;
     private readonly AdornerLayer _adornerLayer;
 
+    /// <summary>
+    /// Constructor. Creates a new <see cref="ControlAdorner"/> instance.
+    /// </summary>
+    /// <param name="adornedElement">The adorned element.</param>
+    /// <param name="child">Child control.</param>
+    /// <param name="adornerLayer">The adorner layer where the adorner will be rendered on (optionally)</param>
     public ControlAdorner(UIElement adornedElement, FrameworkElement child = null, AdornerLayer adornerLayer = null)
       : base(adornedElement)
     {
@@ -43,6 +49,9 @@ namespace ES.Tools.Adorners
       return _child;
     }
 
+    /// <summary>
+    /// Get or set the child element.
+    /// </summary>
     public FrameworkElement Child
     {
       get => _child;

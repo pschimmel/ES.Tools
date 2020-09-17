@@ -12,8 +12,12 @@ namespace ES.Tools.TestApp.ViewModels
         new TextTrimmingConverterViewModel(),
         new DateTimeToTimeSpanConverterViewModel()
       };
+
+      CustomItemsControlViewModel = new CustomItemsControlViewModel();
     }
 
     public List<ConverterViewModel> Converters { get; }
+
+    public CustomItemsControlViewModel CustomItemsControlViewModel { get; }
   }
 }

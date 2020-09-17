@@ -37,7 +37,7 @@ build:
 #---------------------------------#
 # providers: Local, FTP, WebDeploy, AzureCS, AzureBlob, S3, NuGet, Environment
 # provider names are case-sensitive!
-# Refresh key in Appveyor: Account > Encrypt YAML
+# Refreshing key in Appveyor: Account > Encrypt YAML
 deploy:
 - provider: NuGet
   api_key:

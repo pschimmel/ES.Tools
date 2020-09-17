@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Threading;
 
-namespace ES.Tools.Base
+namespace ES.Tools.Helpers
 {
   /// <summary>
   /// Wraps a dispatcher to execute actions on the UI thread.

@@ -1,17 +1,16 @@
-﻿<Window
-  x:Class="ES.Tools.TestApp.Views.MainWindow"
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:behaviors="clr-namespace:ES.Tools.Behaviors;assembly=ES.Tools"
-  xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
-  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-  xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
-  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
-  Title="MainWindow"
-  Width="800"
-  Height="450"
-  mc:Ignorable="d">
+﻿<Window x:Class="ES.Tools.TestApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="clr-namespace:ES.Tools.Behaviors;assembly=ES.Tools"
+        xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
   <Window.DataContext>
     <viewmodel:MainViewModel />
   </Window.DataContext>
@@ -28,27 +27,12 @@
             <RowDefinition Height="Auto" />
           </Grid.RowDefinitions>
           <UniformGrid Margin="10" HorizontalAlignment="Center">
-            <Rectangle
-              Width="50"
-              Height="50"
-              Fill="Yellow" />
-            <Rectangle
-              Width="50"
-              Height="50"
-              Fill="LightGreen" />
-            <Rectangle
-              Width="50"
-              Height="50"
-              Fill="Red" />
-            <Rectangle
-              Width="50"
-              Height="50"
-              Fill="LightBlue" />
+            <Rectangle Width="50" Height="50" Fill="Yellow" />
+            <Rectangle Width="50" Height="50" Fill="LightGreen" />
+            <Rectangle Width="50" Height="50" Fill="Red" />
+            <Rectangle Width="50" Height="50" Fill="LightBlue" />
           </UniformGrid>
-          <ContentPresenter
-            Grid.Row="1"
-            Margin="1"
-            HorizontalAlignment="Center" />
+          <ContentPresenter Grid.Row="1" Margin="1" HorizontalAlignment="Center" />
         </Grid>
       </ControlTemplate>
     </ResourceDictionary>
@@ -56,60 +40,78 @@
   <Grid>
     <TabControl>
       <TabItem Header="Adorners">
-        <WrapPanel
-          Background="Transparent"
-          MouseDown="AdornersWrapPanel_MouseDown"
-          MouseMove="AdornersWrapPanel_MouseMove">
-          <Button
-            x:Name="ShowDataTemplateAdornerButton"
-            Width="200"
-            Height="50"
-            Margin="5"
-            Click="ShowDataTemplateAdornerButton_Click">
+        <WrapPanel Background="Transparent" MouseDown="AdornersWrapPanel_MouseDown" MouseMove="AdornersWrapPanel_MouseMove">
+          <Button x:Name="ShowDataTemplateAdornerButton"
+                  Width="200"
+                  Height="50"
+                  Margin="5"
+                  Click="ShowDataTemplateAdornerButton_Click">
             Show DataTemplateAdorner
           </Button>
-          <Button
-            x:Name="ShowControlAdornerButton"
-            Width="200"
-            Height="50"
-            Margin="0,5,5,5"
-            Click="ShowControlAdornerButton_Click">
+          <Button x:Name="ShowControlAdornerButton"
+                  Width="200"
+                  Height="50"
+                  Margin="0,5,5,5"
+                  Click="ShowControlAdornerButton_Click">
             Show ControlAdorner
           </Button>
         </WrapPanel>
       </TabItem>
       <TabItem Header="Behaviors">
         <WrapPanel>
-          <WrapPanel.DataContext>
-            <viewmodel:AutoScrollToCurrentItemViewModel />
-          </WrapPanel.DataContext>
-          <Grid>
+          <Grid Width="200" Margin="5">
+            <Grid.DataContext>
+              <viewmodel:AutoScrollToCurrentItemViewModel />
+            </Grid.DataContext>
             <Grid.RowDefinitions>
               <RowDefinition Height="Auto" />
               <RowDefinition />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock
-              Margin="2,2,2,0"
-              HorizontalAlignment="Center"
-              FontWeight="Bold"
-              Text="AutoScrollToCurrentItemBehavior" />
-            <ListBox
-              Grid.Row="1"
-              Height="100"
-              behaviors:AutoScrollToCurrentItemBehavior.AutoScrollToCurrentItem="{Binding IsChecked, ElementName=AutoScrollBehaviorSwitch}"
-              ItemsSource="{Binding Items}"
-              SelectedItem="{Binding SelectedItem}" />
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="AutoScrollToCurrentItemBehavior" />
+            <ListBox Grid.Row="1"
+                     Height="100"
+                     behaviors:AutoScrollToCurrentItemBehavior.AutoScrollToCurrentItem="{Binding IsChecked, ElementName=AutoScrollBehaviorSwitch}"
+                     ItemsSource="{Binding Items}"
+                     SelectedItem="{Binding SelectedItem}" />
             <DockPanel Grid.Row="2">
-              <CheckBox
-                x:Name="AutoScrollBehaviorSwitch"
-                Margin="2"
-                VerticalAlignment="Center"
-                IsChecked="True">
-                On
-              </CheckBox>
+              <CheckBox x:Name="AutoScrollBehaviorSwitch"
+                        Margin="2"
+                        VerticalAlignment="Center"
+                        Content="On"
+                        IsChecked="True" />
               <Button Margin="2" Command="{Binding SelectNextItemCommand}">Select Next</Button>
             </DockPanel>
+          </Grid>
+          <Grid Width="200" Margin="5">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="TextBoxBehavior" />
+            <TextBox Grid.Row="1" behaviors:TextBoxBehavior.SelectAllTextOnFocus="{Binding IsChecked, ElementName=TextBoxBehaviorSwitch}" Text="Example" />
+            <CheckBox x:Name="TextBoxBehaviorSwitch"
+                      Grid.Row="2"
+                      Margin="2"
+                      VerticalAlignment="Center"
+                      Content="On"
+                      IsChecked="True" />
+            <TextBlock Grid.Row="3"
+                       Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="PasswordBoxBehavior" />
+            <PasswordBox Grid.Row="4" behaviors:PasswordBoxBehavior.SelectAllTextOnFocus="{Binding IsChecked, ElementName=PasswordBoxBehaviorSwitch}" Password="Example" />
+            <CheckBox x:Name="PasswordBoxBehaviorSwitch"
+                      Grid.Row="5"
+                      Margin="2"
+                      VerticalAlignment="Center"
+                      Content="On"
+                      IsChecked="True" />
           </Grid>
         </WrapPanel>
       </TabItem>
@@ -121,16 +123,8 @@
               <RowDefinition />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock
-              Margin="2,2,2,0"
-              HorizontalAlignment="Center"
-              FontWeight="Bold"
-              Text="AutoGrayableImage" />
-            <controls:AutoGrayableImage
-              Grid.Row="1"
-              Width="300"
-              Margin="2"
-              Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg">
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="AutoGrayableImage" />
+            <controls:AutoGrayableImage Grid.Row="1" Width="300" Margin="2" Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg">
               <controls:AutoGrayableImage.Style>
                 <Style TargetType="{x:Type controls:AutoGrayableImage}">
                   <Setter Property="IsEnabled" Value="False" />
@@ -142,13 +136,35 @@
                 </Style>
               </controls:AutoGrayableImage.Style>
             </controls:AutoGrayableImage>
-            <CheckBox
-              x:Name="AutoGrayableImageSwitch"
-              Grid.Row="2"
-              Margin="2,0,2,2"
-              IsChecked="True">
-              Enabled
-            </CheckBox>
+            <CheckBox x:Name="AutoGrayableImageSwitch"
+                      Grid.Row="2"
+                      Margin="2,0,2,2"
+                      Content="Enabled"
+                      IsChecked="True" />
+          </Grid>
+          <Grid Width="200" DataContext="{Binding CustomItemsControlViewModel}">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="CustomItemsControl" />
+            <controls:CustomItemsControl Grid.Row="1" ItemsSource="{Binding Items}">
+              <controls:CustomItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentControl">
+                  <Setter Property="HorizontalAlignment" Value="Stretch" />
+                  <Setter Property="Focusable" Value="False" />
+                  <Setter Property="Template">
+                    <Setter.Value>
+                      <ControlTemplate>
+                        <Border Margin="1" BorderBrush="Red" BorderThickness="1">
+                          <ContentPresenter Content="{Binding}" />
+                        </Border>
+                      </ControlTemplate>
+                    </Setter.Value>
+                  </Setter>
+                </Style>
+              </controls:CustomItemsControl.ItemContainerStyle>
+            </controls:CustomItemsControl>
           </Grid>
         </WrapPanel>
       </TabItem>
@@ -166,14 +182,8 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Header" />
                         <ColumnDefinition />
                       </Grid.ColumnDefinitions>
-                      <TextBlock
-                        Margin="2"
-                        FontWeight="Bold"
-                        Text="{Binding Description}" />
-                      <ContentPresenter
-                        Grid.Column="1"
-                        Margin="2"
-                        Content="{Binding}" />
+                      <TextBlock Margin="2" FontWeight="Bold" Text="{Binding Description}" />
+                      <ContentPresenter Grid.Column="1" Margin="2" Content="{Binding}" />
                     </Grid>
                   </ControlTemplate>
                 </Setter.Value>

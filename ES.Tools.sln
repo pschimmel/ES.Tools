@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		appveyor.yml = appveyor.yml
+		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
 		MIT.txt = MIT.txt
 		README.md = README.md
 	EndProjectSection
@@ -20,7 +21,22 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{40EC297E-E90F-4AD4-A100-034EC5A02EED}"
 	ProjectSection(SolutionItems) = preProject
 		Documentation\AutoGrayableImage.md = Documentation\AutoGrayableImage.md
+		Documentation\AutoScrollToCurrentItemBehavior.md = Documentation\AutoScrollToCurrentItemBehavior.md
+		Documentation\ControlAdorner.md = Documentation\ControlAdorner.md
+		Documentation\Converters.md = Documentation\Converters.md
+		Documentation\CustomItemsControl.md = Documentation\CustomItemsControl.md
+		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md
+		Documentation\PasswordBoxBehavior.md = Documentation\PasswordBoxBehavior.md
+		Documentation\TextBoxBehavior.md = Documentation\TextBoxBehavior.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A37-15B8-41F8-BE83-5E520585DEB8}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Images\CustomItemsControl.png = Documentation\Images\CustomItemsControl.png
+		Documentation\Images\GrayscaleEffect.png = Documentation\Images\GrayscaleEffect.png
+		Documentation\Images\ImageColor.jpg = Documentation\Images\ImageColor.jpg
+		Documentation\Images\ImageGrayscale.jpg = Documentation\Images\ImageGrayscale.jpg
 	EndProjectSection
 EndProject
 Global
@@ -47,6 +63,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{40EC297E-E90F-4AD4-A100-034EC5A02EED} = {C77DF1B7-7CAD-480E-A96A-201F6D760606}
+		{F7F53A37-15B8-41F8-BE83-5E520585DEB8} = {40EC297E-E90F-4AD4-A100-034EC5A02EED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87705C13-DF71-4C01-B3CC-292843B56B4A}

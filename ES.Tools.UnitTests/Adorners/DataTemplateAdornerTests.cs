@@ -16,41 +16,50 @@ namespace ES.Tools.UnitTests.Adorners
   {
     private Button _button;
     private DataTemplate _dataTemplate;
-#pragma warning disable IDE0052 // Remove unread private members
-    private AdornerDecorator _decorator;
-#pragma warning restore IDE0052 // Remove unread private members
+    private Window _window;
 
     [SetUp]
     public void Setup()
     {
       _button = new Button { Content = "Test" };
-      _button.UpdateLayout();
-
-      // Surround control with adorner layer
-      _decorator = new AdornerDecorator { Child = _button };
-
-      _dataTemplate = new DataTemplate();
+      _window = new Window { Content = _button };
+      _window.Show();
 
       // Set up the grid
       var gridFactory = new FrameworkElementFactory(typeof(Grid));
       gridFactory.Name = "gridFactory";
       gridFactory.SetValue(FrameworkElement.NameProperty, "grid");
 
-      //set up the card holder textblock
+      // Set up the textblock
       var textBlockFactory = new FrameworkElementFactory(typeof(TextBlock));
       textBlockFactory.Name = "textBlockFactory";
       textBlockFactory.SetValue(FrameworkElement.NameProperty, "textBlock");
       textBlockFactory.SetBinding(TextBlock.TextProperty, new Binding("Text"));
       gridFactory.AppendChild(textBlockFactory);
 
+      // Add everything to a DataTemplate
+      _dataTemplate = new DataTemplate();
       _dataTemplate.VisualTree = gridFactory;
+    }
+
+    [TearDown]
+    public void Cleanup()
+    {
+      if (_window != null)
+      {
+        _window.Close();
+        _window = null;
+      }
+
+      _button = null;
+      _dataTemplate = null;
     }
 
     [Test, Apartment(ApartmentState.STA)]
     public void DataTemplateAdornerInitTest()
     {
       var vm = new TestVM { Text = "Blah" };
-      using var adorner = new DataTemplateAdorner(vm, _dataTemplate, _button);
+      using var adorner = new DataTemplateAdorner(_button, vm, _dataTemplate);
 
       var adornerLayer= AdornerLayer.GetAdornerLayer(_button);
       var adornersOfButton = adornerLayer.GetAdorners(_button);
@@ -66,6 +75,10 @@ namespace ES.Tools.UnitTests.Adorners
 
       Assert.AreSame(_dataTemplate, presenter.ContentTemplate);
       Assert.AreSame(vm, presenter.Content);
+
+      adorner.UpdateLayout();
+      Assert.AreNotEqual(0, adorner.ActualWidth);
+      Assert.AreNotEqual(0, adorner.ActualHeight);
     }
 
     internal class TestVM
