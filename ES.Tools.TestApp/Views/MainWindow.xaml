@@ -7,6 +7,7 @@
         xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
+        xmlns:views="clr-namespace:ES.Tools.TestApp.Views"
         Title="MainWindow"
         Width="800"
         Height="450"
@@ -200,6 +201,24 @@
               <effects:GrayscaleEffect />
             </ContentControl.Effect>
           </ContentControl>
+        </WrapPanel>
+      </TabItem>
+      <TabItem Header="Helpers">
+        <WrapPanel>
+          <Grid Width="200" Margin="5">
+            <Grid.RowDefinitions>
+              <RowDefinition />
+              <RowDefinition />
+              <RowDefinition />
+              <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="DependencyPropertyWatcher" />
+            <views:TextUserControl x:Name="TextUserControl" Grid.Row="1" />
+            <TextBlock Grid.Row="2" Margin="5" Text="Target updated using DependencyPropertyWatcher:" TextWrapping="Wrap" />
+            <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1">
+              <TextBlock x:Name="DependencyPropertyWatcherTarget" Margin="4" />
+            </Border>
+          </Grid>
         </WrapPanel>
       </TabItem>
     </TabControl>

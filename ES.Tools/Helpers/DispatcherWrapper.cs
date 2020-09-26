@@ -65,7 +65,7 @@ namespace ES.Tools.Helpers
     }
 
     /// <summary>
-    /// Returns a <see cref="DispatcherWrapper"/> containing the default application dispatcher.
+    /// Returns a <see cref="DispatcherWrapper"/> with the default application dispatcher.
     /// </summary>
     public static IDispatcherWrapper Default => new DispatcherWrapper(Application.Current.Dispatcher);
   }

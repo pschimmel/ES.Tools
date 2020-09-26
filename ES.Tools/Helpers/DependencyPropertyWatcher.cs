@@ -7,6 +7,7 @@ namespace ES.Tools.Helpers
   /// <summary>
   /// Watches a dependency property of a <see cref="DependencyObject"/> and rises an event.
   /// </summary>
+  /// <typeparam name="T">The type of the dependency property</typeparam>
   public class DependencyPropertyWatcher<T> : DependencyObject, IDisposable
   {
     /// <summary>
@@ -22,13 +23,14 @@ namespace ES.Tools.Helpers
     public DependencyPropertyWatcher(DependencyObject target, string propertyPath)
     {
       Target = target;
-      BindingOperations.SetBinding(this, ValueProperty, new Binding() { Source = target, Path = new PropertyPath(propertyPath), Mode = BindingMode.OneWay });
+      var binding = new Binding { Source = target, Path = new PropertyPath(propertyPath), Mode = BindingMode.OneWay };
+      BindingOperations.SetBinding(this, ValueProperty, binding);
     }
 
     /// <summary>
-    /// Value Property
+    /// Value property.
     /// </summary>
-    public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(object), typeof(DependencyPropertyWatcher<T>), new PropertyMetadata(null, OnPropertyChanged));
+    public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(object), typeof(DependencyPropertyWatcher<T>), new PropertyMetadata(null, OnPropertyChanged));
 
     /// <summary>
     /// Gets the target Dependency Object
@@ -49,7 +51,7 @@ namespace ES.Tools.Helpers
       source.PropertyChanged?.Invoke(source, EventArgs.Empty);
     }
 
-    // Dispose() calls Dispose(true)
+    /// <inheritdoc/>
     public void Dispose()
     {
       Dispose(true);
@@ -63,6 +65,7 @@ namespace ES.Tools.Helpers
     {
       if (disposing)
       {
+        BindingOperations.ClearBinding(this, ValueProperty);
         ClearValue(ValueProperty);
       }
     }

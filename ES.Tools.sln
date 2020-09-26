@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		appveyor.yml = appveyor.yml
 		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
+		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
 		MIT.txt = MIT.txt
 		README.md = README.md
 	EndProjectSection
@@ -26,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\Converters.md = Documentation\Converters.md
 		Documentation\CustomItemsControl.md = Documentation\CustomItemsControl.md
 		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
+		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md
 		Documentation\PasswordBoxBehavior.md = Documentation\PasswordBoxBehavior.md
 		Documentation\TextBoxBehavior.md = Documentation\TextBoxBehavior.md

@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using ES.Tools.Adorners;
+using ES.Tools.Helpers;
 using ES.Tools.TestApp.ViewModels;
 
 namespace ES.Tools.TestApp.Views
@@ -13,10 +14,22 @@ namespace ES.Tools.TestApp.Views
   {
     private DataTemplateAdorner dataTemplateAdorner;
     private ControlAdorner controlAdorner;
+    private readonly DependencyPropertyWatcher<string> _watcher;
 
     public MainWindow()
     {
       InitializeComponent();
+      _watcher = new DependencyPropertyWatcher<string>(TextUserControl, nameof(TextUserControl.Text));
+      _watcher.PropertyChanged += (s, e) =>
+      {
+        DependencyPropertyWatcherTarget.Text = _watcher.Value;
+      };
+      Closed += MainWindow_Closed;
+    }
+
+    private void MainWindow_Closed(object sender, System.EventArgs e)
+    {
+      _watcher.Dispose();
     }
 
     private void ShowDataTemplateAdornerButton_Click(object sender, RoutedEventArgs e)

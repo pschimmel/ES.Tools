@@ -7,7 +7,7 @@ using System.Windows.Media;
 namespace ES.Tools.Helpers
 {
   /// <summary>
-  /// WPF Extension methods that help navigating through visual tree and logical tree.
+  /// WPF Extension methods that helps navigating through visual tree and logical tree.
   /// </summary>
   public static class TreeHelperExtensions
   {
