@@ -28,13 +28,15 @@ Great useful WPF controls and helpers.
 ## Effects
 - [**GrayscaleEffect**](Documentation/GrayscaleEffect.md) - WPF *Effect* that turns the control into a monochrome colored control.
 
-## Helpers
-- [**DependencyPropertyWatcher**](Documentation/DependencyPropertyWatcher.md) - Watches a dependency property and casts an event when the value changes.
-- **DispatcherWrapper** - Wrapper that wraps a WPF dispatcher. In unit tests you can easily replace the default dispatcher by a tesing implementation.
-- **TreeHelperExtensions** - Extension methods that help navigate the WPF visual tree and logical tree.
-- **Tools** - Useful tools and extensions.
+## Infrastructure
+- [**Utilities**](Documentation/Utilities.md) - Useful tools and extensions.
 
 ## MVVM
 - **NotifyObject** - Basic abstract implementation of *INotifyPropertyChanged*.
 - **ViewModel** - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
-- **ActionCommand** - *ICommand* implementation, updating automatically when the CanExecute changes.
+- **ActionCommand** - *ICommand* implementation, updating automatically when the *CanExecute* changes.
+
+## UI
+- [**DependencyPropertyWatcher**](Documentation/DependencyPropertyWatcher.md) - Watches a dependency property and casts an event when the value changes.
+- **DispatcherWrapper** - Wrapper that wraps a WPF dispatcher. In unit tests you can easily replace the default dispatcher by a tesing implementation.
+- **TreeHelperExtensions** - Extension methods that help navigate the WPF visual tree and logical tree.

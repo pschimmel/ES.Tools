@@ -2,8 +2,8 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using ES.Tools.Adorners;
-using ES.Tools.Helpers;
 using ES.Tools.TestApp.ViewModels;
+using ES.Tools.UI;
 
 namespace ES.Tools.TestApp.Views
 {

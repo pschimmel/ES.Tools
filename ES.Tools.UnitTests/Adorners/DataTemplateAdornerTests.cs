@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using ES.Tools.Adorners;
-using ES.Tools.Helpers;
+using ES.Tools.UI;
 using NUnit.Framework;
 
 namespace ES.Tools.UnitTests.Adorners

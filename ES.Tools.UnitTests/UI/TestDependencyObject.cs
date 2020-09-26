@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ES.Tools.UnitTests.Helpers
+namespace ES.Tools.UnitTests.UI
 {
   internal class TestDependencyObject : DependencyObject
   {

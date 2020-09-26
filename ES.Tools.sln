@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		appveyor.yml = appveyor.yml
-		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
-		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
 		MIT.txt = MIT.txt
 		README.md = README.md
 	EndProjectSection
@@ -21,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.Tools.UnitTests", "ES.To
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{40EC297E-E90F-4AD4-A100-034EC5A02EED}"
 	ProjectSection(SolutionItems) = preProject
+		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
+		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
 		Documentation\AutoGrayableImage.md = Documentation\AutoGrayableImage.md
 		Documentation\AutoScrollToCurrentItemBehavior.md = Documentation\AutoScrollToCurrentItemBehavior.md
 		Documentation\ControlAdorner.md = Documentation\ControlAdorner.md
@@ -31,6 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md
 		Documentation\PasswordBoxBehavior.md = Documentation\PasswordBoxBehavior.md
 		Documentation\TextBoxBehavior.md = Documentation\TextBoxBehavior.md
+		Documentation\Utilities.md = Documentation\Utilities.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A37-15B8-41F8-BE83-5E520585DEB8}"

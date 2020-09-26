@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 
-namespace ES.Tools.Helpers
+namespace ES.Tools.UI
 {
   /// <summary>
   /// WPF Extension methods that helps navigating through visual tree and logical tree.

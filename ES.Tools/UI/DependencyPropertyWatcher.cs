@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace ES.Tools.Helpers
+namespace ES.Tools.UI
 {
   /// <summary>
   /// Watches a dependency property of a <see cref="DependencyObject"/> and rises an event.

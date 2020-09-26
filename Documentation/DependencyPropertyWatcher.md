@@ -1,5 +1,5 @@
 # DependencyPropertyWatcher
-Namespace: **ES.Tools.Helpers**
+Namespace: **ES.Tools.UI**
 
 The **DependencyPropertyWatcher** watches a dependency property and casts an event when the value changes.
 

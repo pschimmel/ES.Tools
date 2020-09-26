@@ -203,7 +203,7 @@
           </ContentControl>
         </WrapPanel>
       </TabItem>
-      <TabItem Header="Helpers">
+      <TabItem Header="UI">
         <WrapPanel>
           <Grid Width="200" Margin="5">
             <Grid.RowDefinitions>

@@ -1,7 +1,7 @@
-using ES.Tools.Helpers;
+using ES.Tools.UI;
 using NUnit.Framework;
 
-namespace ES.Tools.UnitTests.Helpers
+namespace ES.Tools.UnitTests.UI
 {
   /// <summary>
   /// Unit tests testing the <see cref="DependencyPropertyWatcher{T}"/> class.
