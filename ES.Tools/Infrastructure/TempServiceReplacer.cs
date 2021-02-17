@@ -2,19 +2,25 @@
 
 namespace ES.Tools.Infrastructure
 {
+  /// <summary>
+  /// Temporarily replaces a service registered in the <see cref="Services"/> registry.
+  /// </summary>
   public class TempServiceReplacer<T> : IDisposable where T : class
   {
     private readonly T _serviceBackup = null;
     private bool _isDisposed = false;
 
+    /// <summary>
+    /// Constructor
+    /// </summary>
     public TempServiceReplacer(T service)
     {
-      _serviceBackup = Services.HasService<T>() ? Services.GetService<T>() : null;
-      Services.RegisterService(service);
+      _serviceBackup = Services.Instance.HasService<T>() ? Services.Instance.GetService<T>() : null;
+      Services.Instance.RegisterService(service);
     }
 
     /// <summary>
-    /// Releases all resources used by the <see cref="ServiceReplacer"/>.
+    /// Releases all resources used by the <see cref="TempServiceReplacer{T}"/>.
     /// </summary>
     public void Dispose()
     {
@@ -23,7 +29,7 @@ namespace ES.Tools.Infrastructure
     }
 
     /// <summary>
-    /// Releases all resources used by the <see cref="ServiceReplacer"/>.
+    /// Releases all resources used by the <see cref="TempServiceReplacer{T}"/>.
     /// </summary>
     protected virtual void Dispose(bool disposing)
     {
@@ -36,17 +42,17 @@ namespace ES.Tools.Infrastructure
       {
         // free managed resources
 
-        if (Services.HasService<T>())
+        if (Services.Instance.HasService<T>())
         {
-          var replacement = Services.GetService<T>();
+          var replacement = Services.Instance.GetService<T>();
           if (replacement is IDisposable disposable)
           {
-            Services.UnregisterService<T>();
+            Services.Instance.UnregisterService<T>();
             disposable.Dispose();
           }
         }
 
-        Services.RegisterService(_serviceBackup);
+        Services.Instance.RegisterService(_serviceBackup);
       }
 
       // free native resources if there are any.

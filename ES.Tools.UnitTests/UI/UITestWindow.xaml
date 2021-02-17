@@ -1,0 +1,76 @@
+﻿<Window x:Class="ES.Tools.UnitTests.UI.UITestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Test Window"
+        Width="400"
+        Height="300"
+        x:ClassModifier="internal"
+        mc:Ignorable="d">
+  <Window.Resources>
+    <Style x:Key="CustomButtonStyle" TargetType="Button">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border Margin="5" Background="LightSalmon" BorderBrush="DarkSalmon" BorderThickness="3">
+              <ContentPresenter Margin="5" Content="{TemplateBinding Content}" />
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </Window.Resources>
+  <Border x:Name="border0">
+    <Grid x:Name="grid">
+      <Grid.RowDefinitions>
+        <RowDefinition />
+        <RowDefinition />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+
+      <Border x:Name="border1" BorderBrush="Bisque" BorderThickness="3" />
+
+      <Border x:Name="border2" Grid.Column="1">
+        <Canvas x:Name="canvas">
+          <Rectangle x:Name="yellowRectangle"
+                     Canvas.Left="10"
+                     Canvas.Top="12"
+                     Width="30"
+                     Height="15"
+                     Fill="Yellow"
+                     Stroke="Gray" />
+          <Border x:Name="blueBorder"
+                  Canvas.Left="65"
+                  Canvas.Top="20"
+                  Width="40"
+                  Height="30"
+                  BorderBrush="LightBlue"
+                  BorderThickness="1" />
+        </Canvas>
+      </Border>
+
+      <ItemsControl x:Name="itemsControl1" Grid.Row="1" Margin="1" ItemsSource="{Binding Buttons, RelativeSource={RelativeSource AncestorType=Window}}">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Button Margin="1" Content="{Binding}" />
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <UniformGrid x:Name="UniformGrid" />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+      </ItemsControl>
+
+      <Border x:Name="lastBorder" Grid.Row="1" Grid.Column="1">
+        <Button Style="{StaticResource CustomButtonStyle}">
+          <TextBlock Text="Custom Button" />
+        </Button>
+      </Border>
+    </Grid>
+  </Border>
+</Window>

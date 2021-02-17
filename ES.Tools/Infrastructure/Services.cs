@@ -5,16 +5,35 @@ using System.Threading;
 
 namespace ES.Tools.Infrastructure
 {
-  public static class Services
+  /// <summary>
+  /// Provides an infrastructure for services. Can be used as simple DI container.
+  /// </summary>
+  public class Services
   {
-    private static ReaderWriterLockSlim _lock = new ReaderWriterLockSlim();
-    private static readonly Dictionary<Type, object> _services = new Dictionary<Type, object>();
+    private static Lazy<Services> _lazy = new Lazy<Services>(()=> new Services());
+    private ReaderWriterLockSlim _lock;
+    private readonly Dictionary<Type, object> _services;
 
-    public static void RegisterService<T>(T service) where T : class
+    private Services()
+    {
+      _lock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+      _services = new Dictionary<Type, object>();
+    }
+
+    public static Services Instance => _lazy.Value;
+
+    /// <summary>
+    /// Registers a service for a certain type.
+    /// </summary>
+    public void RegisterService<T>(T service) where T : class
     {
       _lock.EnterWriteLock();
       try
       {
+
+        if (_services.ContainsKey(typeof(T)))
+          throw new InvalidOperationException("Service is already registered.");
+
         _services[typeof(T)] = service;
       }
       finally
@@ -23,11 +42,14 @@ namespace ES.Tools.Infrastructure
       }
     }
 
-    public static void UnregisterService<T>() where T : class
+    /// <summary>
+    /// Unregisters a service for a certain type.
+    /// </summary>
+    public void UnregisterService<T>() where T : class
     {
+      _lock.EnterWriteLock();
       if (HasService<T>())
       {
-        _lock.EnterWriteLock();
         try
         {
           _services.Remove(typeof(T));
@@ -39,13 +61,17 @@ namespace ES.Tools.Infrastructure
       }
     }
 
-    public static T GetService<T>() where T : class
+    /// <summary>
+    /// Returns a service for a certain type.
+    /// Throws <exception cref="InvalidOperationException"/> when the requested type is not registered.
+    /// </summary>
+    public T GetService<T>() where T : class
     {
       _lock.EnterReadLock();
       try
       {
         return !HasService<T>()
-          ? throw new ApplicationException($"Service of type {typeof(T)} is not registered.")
+          ? throw new InvalidOperationException($"Service of type {typeof(T)} is not registered.")
           : (T)_services[typeof(T)];
       }
       finally
@@ -54,7 +80,11 @@ namespace ES.Tools.Infrastructure
       }
     }
 
-    public static bool TryGetService<T>(out T service) where T : class
+    /// <summary>
+    /// Tries to get a service for a certain type.
+    /// Returns true if the type could be retrieved, otherwise false.
+    /// </summary>
+    public bool TryGetService<T>(out T service) where T : class
     {
       _lock.EnterReadLock();
       try
@@ -75,7 +105,10 @@ namespace ES.Tools.Infrastructure
       }
     }
 
-    public static bool HasService<T>() where T : class
+    /// <summary>
+    /// Checks if a service for a certain type is registered.
+    /// </summary>
+    public bool HasService<T>() where T : class
     {
       _lock.EnterReadLock();
       try
@@ -88,7 +121,10 @@ namespace ES.Tools.Infrastructure
       }
     }
 
-    public static Type[] ListServices()
+    /// <summary>
+    /// Returns a list of all registered service types.
+    /// </summary>
+    public Type[] ListServices()
     {
       _lock.EnterReadLock();
       try
@@ -98,6 +134,23 @@ namespace ES.Tools.Infrastructure
       finally
       {
         _lock.ExitReadLock();
+      }
+    }
+
+
+    /// <summary>
+    /// Removes all services.
+    /// </summary>
+    public void Clear()
+    {
+      _lock.EnterWriteLock();
+      try
+      {
+        _services.Clear();
+      }
+      finally
+      {
+        _lock.ExitWriteLock();
       }
     }
   }

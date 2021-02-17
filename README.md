@@ -39,4 +39,4 @@ Great useful WPF controls and helpers.
 ## UI
 - [**DependencyPropertyWatcher**](Documentation/DependencyPropertyWatcher.md) - Watches a dependency property and casts an event when the value changes.
 - **DispatcherWrapper** - Wrapper that wraps a WPF dispatcher. In unit tests you can easily replace the default dispatcher by a tesing implementation.
-- **TreeHelperExtensions** - Extension methods that help navigate the WPF visual tree and logical tree.
+- **TreeHelper** - Extension methods that help navigate the WPF visual tree and logical tree.

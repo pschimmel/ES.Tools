@@ -9,36 +9,36 @@ namespace ES.Tools.UI
   /// <summary>
   /// WPF Extension methods that helps navigating through visual tree and logical tree.
   /// </summary>
-  public static class TreeHelperExtensions
+  public static class TreeHelper
   {
     /// <summary>
     /// Get the parent object of a certain type by using the logical or visual tree.
     /// </summary>
-    public static T GetParent<T>(this DependencyObject obj, Func<T, bool> check = null) where T : DependencyObject
+    public static T GetParent<T>(this DependencyObject obj, Func<T, bool> predicate = null) where T : DependencyObject
     {
-      return GetParentInternal(obj, x => LogicalTreeHelper.GetParent(x) ?? GetParentObject(x), check);
+      return GetParentInternal(obj, x => LogicalTreeHelper.GetParent(x) ?? GetParentObject(x), predicate);
     }
 
     /// <summary>
     /// Get the parent object of a certain type by using the logical tree.
     /// </summary>
-    public static T GetLogicalParent<T>(this DependencyObject obj, Func<T, bool> check = null) where T : DependencyObject
+    public static T GetLogicalParent<T>(this DependencyObject obj, Func<T, bool> predicate = null) where T : DependencyObject
     {
-      return GetParentInternal(obj, x => LogicalTreeHelper.GetParent(x), check);
+      return GetParentInternal(obj, x => LogicalTreeHelper.GetParent(x), predicate);
     }
 
     /// <summary>
     /// Get the parent object of a certain type by using the visual tree.
     /// </summary>
-    public static T GetVisualParent<T>(this DependencyObject obj, Func<T, bool> check = null) where T : DependencyObject
+    public static T GetVisualParent<T>(this DependencyObject obj, Func<T, bool> predicate = null) where T : DependencyObject
     {
-      return GetParentInternal(obj, x => GetParentObject(x), check);
+      return GetParentInternal(obj, x => GetParentObject(x), predicate);
     }
 
-    private static T GetParentInternal<T>(DependencyObject obj, Func<DependencyObject, DependencyObject> getParent, Func<T, bool> check = null) where T : DependencyObject
+    private static T GetParentInternal<T>(DependencyObject obj, Func<DependencyObject, DependencyObject> getParent, Func<T, bool> predicate = null) where T : DependencyObject
     {
       var result = getParent(obj);
-      while (result != null && !(result is T && (check?.Invoke(result as T) ?? true)))
+      while (result != null && !(result is T && (predicate?.Invoke(result as T) ?? true)))
       {
         result = getParent(result);
       }
@@ -85,6 +85,11 @@ namespace ES.Tools.UI
         }
       }
       return list;
+    }
+
+    public static Window GetWindow(this DependencyObject obj)
+    {
+      return Window.GetWindow(obj);
     }
 
     /// <summary>

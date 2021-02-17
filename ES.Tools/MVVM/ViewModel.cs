@@ -5,9 +5,13 @@ namespace ES.Tools.MVVM
   /// <summary>
   /// Base class for View Models. Implements IDisposable.
   /// </summary>
-  public abstract class ViewModel : NotifyObject, IDisposable
+  public abstract class ViewModel : NotifyObject, IViewModel
   {
-    // Dispose() calls Dispose(true)
+    private bool _disposed = false; // To detect redundant calls
+
+    /// <summary>
+    /// Implementation of IDisposable. Calls Dispose(true).
+    /// </summary>
     public void Dispose()
     {
       Dispose(true);
@@ -17,11 +21,18 @@ namespace ES.Tools.MVVM
     // The bulk of the clean-up code is implemented in Dispose(bool)
     protected virtual void Dispose(bool disposing)
     {
+      if (_disposed)
+      {
+        return;
+      }
+
       if (disposing)
       {
         // free managed resources
       }
+
       // free native resources if there are any.
+      _disposed = true;
     }
   }
 }
