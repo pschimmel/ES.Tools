@@ -5,6 +5,7 @@
         xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
+        xmlns:infrastructure="clr-namespace:ES.Tools.Infrastructure;assembly=ES.Tools"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
         xmlns:views="clr-namespace:ES.Tools.TestApp.Views"
@@ -19,6 +20,7 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/ES.Tools.TestApp;Component/Views/DataTemplates.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/OfficeSlider.xaml" />
       </ResourceDictionary.MergedDictionaries>
 
       <ControlTemplate x:Key="ColorBoxTemplate" TargetType="{x:Type ContentControl}">
@@ -167,6 +169,20 @@
               </controls:CustomItemsControl.ItemContainerStyle>
             </controls:CustomItemsControl>
           </Grid>
+          <Grid Width="200">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="OfficeSlider" />
+            <TextBlock Grid.Row="1" Margin="2" Text="Default WPF Slider" />
+            <Slider Grid.Row="2" Margin="2" Value="2" />
+            <TextBlock Grid.Row="3" Margin="2" Text="OfficeSlider" />
+            <Slider Grid.Row="4" Margin="2" Style="{DynamicResource OfficeSliderStyle}" Value="2" />
+          </Grid>
         </WrapPanel>
       </TabItem>
       <TabItem Grid.IsSharedSizeScope="True" Header="Converters">
@@ -201,6 +217,48 @@
               <effects:GrayscaleEffect />
             </ContentControl.Effect>
           </ContentControl>
+        </WrapPanel>
+      </TabItem>
+      <TabItem Header="Infrastructure">
+        <WrapPanel>
+          <Grid MinWidth="100" MaxWidth="200" Margin="5">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="Utilities.IsInDesignMode"
+                       TextWrapping="Wrap" />
+            <TextBlock Grid.Row="1" Margin="2" TextWrapping="Wrap">The CheckBox should be checked in Visual Studio Designer and unchecked when running application.</TextBlock>
+            <CheckBox Grid.Row="2" HorizontalAlignment="Center" IsChecked="{x:Static infrastructure:Utilities.IsInDesignMode}" IsEnabled="False" />
+          </Grid>
+        </WrapPanel>
+      </TabItem>
+      <TabItem Header="MVVM">
+        <WrapPanel>
+          <Grid MinWidth="100" Margin="5">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.ColumnSpan="2"
+                       Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="ViewFactory"
+                       TextWrapping="Wrap" />
+            <TextBlock Grid.Row="1" Margin="4" VerticalAlignment="Center" Text="Text:" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SampleWindowText, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="2" Command="{Binding OpenSampleWindowCommand}">Open Dialog</Button>
+          </Grid>
         </WrapPanel>
       </TabItem>
       <TabItem Header="UI">

@@ -19,4 +19,4 @@ This will turn any image into a grayscale version of the same image when the con
 ```
 
 **Remarks**
-> Uses the [*GrayscaleEffect*](GrayscaleEffect.md) in **ES.Tools.Effects**.
+> Uses the [*GrayscaleEffect*](GrayscaleEffect) in **ES.Tools.Effects**.

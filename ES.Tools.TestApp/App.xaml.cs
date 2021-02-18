@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Markup;
-using System.Xml;
+using ES.Tools.MVVM;
+using ES.Tools.TestApp.ViewModels;
+using ES.Tools.TestApp.Views;
 
 namespace ES.Tools.TestApp
 {
@@ -12,17 +12,7 @@ namespace ES.Tools.TestApp
   {
     public App()
     {
-      SaveDefaultTemplate();
-    }
-
-    public static void SaveDefaultTemplate()
-    {
-      object control = Application.Current.FindResource(typeof(MenuItem));
-      using (var writer = new XmlTextWriter(@"c:\Temp\MenuItem.xml", System.Text.Encoding.UTF8))
-      {
-        writer.Formatting = Formatting.Indented;
-        XamlWriter.Save(control, writer);
-      }
+      ViewFactory.Instance.Register<SampleWindow, SampleWindowViewModel>();
     }
   }
 }

@@ -7,36 +7,40 @@ Great useful WPF controls and helpers.
 [![GitHub issues](https://img.shields.io/github/issues/pschimmel/es.tools)](https://github.com/pschimmel/ES.Tools/issues)
 
 ## Adorners
-- [**ControlAdorner**](Documentation/ControlAdorner.md) - Adorner that renders any control.
-- [**DataTemplateAdorner**](Documentation/DataTemplateAdorner.md) - Adorner that will take a *DataTemplate* and a data object to render the adorner.
+- [**ControlAdorner**](Documentation/ControlAdorner) - Adorner that renders any control.
+- [**DataTemplateAdorner**](Documentation/DataTemplateAdorner) - Adorner that will take a *DataTemplate* and a data object to render the adorner.
 
 ## Behaviors
-- [**AutoScrollToCurrentItemBehavior**](Documentation/AutoScrollToCurrentItemBehavior.md) - Tries to bring the current item into the view. Works with any *Selector* control. 
-- [**TextBoxBehavior**](Documentation/TextBoxBehavior.md) - Use the property *SelectAllTextOnFocus* to automatically select the whole text when the control is focused. 
-- [**PasswordBoxBehavior**](Documentation/PasswordBoxBehavior.md) - Same as *TextBoxBehavior*, but for the WPF *PasswordBox* control.
+- [**AutoScrollToCurrentItemBehavior**](Documentation/AutoScrollToCurrentItemBehavior) - Tries to bring the current item into the view. Works with any *Selector* control. 
+- [**TextBoxBehavior**](Documentation/TextBoxBehavior) - Use the property *SelectAllTextOnFocus* to automatically select the whole text when the control is focused. 
+- [**PasswordBoxBehavior**](Documentation/PasswordBoxBehavior) - Same as *TextBoxBehavior*, but for the WPF *PasswordBox* control.
  
 ## Controls
-- [**AutoGrayableImage**](Documentation/AutoGrayableImage.md) - Image control that automatically turns itself into a grayscale image when disabled.
-- [**CustomItemsControl**](Documentation/CustomItemsControl.md) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
+- [**AutoGrayableImage**](Documentation/AutoGrayableImage) - Image control that automatically turns itself into a grayscale image when disabled.
+- [**CustomItemsControl**](Documentation/CustomItemsControl) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
+- [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
 
 ## Converters
-- [**BooleanToVisibilityConverter**](Documentation/Converters.md) - Converts a boolean value to a *System.Windows.Visibility*.
-- [**ColorToStringConverter**](Documentation/Converters.md) - Converts a WPF *System.Windows.Media.Color* to a string and back.
-- [**DateTimeToTimeSpanConverter**](Documentation/Converters.md) - Converts a *System.DateTime* into a *System.TimeSpan*. This can be used for data binding when the model property has to be a *System.DateTime*.
-- [**TextTrimmingConverter**](Documentation/Converters.md) - Converts a string into a string with a limited number of characters. If the text exceeds the number of characters "..." is added.
+- [**BooleanToVisibilityConverter**](Documentation/Converters) - Converts a boolean value to a *System.Windows.Visibility*.
+- [**ColorToStringConverter**](Documentation/Converters) - Converts a WPF *System.Windows.Media.Color* to a string and back.
+- [**DateTimeToTimeSpanConverter**](Documentation/Converters) - Converts a *System.DateTime* into a *System.TimeSpan*. This can be used for data binding when the model property has to be a *System.DateTime*.
+- [**TextTrimmingConverter**](Documentation/Converters) - Converts a string into a string with a limited number of characters. If the text exceeds the number of characters "..." is added.
 
 ## Effects
-- [**GrayscaleEffect**](Documentation/GrayscaleEffect.md) - WPF *Effect* that turns the control into a monochrome colored control.
+- [**GrayscaleEffect**](Documentation/GrayscaleEffect) - WPF *Effect* that turns the control into a monochrome colored control.
 
 ## Infrastructure
-- [**Utilities**](Documentation/Utilities.md) - Useful tools and extensions.
+- **Services** - Singleton class that globally manages service classes.
+- **TempServiceReplacer** - Utility class that replaces services temporarily.
+- [**Utilities**](Documentation/Utilities) - Useful tools and extensions.
 
 ## MVVM
-- **NotifyObject** - Basic abstract implementation of *INotifyPropertyChanged*.
-- **ViewModel** - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
-- **ActionCommand** - *ICommand* implementation, updating automatically when the *CanExecute* changes.
+- [**ActionCommand**](Documentation/ActionCommand) - *ICommand* implementation, updating automatically when the *CanExecute* changes.
+- [**NotifyObject**](Documentation/NotifyObject) - Basic abstract implementation of *INotifyPropertyChanged*.
+- **ViewFactory** - Singleton class that manages the dependency between *ViewModel* and *View*.
+- [**ViewModel**](Documentation/ViewModel) - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
 
 ## UI
-- [**DependencyPropertyWatcher**](Documentation/DependencyPropertyWatcher.md) - Watches a dependency property and casts an event when the value changes.
+- [**DependencyPropertyWatcher**](Documentation/DependencyPropertyWatcher) - Watches a dependency property and casts an event when the value changes.
 - **DispatcherWrapper** - Wrapper that wraps a WPF dispatcher. In unit tests you can easily replace the default dispatcher by a tesing implementation.
 - **TreeHelper** - Extension methods that help navigate the WPF visual tree and logical tree.

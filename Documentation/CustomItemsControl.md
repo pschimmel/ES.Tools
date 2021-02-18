@@ -36,7 +36,7 @@ public class CarViewModel : VehicleViewModel
 }
 ```
 
-*DataTemplate* for the BicycleViewModel. The *DataTemplate* for the *CarViewModel* looks similar.
+*DataTemplate* for the *BicycleViewModel*. The *DataTemplate* for the *CarViewModel* looks similar.
 
 ``` XML
 <DataTemplate DataType="{x:Type vm:BicycleViewModel}">

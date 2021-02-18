@@ -66,11 +66,25 @@ namespace ES.Tools.UnitTests.MVVM
     internal class View1 : IView
     {
       public object DataContext { get; set; }
+
+      public void Show() { }
+
+      public bool? ShowDialog()
+      {
+        return true;
+      }
     }
 
     internal class View2 : IView
     {
       public object DataContext { get; set; }
+
+      public void Show() { }
+
+      public bool? ShowDialog()
+      {
+        return true;
+      }
     }
 
     internal class ViewModel1 : ViewModel
