@@ -44,4 +44,11 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Themes\Gauge.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

@@ -66,5 +66,4 @@ namespace ES.Tools.MVVM
       InternalCanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
   }
-
 }

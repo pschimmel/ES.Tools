@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Meter.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Gauge.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/OfficeSlider.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

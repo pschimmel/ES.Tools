@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:ES.Tools.Controls">
+
+  <ControlTemplate x:Key="GaugeTemplate" TargetType="{x:Type controls:Gauge}">
+    <Grid MinWidth="50" MinHeight="50">
+      <Ellipse x:Name="PART_Background"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               Fill="{TemplateBinding Background}"
+               Stroke="{TemplateBinding BorderBrush}"
+               StrokeThickness="{TemplateBinding BorderThickness}" />
+      <controls:DonutSegment x:Name="PART_Warning"
+                             EndAngle="30"
+                             Fill="Yellow"
+                             StartAngle="0"
+                             StrokeThickness="0" />
+      <controls:DonutSegment x:Name="PART_Error"
+                             EndAngle="25"
+                             Fill="Red"
+                             StartAngle="10"
+                             StrokeThickness="0" />
+      <ContentControl Content="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type controls:Gauge}}}" />
+      <Canvas x:Name="PART_Indicator" />
+    </Grid>
+  </ControlTemplate>
+
+  <Style TargetType="{x:Type controls:Gauge}">
+    <Setter Property="Background" Value="WhiteSmoke" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="Black" />
+    <Setter Property="Foreground" Value="Green" />
+    <Setter Property="UseLayoutRounding" Value="False" />
+    <Setter Property="Template" Value="{StaticResource GaugeTemplate}" />
+  </Style>
+</ResourceDictionary>

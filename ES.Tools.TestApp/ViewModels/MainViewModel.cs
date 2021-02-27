@@ -4,7 +4,7 @@ using ES.Tools.MVVM;
 
 namespace ES.Tools.TestApp.ViewModels
 {
-  public class MainViewModel : MVVM.ViewModel
+  public class MainViewModel : ViewModel
   {
     #region Constructor
 
@@ -19,6 +19,7 @@ namespace ES.Tools.TestApp.ViewModels
 
       CustomItemsControlViewModel = new CustomItemsControlViewModel();
       OpenSampleWindowCommand = new ActionCommand(OpenSampleWindowExecute, OpenSampleWindowCanExecute);
+      MeterViewModel = new MeterViewModel();
     }
 
     #endregion
@@ -30,6 +31,8 @@ namespace ES.Tools.TestApp.ViewModels
     public CustomItemsControlViewModel CustomItemsControlViewModel { get; }
 
     public string SampleWindowText { get; set; }
+
+    public MeterViewModel MeterViewModel { get; }
 
     #endregion
 

@@ -10,8 +10,9 @@
         xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
         xmlns:views="clr-namespace:ES.Tools.TestApp.Views"
         Title="MainWindow"
-        Width="800"
+        Width="1024"
         Height="450"
+        WindowState="Maximized"
         mc:Ignorable="d">
   <Window.DataContext>
     <viewmodel:MainViewModel />
@@ -118,7 +119,7 @@
           </Grid>
         </WrapPanel>
       </TabItem>
-      <TabItem Header="Controls">
+      <TabItem Height="20" VerticalAlignment="Top" Header="Controls">
         <WrapPanel>
           <Grid>
             <Grid.RowDefinitions>
@@ -182,6 +183,120 @@
             <Slider Grid.Row="2" Margin="2" Value="2" />
             <TextBlock Grid.Row="3" Margin="2" Text="OfficeSlider" />
             <Slider Grid.Row="4" Margin="2" Style="{DynamicResource OfficeSliderStyle}" Value="2" />
+          </Grid>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.ColumnSpan="4"
+                       Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="Shapes" />
+            <TextBlock Grid.Row="1" Margin="2" HorizontalAlignment="Center" Text="Indicator" />
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Margin="2"
+                       HorizontalAlignment="Center"
+                       Text="PieSegment" />
+            <TextBlock Grid.Row="1"
+                       Grid.Column="2"
+                       Margin="2"
+                       HorizontalAlignment="Center"
+                       Text="DonutSegment" />
+            <controls:Indicator Grid.Row="2"
+                                Width="15"
+                                Height="100"
+                                HorizontalAlignment="Center"
+                                Fill="Blue"
+                                Stroke="Black"
+                                StrokeThickness="1" />
+            <controls:PieSegment Grid.Row="2"
+                                 Grid.Column="1"
+                                 Width="120"
+                                 Height="120"
+                                 Margin="-60,0,0,-60"
+                                 HorizontalAlignment="Center"
+                                 EndAngle="80"
+                                 Fill="Red"
+                                 Stroke="Black"
+                                 StrokeThickness="1" />
+            <controls:DonutSegment Grid.Row="2"
+                                   Grid.Column="2"
+                                   Width="120"
+                                   Height="120"
+                                   Margin="-60,0,0,-60"
+                                   HorizontalAlignment="Center"
+                                   DonutWidth="20"
+                                   EndAngle="80"
+                                   Fill="Green"
+                                   Stroke="Black"
+                                   StrokeThickness="1" />
+          </Grid>
+          <Grid DataContext="{Binding MeterViewModel}">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="Meter Controls" />
+            <Grid Grid.Row="1">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+              <TextBlock Margin="2" HorizontalAlignment="Center" Text="Meters" />
+              <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <controls:Meter Width="20"
+                                Height="150"
+                                Margin="2"
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                ErrorValue="90"
+                                MaxValue="100"
+                                MinValue="0"
+                                Type="Column"
+                                WarningValue="70"
+                                Value="{Binding Value}" />
+                <controls:Meter Width="20"
+                                Height="150"
+                                Margin="0,2,2,2"
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                ErrorValue="90"
+                                MaxValue="100"
+                                MinValue="0"
+                                Type="Bar"
+                                WarningValue="70"
+                                Value="{Binding Value}" />
+              </StackPanel>
+              <TextBlock Grid.Column="1" Margin="2" HorizontalAlignment="Center" Text="Gauges" />
+              <controls:Gauge Grid.Row="1"
+                              Grid.Column="1"
+                              Width="150"
+                              Height="150"
+                              Margin="0,2,2,2"
+                              BorderBrush="Black"
+                              BorderThickness="1"
+                              ErrorValue="90"
+                              MaxValue="100"
+                              MinValue="0"
+                              WarningValue="70"
+                              Value="{Binding Value}" />
+            </Grid>
+            <ToggleButton Grid.Row="2" Margin="2" Command="{Binding RandomValuesCommand}">Generate Values</ToggleButton>
           </Grid>
         </WrapPanel>
       </TabItem>
