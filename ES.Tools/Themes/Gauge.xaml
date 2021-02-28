@@ -18,7 +18,7 @@
                              Fill="Red"
                              StartAngle="10"
                              StrokeThickness="0" />
-      <ContentControl Content="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type controls:Gauge}}}" />
+      <ContentControl Margin="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type controls:Gauge}}}" />
       <Canvas x:Name="PART_Indicator" />
     </Grid>
   </ControlTemplate>

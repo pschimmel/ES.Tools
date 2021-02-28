@@ -16,6 +16,7 @@ namespace ES.Tools.Infrastructure
     public TempServiceReplacer(T service)
     {
       _serviceBackup = Services.Instance.HasService<T>() ? Services.Instance.GetService<T>() : null;
+      Services.Instance.UnregisterService<T>();
       Services.Instance.RegisterService(service);
     }
 
@@ -45,9 +46,10 @@ namespace ES.Tools.Infrastructure
         if (Services.Instance.HasService<T>())
         {
           var replacement = Services.Instance.GetService<T>();
+          Services.Instance.UnregisterService<T>();
+
           if (replacement is IDisposable disposable)
           {
-            Services.Instance.UnregisterService<T>();
             disposable.Dispose();
           }
         }

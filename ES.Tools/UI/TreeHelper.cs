@@ -95,7 +95,7 @@ namespace ES.Tools.UI
     /// <summary>
     /// Returns the parent object of a WPF control, but also supports content elements.
     /// </summary>
-    /// <returns>The submitted item's parent, if available. Otherwise null.</returns>
+    /// <returns>The item's parent, if available. Otherwise null.</returns>
     private static DependencyObject GetParentObject(this DependencyObject child)
     {
       if (child == null)

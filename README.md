@@ -18,7 +18,11 @@ Great useful WPF controls and helpers.
 ## Controls
 - [**AutoGrayableImage**](Documentation/AutoGrayableImage) - Image control that automatically turns itself into a grayscale image when disabled.
 - [**CustomItemsControl**](Documentation/CustomItemsControl) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
+- **DonutSegment** - Simple control that looks like a segment of a donut. 
+- **Gauge** - Control that looks like a gauge with an indicator. 
+- **Meter** - Control that looks like a vertical or horizontal meter with or without indicator. 
 - [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
+- [**PieSegment**] - Simple control that looks like a segment of a pie.
 
 ## Converters
 - [**BooleanToVisibilityConverter**](Documentation/Converters) - Converts a boolean value to a *System.Windows.Visibility*.

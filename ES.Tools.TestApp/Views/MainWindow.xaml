@@ -225,8 +225,9 @@
                                  Height="120"
                                  Margin="-60,0,0,-60"
                                  HorizontalAlignment="Center"
-                                 EndAngle="80"
+                                 EndAngle="120"
                                  Fill="Red"
+                                 StartAngle="10"
                                  Stroke="Black"
                                  StrokeThickness="1" />
             <controls:DonutSegment Grid.Row="2"
@@ -236,8 +237,9 @@
                                    Margin="-60,0,0,-60"
                                    HorizontalAlignment="Center"
                                    DonutWidth="20"
-                                   EndAngle="80"
+                                   EndAngle="120"
                                    Fill="Green"
+                                   StartAngle="10"
                                    Stroke="Black"
                                    StrokeThickness="1" />
           </Grid>
@@ -294,7 +296,9 @@
                               MaxValue="100"
                               MinValue="0"
                               WarningValue="70"
-                              Value="{Binding Value}" />
+                              Value="{Binding Value}">
+                bar
+              </controls:Gauge>
             </Grid>
             <ToggleButton Grid.Row="2" Margin="2" Command="{Binding RandomValuesCommand}">Generate Values</ToggleButton>
           </Grid>

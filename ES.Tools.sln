@@ -27,10 +27,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\CustomItemsControl.md = Documentation\CustomItemsControl.md
 		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
 		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
+		Documentation\DonutSegment.md = Documentation\DonutSegment.md
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md
 		Documentation\NotifyObject.md = Documentation\NotifyObject.md
 		Documentation\OfficeSlider.md = Documentation\OfficeSlider.md
 		Documentation\PasswordBoxBehavior.md = Documentation\PasswordBoxBehavior.md
+		Documentation\PieSegment.md = Documentation\PieSegment.md
 		Documentation\TextBoxBehavior.md = Documentation\TextBoxBehavior.md
 		Documentation\Utilities.md = Documentation\Utilities.md
 		Documentation\ViewModel.md = Documentation\ViewModel.md
@@ -43,6 +45,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A
 		Documentation\Images\ImageColor.jpg = Documentation\Images\ImageColor.jpg
 		Documentation\Images\ImageGrayscale.jpg = Documentation\Images\ImageGrayscale.jpg
 		Documentation\Images\OfficeSlider.png = Documentation\Images\OfficeSlider.png
+		Documentation\Images\PieSegment.png = Documentation\Images\PieSegment.png
 	EndProjectSection
 EndProject
 Global
