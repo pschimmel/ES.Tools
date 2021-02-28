@@ -213,8 +213,9 @@
                        HorizontalAlignment="Center"
                        Text="DonutSegment" />
             <controls:Indicator Grid.Row="2"
-                                Width="15"
-                                Height="100"
+                                Width="10"
+                                Height="80"
+                                Margin="5"
                                 HorizontalAlignment="Center"
                                 Fill="Blue"
                                 Stroke="Black"

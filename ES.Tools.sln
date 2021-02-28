@@ -29,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
 		Documentation\DonutSegment.md = Documentation\DonutSegment.md
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md
+		Documentation\Indicator.md = Documentation\Indicator.md
 		Documentation\NotifyObject.md = Documentation\NotifyObject.md
 		Documentation\OfficeSlider.md = Documentation\OfficeSlider.md
 		Documentation\PasswordBoxBehavior.md = Documentation\PasswordBoxBehavior.md
@@ -44,6 +45,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A
 		Documentation\Images\GrayscaleEffect.png = Documentation\Images\GrayscaleEffect.png
 		Documentation\Images\ImageColor.jpg = Documentation\Images\ImageColor.jpg
 		Documentation\Images\ImageGrayscale.jpg = Documentation\Images\ImageGrayscale.jpg
+		Documentation\Images\Indicator.png = Documentation\Images\Indicator.png
 		Documentation\Images\OfficeSlider.png = Documentation\Images\OfficeSlider.png
 		Documentation\Images\PieSegment.png = Documentation\Images\PieSegment.png
 	EndProjectSection
