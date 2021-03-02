@@ -83,7 +83,7 @@ namespace ES.Tools.Adorners
 
     protected override Size ArrangeOverride(Size finalSize)
     {
-      var window = AdornedElement.GetParent<Window>();
+      var window = AdornedElement.GetWindow();
       var relativePoint = AdornedElement.TransformToAncestor(window).Transform(new Point(0, 0));
       var adornerPoint = new Point(0, AdornedElement.RenderSize.Height);
       if (relativePoint.Y + finalSize.Height + 40 > window.Height)

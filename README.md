@@ -18,12 +18,12 @@ Great useful WPF controls and helpers.
 ## Controls
 - [**AutoGrayableImage**](Documentation/AutoGrayableImage) - Image control that automatically turns itself into a grayscale image when disabled.
 - [**CustomItemsControl**](Documentation/CustomItemsControl) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
-- **DonutSegment** - Simple control that looks like a segment of a donut. 
+- [**DonutSegment**](Documentation/DonutSegment) - Simple control that looks like a segment of a donut. 
 - **Gauge** - Control that looks like a gauge with an indicator. 
 - [**Indicator**](Documentation/Indicator) - Control that looks like a pin. 
 - **Meter** - Control that looks like a vertical or horizontal meter with or without indicator. 
 - [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
-- [**PieSegment**] - Simple control that looks like a segment of a pie.
+- [**PieSegment**](Documentation/PieSegment) - Simple control that looks like a segment of a pie.
 
 ## Converters
 - [**BooleanToVisibilityConverter**](Documentation/Converters) - Converts a boolean value to a *System.Windows.Visibility*.
@@ -48,4 +48,4 @@ Great useful WPF controls and helpers.
 ## UI
 - [**DependencyPropertyWatcher**](Documentation/DependencyPropertyWatcher) - Watches a dependency property and casts an event when the value changes.
 - **DispatcherWrapper** - Wrapper that wraps a WPF dispatcher. In unit tests you can easily replace the default dispatcher by a tesing implementation.
-- **TreeHelper** - Extension methods that help navigate the WPF visual tree and logical tree.
+- [**TreeHelper**](Documentation/TreeHelper) - Extension methods that help navigate the WPF visual tree and logical tree.

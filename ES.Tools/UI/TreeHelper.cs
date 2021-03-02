@@ -11,6 +11,8 @@ namespace ES.Tools.UI
   /// </summary>
   public static class TreeHelper
   {
+    #region Public Methods
+
     /// <summary>
     /// Get the parent object of a certain type by using the logical or visual tree.
     /// </summary>
@@ -35,16 +37,9 @@ namespace ES.Tools.UI
       return GetParentInternal(obj, x => GetParentObject(x), predicate);
     }
 
-    private static T GetParentInternal<T>(DependencyObject obj, Func<DependencyObject, DependencyObject> getParent, Func<T, bool> predicate = null) where T : DependencyObject
-    {
-      var result = getParent(obj);
-      while (result != null && !(result is T && (predicate?.Invoke(result as T) ?? true)))
-      {
-        result = getParent(result);
-      }
-      return result as T;
-    }
-
+    /// <summary>
+    /// Returns the child elements of a certain type using the visual tree.
+    /// </summary>
     public static T GetVisualChild<T>(this DependencyObject obj) where T : DependencyObject
     {
       if (obj == null)
@@ -64,6 +59,30 @@ namespace ES.Tools.UI
       return null;
     }
 
+    /// <summary>
+    /// Returns the child elements of a certain type using the logical tree.
+    /// </summary>
+    public static T GetLogicalChild<T>(this DependencyObject obj) where T : DependencyObject
+    {
+      if (obj == null)
+      {
+        return null;
+      }
+
+      foreach (var child in LogicalTreeHelper.GetChildren(obj).OfType<DependencyObject>())
+      {
+        var result = (child as T) ?? GetVisualChild<T>(child);
+        if (result != null)
+        {
+          return result;
+        }
+      }
+      return null;
+    }
+
+    /// <summary>
+    /// Returns a list of child elements of a certain type using the visual tree.
+    /// </summary>
     public static IEnumerable<T> GetVisualChildren<T>(this DependencyObject obj) where T : DependencyObject
     {
       if (obj == null)
@@ -87,9 +106,51 @@ namespace ES.Tools.UI
       return list;
     }
 
+    /// <summary>
+    /// Returns a list of child elements of a certain type using the logical tree.
+    /// </summary>
+    public static IEnumerable<T> GetLogicalChildren<T>(this DependencyObject obj) where T : DependencyObject
+    {
+      if (obj == null)
+      {
+        return null;
+      }
+
+      var list = new List<T>();
+      foreach (var child in LogicalTreeHelper.GetChildren(obj).OfType<DependencyObject>())
+      {
+        if (child is T)
+        {
+          list.Add(child as T);
+        }
+        else
+        {
+          GetLogicalChildren<T>(child)?.ToList().ForEach(x => list.Add(x));
+        }
+      }
+      return list;
+    }
+
+    /// <summary>
+    /// Returns the parent window of a <see cref="DependencyObject"/>.
+    /// </summary>
     public static Window GetWindow(this DependencyObject obj)
     {
       return Window.GetWindow(obj);
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    private static T GetParentInternal<T>(DependencyObject obj, Func<DependencyObject, DependencyObject> getParent, Func<T, bool> predicate = null) where T : DependencyObject
+    {
+      var result = getParent(obj);
+      while (result != null && !(result is T && (predicate?.Invoke(result as T) ?? true)))
+      {
+        result = getParent(result);
+      }
+      return result as T;
     }
 
     /// <summary>
@@ -129,5 +190,7 @@ namespace ES.Tools.UI
       // If it's not a ContentElement/FrameworkElement, fall back to VisualTreeHelper
       return VisualTreeHelper.GetParent(child);
     }
+
+    #endregion
   }
 }
