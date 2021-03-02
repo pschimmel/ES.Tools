@@ -21,7 +21,7 @@ Great useful WPF controls and helpers.
 - [**DonutSegment**](Documentation/DonutSegment) - Simple control that looks like a segment of a donut. 
 - **Gauge** - Control that looks like a gauge with an indicator. 
 - [**Indicator**](Documentation/Indicator) - Control that looks like a pin. 
-- **Meter** - Control that looks like a vertical or horizontal meter with or without indicator. 
+- [**Meter**](Documentation/Meter) - Control that looks like a vertical or horizontal meter with or without indicator. 
 - [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
 - [**PieSegment**](Documentation/PieSegment) - Simple control that looks like a segment of a pie.
 

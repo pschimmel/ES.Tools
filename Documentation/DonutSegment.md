@@ -3,7 +3,7 @@ Namespace: **ES.Tools.Controls**
 
 The **DonutSegment** is simple shape control that is rendered as a segment of a donut.
 
-***Properties***
+**Properties**
 
 * *StartAngle* - Angle of the beginning of the segment (clockwise).
 * *EndAngle* - Angle of the end of the segment (clockwise).

@@ -28,7 +28,6 @@
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="BorderBrush" Value="Black" />
     <Setter Property="Foreground" Value="Green" />
-    <Setter Property="UseLayoutRounding" Value="False" />
     <Setter Property="Template" Value="{StaticResource GaugeTemplate}" />
   </Style>
 </ResourceDictionary>

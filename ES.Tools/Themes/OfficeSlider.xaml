@@ -5,7 +5,7 @@
   <sys:Double x:Key="PlusMinusThickness">2</sys:Double>
 
   <Style x:Key="SliderButtonStyle" TargetType="{x:Type RepeatButton}">
-    <Setter Property="SnapsToDevicePixels" Value="true" />
+    <Setter Property="UseLayoutRounding" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Setter Property="IsTabStop" Value="false" />
     <Setter Property="Focusable" Value="false" />
@@ -19,7 +19,7 @@
   </Style>
 
   <Style x:Key="PlusButtonStyle" TargetType="{x:Type RepeatButton}">
-    <Setter Property="SnapsToDevicePixels" Value="true" />
+    <Setter Property="UseLayoutRounding" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Setter Property="IsTabStop" Value="false" />
     <Setter Property="Focusable" Value="false" />
@@ -46,7 +46,7 @@
   </Style>
 
   <Style x:Key="MinusButtonStyle" TargetType="{x:Type RepeatButton}">
-    <Setter Property="SnapsToDevicePixels" Value="true" />
+    <Setter Property="UseLayoutRounding" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Setter Property="IsTabStop" Value="false" />
     <Setter Property="Focusable" Value="false" />
@@ -73,7 +73,7 @@
   </Style>
 
   <Style x:Key="HorizontalSliderThumbStyle" TargetType="{x:Type Thumb}">
-    <Setter Property="SnapsToDevicePixels" Value="true" />
+    <Setter Property="UseLayoutRounding" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Setter Property="Height" Value="{StaticResource ThumbHeight}" />
     <Setter Property="Width" Value="{StaticResource ThumbWidth}" />
@@ -93,7 +93,7 @@
   </Style>
 
   <Style x:Key="VerticalSliderThumbStyle" TargetType="{x:Type Thumb}">
-    <Setter Property="SnapsToDevicePixels" Value="true" />
+    <Setter Property="UseLayoutRounding" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Setter Property="Height" Value="{StaticResource ThumbWidth}" />
     <Setter Property="Width" Value="{StaticResource ThumbHeight}" />
@@ -263,7 +263,7 @@
   </ControlTemplate>
 
   <Style x:Key="OfficeSliderStyle" TargetType="{x:Type Slider}">
-    <Setter Property="SnapsToDevicePixels" Value="true" />
+    <Setter Property="UseLayoutRounding" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Style.Triggers>
       <Trigger Property="Orientation" Value="Horizontal">
