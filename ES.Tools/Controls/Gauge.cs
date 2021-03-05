@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
@@ -11,10 +12,12 @@ namespace ES.Tools.Controls
   /// Horizontal or vertical meter control
   /// </summary>
   [ContentProperty("Content")]
+  [TemplatePart(Name = Gauge.MainGridTemplateName, Type = typeof(FrameworkElement))]
   public class Gauge : MeterBase
   {
     #region Fields
 
+    private const string MainGridTemplateName = "PART_MainGrid";
     private static double _outerDistance = 5.0;
     private static double _indicatorWidth = 5.0;
     private static double _indicatorCoverSize = _indicatorWidth + 2;
@@ -23,6 +26,7 @@ namespace ES.Tools.Controls
     private Indicator _indicatorControl;
     private Ellipse _indicatorCover;
     private Ellipse _indicatorPin;
+    private Grid _mainGrid;
 
     #endregion
 
@@ -52,6 +56,7 @@ namespace ES.Tools.Controls
     public override void OnApplyTemplate()
     {
       base.OnApplyTemplate();
+      _mainGrid = GetTemplateChild(MainGridTemplateName) as Grid;
     }
 
     protected override void UpdateVisual()
@@ -84,28 +89,24 @@ namespace ES.Tools.Controls
 
         if (_background != null)
         {
-          double val = Value;
-          double min = MinValue;
-          double max = MaxValue;
-          double percent = max <= min ? 0.0 : (val - min) / (max - min);
-          double angle = percent * _indicatorAngle - _indicatorAngle / 2;
+          double angle = GetAngle(Value);
+          double maxAngle = _indicatorAngle - _indicatorAngle / 2;
 
-          indicatorCanvas.RenderTransformOrigin = new Point(0.5, 0.5);
-          indicatorCanvas.RenderTransform = new RotateTransform(angle);
+          indicatorCanvas.RenderTransform = new RotateTransform(angle, indicatorCanvas.ActualWidth / 2, indicatorCanvas.ActualHeight / 2);
           double backgroundSize = Math.Min(_background.ActualWidth, _background.ActualHeight);
+
+          AddTickMarks();
 
           if (_warning is DonutSegment warning)
           {
-            double warningPercent = max <= min ? 0.0 : (WarningValue - min) / (max - min);
-            warning.StartAngle = warningPercent * _indicatorAngle - _indicatorAngle / 2;
-            warning.EndAngle = _indicatorAngle - _indicatorAngle / 2;
+            warning.StartAngle = GetAngle(WarningValue);
+            warning.EndAngle = maxAngle;
           }
 
           if (_error is DonutSegment error)
           {
-            double errorPercent = max <= min ? 0.0 : (ErrorValue - min) / (max - min);
-            error.StartAngle = errorPercent * _indicatorAngle - _indicatorAngle / 2;
-            error.EndAngle = _indicatorAngle - _indicatorAngle / 2;
+            error.StartAngle = GetAngle(ErrorValue);
+            error.EndAngle = maxAngle;
           }
 
           if (_indicatorControl != null)
@@ -133,6 +134,47 @@ namespace ES.Tools.Controls
           }
         }
       }
+    }
+
+    private void AddTickMarks()
+    {
+      if (_mainGrid != null && !_mainGrid.Children.OfType<TickMark>().Any())
+      {
+        double minAngle = -_indicatorAngle / 2;
+        double maxAngle = _indicatorAngle - _indicatorAngle / 2;
+
+        int i = 0;
+        for (double angle = minAngle; angle <= maxAngle; angle += (maxAngle - minAngle) / 20)
+        {
+          AddTickMark(angle, i % 5 == 0 ? 2 : 1);
+          i++;
+        }
+      }
+    }
+
+    private void AddTickMark(double angle, double width)
+    {
+      var minTickMark = new TickMark
+      {
+        HorizontalAlignment = HorizontalAlignment.Stretch,
+        VerticalAlignment = VerticalAlignment.Stretch,
+        Stroke = Brushes.Black,
+        StrokeEndLineCap = PenLineCap.Flat,
+        StrokeStartLineCap = PenLineCap.Flat,
+        StrokeThickness = width,
+        Margin = new Thickness(5)
+      };
+      _mainGrid.Children.Add(minTickMark);
+      minTickMark.RenderTransformOrigin = new Point(0.5, 0.5);
+      minTickMark.RenderTransform = new RotateTransform(angle, 0.5, 0.5);
+    }
+
+    private double GetAngle(double value)
+    {
+      double min = MinValue;
+      double max = MaxValue;
+      var percent = max <= min ? 0.0 : (value - min) / (max - min);
+      return percent * _indicatorAngle - _indicatorAngle / 2;
     }
 
     #endregion

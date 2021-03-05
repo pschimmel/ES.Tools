@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;NET472</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;NET472;net5.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <AssemblyName>ES.Tools</AssemblyName>
     <RootNamespace>ES.Tools</RootNamespace>
@@ -15,7 +15,7 @@
     <Description>General useful WPF controls and helpers.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
     <PackageIcon>ES.Tools Logo.png</PackageIcon>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
