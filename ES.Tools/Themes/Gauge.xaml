@@ -22,7 +22,14 @@
                              Fill="Red"
                              StartAngle="10"
                              StrokeThickness="0" />
-      <ContentControl Margin="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type controls:Gauge}}}" />
+      <Grid Margin="15">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="2*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Header}" />
+        <ContentControl Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="{TemplateBinding Content}" />
+      </Grid>
       <Canvas x:Name="PART_Indicator" />
     </Grid>
   </ControlTemplate>

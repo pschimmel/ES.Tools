@@ -11,6 +11,8 @@ namespace ES.Tools.TestApp.ViewModels
   {
     private double _value = 20;
     private bool _isGenerating = false;
+    private int mainTicks;
+    private int subTicks;
 
     public MeterViewModel()
     {
@@ -29,6 +31,20 @@ namespace ES.Tools.TestApp.ViewModels
         }
       }
     }
+
+
+    public int MainTicks
+    {
+      get => mainTicks;
+      set { mainTicks = value; OnPropertyChanged(); }
+    }
+
+    public int SubTicks
+    {
+      get => subTicks;
+      set { subTicks = value; OnPropertyChanged(); }
+    }
+
 
     public double MinValue => 0;
 
@@ -50,7 +66,7 @@ namespace ES.Tools.TestApp.ViewModels
           while (_isGenerating)
           {
             double next = (random.NextDouble() + double.Epsilon) * 10 - 5; // Random number between -5 and 5
-          double nextValue = Math.Max(MinValue, Value + next);
+            double nextValue = Math.Max(MinValue, Value + next);
             nextValue = Math.Min(MaxValue, nextValue);
             Value = nextValue;
             Thread.Sleep(100);

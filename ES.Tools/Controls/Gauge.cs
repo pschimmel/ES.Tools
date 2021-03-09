@@ -23,6 +23,7 @@ namespace ES.Tools.Controls
     private static double _indicatorCoverSize = _indicatorWidth + 2;
     private static double _indicatorPinSize = 2.5;
     private static double _indicatorAngle = 300;
+    private bool _resetTicks = true;
     private Indicator _indicatorControl;
     private Ellipse _indicatorCover;
     private Ellipse _indicatorPin;
@@ -39,17 +40,91 @@ namespace ES.Tools.Controls
 
     #endregion
 
+    #region Header Property
+
+    public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object), typeof(Gauge), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    /// <summary>
+    /// Header shown in the upper center of the gauge.
+    /// </summary>
+    public object Header
+    {
+      get { return (object)GetValue(HeaderProperty); }
+      set { SetValue(HeaderProperty, value); }
+    }
+
+    #endregion
+
     #region Content Property
 
-    public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(nameof(Content), typeof(Object), typeof(Gauge), new PropertyMetadata());
+    public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(nameof(Content), typeof(Object), typeof(Gauge), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
 
+    /// <summary>
+    /// Content shown in the lower center of the gauge.
+    /// </summary>
     public Object Content
     {
       get { return (Object)GetValue(ContentProperty); }
       set { SetValue(ContentProperty, value); }
     }
 
-    #endregion Content Property
+    #endregion
+
+    #region TotalTicks Property
+
+    public static readonly DependencyProperty TotalTicksProperty = DependencyProperty.Register(nameof(TotalTicks), typeof(int), typeof(Gauge), new FrameworkPropertyMetadata(20, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, TotalTicksChanged, CoerceTotalTicks));
+
+    /// <summary>
+    /// Total amount of the tick marks.
+    /// </summary>
+    public int TotalTicks
+    {
+      get { return (int)GetValue(TotalTicksProperty); }
+      set { SetValue(TotalTicksProperty, value); }
+    }
+
+    private static void TotalTicksChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      Gauge gauge = (Gauge)d;
+      gauge._resetTicks = true;
+      gauge.UpdateVisual();
+    }
+
+    private static object CoerceTotalTicks(DependencyObject d, object baseValue)
+    {
+      var value = (int)baseValue;
+      return Math.Min(100, Math.Max(0, value));
+    }
+
+    #endregion
+
+    #region SubTicks Property
+
+    /// <summary>
+    /// Sub ticks between each main tick
+    /// </summary>
+    public static readonly DependencyProperty SubTicksProperty = DependencyProperty.Register(nameof(SubTicks), typeof(int), typeof(Gauge), new FrameworkPropertyMetadata(4, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, SubTicksChanged, CoerceSubTicks));
+
+    public int SubTicks
+    {
+      get { return (int)GetValue(SubTicksProperty); }
+      set { SetValue(SubTicksProperty, value); }
+    }
+
+    private static void SubTicksChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      Gauge gauge = (Gauge)d;
+      gauge._resetTicks = true;
+      gauge.UpdateVisual();
+    }
+
+    private static object CoerceSubTicks(DependencyObject d, object baseValue)
+    {
+      var value = (int)baseValue;
+      return Math.Min(10, Math.Max(0, value));
+    }
+
+    #endregion
 
     #region Overwritten Methods
 
@@ -138,15 +213,21 @@ namespace ES.Tools.Controls
 
     private void AddTickMarks()
     {
-      if (_mainGrid != null && !_mainGrid.Children.OfType<TickMark>().Any())
+      if (_resetTicks)
+      {
+        _mainGrid.Children.OfType<TickMark>().ToList().ForEach(x => _mainGrid.Children.Remove(x));
+        _resetTicks = false;
+      }
+
+      if (_mainGrid != null && !_mainGrid.Children.OfType<TickMark>().Any() && TotalTicks > 0)
       {
         double minAngle = -_indicatorAngle / 2;
         double maxAngle = _indicatorAngle - _indicatorAngle / 2;
 
         int i = 0;
-        for (double angle = minAngle; angle <= maxAngle; angle += (maxAngle - minAngle) / 20)
+        for (double angle = minAngle; angle <= maxAngle; angle += (maxAngle - minAngle) / TotalTicks)
         {
-          AddTickMark(angle, i % 5 == 0 ? 2 : 1);
+          AddTickMark(angle, SubTicks == 0 || i % SubTicks == 0 ? 2 : 1);
           i++;
         }
       }

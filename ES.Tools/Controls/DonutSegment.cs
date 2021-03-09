@@ -8,11 +8,7 @@ namespace ES.Tools.Controls
   {
     #region Donut Width Property
 
-    public static readonly DependencyProperty DonutWidthProperty = DependencyProperty.Register(nameof(DonutWidth), typeof(double), typeof(DonutSegment), new FrameworkPropertyMetadata(
-                10.0,
-                FrameworkPropertyMetadataOptions.AffectsRender,
-                null,
-                new CoerceValueCallback(CoerceDonutWidth)));
+    public static readonly DependencyProperty DonutWidthProperty = DependencyProperty.Register(nameof(DonutWidth), typeof(double), typeof(DonutSegment), new FrameworkPropertyMetadata(10.0, FrameworkPropertyMetadataOptions.AffectsRender, null, CoerceDonutWidth));
 
     public double DonutWidth
     {

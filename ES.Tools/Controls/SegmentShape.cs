@@ -8,11 +8,7 @@ namespace ES.Tools.Controls
   {
     #region Start Angle Property
 
-    public static readonly DependencyProperty StartAngleProperty = DependencyProperty.Register(nameof(StartAngle), typeof(double), typeof(SegmentShape), new FrameworkPropertyMetadata(
-                0.0,
-                FrameworkPropertyMetadataOptions.AffectsRender,
-                null,
-                new CoerceValueCallback(CoerceAngle)));
+    public static readonly DependencyProperty StartAngleProperty = DependencyProperty.Register(nameof(StartAngle), typeof(double), typeof(SegmentShape), new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.AffectsRender, null, CoerceAngle));
 
     public double StartAngle
     {
@@ -24,11 +20,7 @@ namespace ES.Tools.Controls
 
     #region End Angle Property
 
-    public static readonly DependencyProperty EndAngleProperty = DependencyProperty.Register(nameof(EndAngle), typeof(double), typeof(SegmentShape), new FrameworkPropertyMetadata(
-                90.0,
-                FrameworkPropertyMetadataOptions.AffectsRender,
-                null,
-                new CoerceValueCallback(CoerceAngle)));
+    public static readonly DependencyProperty EndAngleProperty = DependencyProperty.Register(nameof(EndAngle), typeof(double), typeof(SegmentShape), new FrameworkPropertyMetadata(90.0, FrameworkPropertyMetadataOptions.AffectsRender, null, CoerceAngle));
 
     public double EndAngle
     {

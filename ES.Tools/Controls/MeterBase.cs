@@ -30,11 +30,13 @@ namespace ES.Tools.Controls
 
     #region Value
 
-    public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(
-        0d,
-        FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-        new PropertyChangedCallback(OnValueChanged),
-        new CoerceValueCallback(CoerceValue)));
+    public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnValueChanged, CoerceValue));
+
+    public double Value
+    {
+      get { return (double)GetValue(ValueProperty); }
+      set { SetValue(ValueProperty, value); }
+    }
 
     private static object CoerceValue(DependencyObject d, object baseValue)
     {
@@ -47,20 +49,17 @@ namespace ES.Tools.Controls
       meter.UpdateVisual();
     }
 
-    public double Value
-    {
-      get { return (double)GetValue(ValueProperty); }
-      set { SetValue(ValueProperty, value); }
-    }
-
     #endregion
 
     #region Min Value
 
-    public static readonly DependencyProperty MinValueProperty = DependencyProperty.Register(nameof(MinValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(
-        0d,
-        FrameworkPropertyMetadataOptions.AffectsRender,
-        new PropertyChangedCallback(OnMinValueChanged)));
+    public static readonly DependencyProperty MinValueProperty = DependencyProperty.Register(nameof(MinValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsRender, OnMinValueChanged));
+
+    public double MinValue
+    {
+      get { return (double)GetValue(MinValueProperty); }
+      set { SetValue(MinValueProperty, value); }
+    }
 
     private static void OnMinValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -69,20 +68,17 @@ namespace ES.Tools.Controls
       meter.UpdateVisual();
     }
 
-    public double MinValue
-    {
-      get { return (double)GetValue(MinValueProperty); }
-      set { SetValue(MinValueProperty, value); }
-    }
-
     #endregion
 
     #region Max Value
 
-    public static readonly DependencyProperty MaxValueProperty = DependencyProperty.Register(nameof(MaxValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(
-        100d,
-        FrameworkPropertyMetadataOptions.AffectsRender,
-        new PropertyChangedCallback(OnMaxValueChanged)));
+    public static readonly DependencyProperty MaxValueProperty = DependencyProperty.Register(nameof(MaxValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(100d, FrameworkPropertyMetadataOptions.AffectsRender, OnMaxValueChanged));
+
+    public double MaxValue
+    {
+      get { return (double)GetValue(MaxValueProperty); }
+      set { SetValue(MaxValueProperty, value); }
+    }
 
     private static void OnMaxValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -91,20 +87,11 @@ namespace ES.Tools.Controls
       meter.UpdateVisual();
     }
 
-    public double MaxValue
-    {
-      get { return (double)GetValue(MaxValueProperty); }
-      set { SetValue(MaxValueProperty, value); }
-    }
-
     #endregion
 
     #region Warning Value
 
-    public static readonly DependencyProperty WarningValueProperty = DependencyProperty.Register(nameof(WarningValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(
-        0d,
-        FrameworkPropertyMetadataOptions.AffectsRender,
-        new PropertyChangedCallback(OnWarningValueChanged)));
+    public static readonly DependencyProperty WarningValueProperty = DependencyProperty.Register(nameof(WarningValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsRender, OnWarningValueChanged));
 
     private static void OnWarningValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -122,10 +109,7 @@ namespace ES.Tools.Controls
 
     #region Error Value
 
-    public static readonly DependencyProperty ErrorValueProperty = DependencyProperty.Register(nameof(ErrorValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(
-        0d,
-        FrameworkPropertyMetadataOptions.AffectsRender,
-        new PropertyChangedCallback(OnErrorValueChanged)));
+    public static readonly DependencyProperty ErrorValueProperty = DependencyProperty.Register(nameof(ErrorValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsRender, OnErrorValueChanged));
 
     private static void OnErrorValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

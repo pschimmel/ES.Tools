@@ -23,10 +23,7 @@ namespace ES.Tools.Controls
 
     #region Type
 
-    public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(nameof(Type), typeof(MeterType), typeof(Meter), new FrameworkPropertyMetadata(
-        MeterType.Column,
-        FrameworkPropertyMetadataOptions.AffectsRender,
-        new PropertyChangedCallback(OnTypeChanged)));
+    public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(nameof(Type), typeof(MeterType), typeof(Meter), new FrameworkPropertyMetadata(MeterType.Column, FrameworkPropertyMetadataOptions.AffectsRender, OnTypeChanged));
 
     private static void OnTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -44,10 +41,7 @@ namespace ES.Tools.Controls
 
     #region Orientation
 
-    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(nameof(Orientation), typeof(Orientation), typeof(Meter), new FrameworkPropertyMetadata(
-        Orientation.Vertical,
-        FrameworkPropertyMetadataOptions.AffectsMeasure,
-        OnOrientationChanged));
+    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(nameof(Orientation), typeof(Orientation), typeof(Meter), new FrameworkPropertyMetadata(Orientation.Vertical, FrameworkPropertyMetadataOptions.AffectsMeasure, OnOrientationChanged));
 
     private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

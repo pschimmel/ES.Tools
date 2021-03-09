@@ -3,5 +3,7 @@
     <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Meter.xaml" />
     <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Gauge.xaml" />
     <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/OfficeSlider.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Switch.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/ClippingBorder.xaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
