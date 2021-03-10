@@ -7,7 +7,7 @@
     <RootNamespace>ES.Tools</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <PackageId>ES.Tools</PackageId>
     <Authors>Patrick Schimmel</Authors>
     <Company>Engineering Solutions</Company>
@@ -16,6 +16,7 @@
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
     <PackageIcon>ES.Tools Logo.png</PackageIcon>
     <LangVersion>9.0</LangVersion>
+    <PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
