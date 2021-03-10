@@ -28,9 +28,8 @@ build:
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
-#artifacts:
-# pushing all *.nupkg files in build directory recursively
-#  - path: '**\*.nupkg'
+artifacts:
+  - path: \bin\package\*.*
 
 #---------------------------------#
 #     deployment configuration    #
