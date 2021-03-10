@@ -28,8 +28,8 @@ build:
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
-artifacts:
-  - path: bin\package\*.*
+#artifacts:
+#  - path: bin\package\*.*
 
 #---------------------------------#
 #     deployment configuration    #
@@ -41,3 +41,6 @@ deploy:
 - provider: NuGet
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
+- provider: GitHub
+  auth_token:
+    secure: YtGsH7B9c6fUkDmOxoazOCRXN3Br4xZSMPJN8Bswuh3NiqIWqPc0opA+jkyqB9ZP
