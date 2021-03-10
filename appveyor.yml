@@ -29,7 +29,7 @@ build:
 #      artifacts configuration    #
 #---------------------------------#
 artifacts:
-  - path: \bin\package\*.*
+  - path: bin\package\*.*
 
 #---------------------------------#
 #     deployment configuration    #
