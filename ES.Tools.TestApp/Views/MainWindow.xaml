@@ -7,6 +7,7 @@
         xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
         xmlns:infrastructure="clr-namespace:ES.Tools.Infrastructure;assembly=ES.Tools"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shapes="clr-namespace:ES.Tools.Shapes;assembly=ES.Tools"
         xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
         xmlns:views="clr-namespace:ES.Tools.TestApp.Views"
         Title="MainWindow"
@@ -192,7 +193,11 @@
             <TextBlock Grid.Row="1" Margin="2" Text="Default WPF Slider" />
             <Slider Grid.Row="2" Margin="2" Value="2" />
             <TextBlock Grid.Row="3" Margin="2" Text="OfficeSlider" />
-            <Slider Grid.Row="4" Margin="2" Style="{DynamicResource OfficeSliderStyle}" Value="2" />
+            <controls:OfficeSlider Grid.Row="4"
+                                   Margin="2"
+                                   Maximum="10" ShowValue="False"
+                                   Minimum="0"
+                                   Value="2" />
           </Grid>
           <Grid Width="200">
             <Grid.RowDefinitions>
@@ -217,66 +222,6 @@
                                IsEnabled="False"
                                IsThreeState="True" />
             </StackPanel>
-          </Grid>
-          <Grid>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="Auto" />
-              <RowDefinition Height="Auto" />
-              <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="Auto" />
-              <ColumnDefinition Width="Auto" />
-              <ColumnDefinition Width="Auto" />
-              <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.ColumnSpan="4"
-                       Margin="2"
-                       HorizontalAlignment="Center"
-                       FontWeight="Bold"
-                       Text="Shapes" />
-            <TextBlock Grid.Row="1" Margin="2" HorizontalAlignment="Center" Text="Indicator" />
-            <TextBlock Grid.Row="1"
-                       Grid.Column="1"
-                       Margin="2"
-                       HorizontalAlignment="Center"
-                       Text="PieSegment" />
-            <TextBlock Grid.Row="1"
-                       Grid.Column="2"
-                       Margin="2"
-                       HorizontalAlignment="Center"
-                       Text="DonutSegment" />
-            <controls:Indicator Grid.Row="2"
-                                Width="10"
-                                Height="80"
-                                Margin="5"
-                                HorizontalAlignment="Center"
-                                Fill="Blue"
-                                Stroke="Black"
-                                StrokeThickness="1" />
-            <controls:PieSegment Grid.Row="2"
-                                 Grid.Column="1"
-                                 Width="120"
-                                 Height="120"
-                                 Margin="-60,0,0,-60"
-                                 HorizontalAlignment="Center"
-                                 EndAngle="120"
-                                 Fill="Red"
-                                 StartAngle="10"
-                                 Stroke="Black"
-                                 StrokeThickness="1" />
-            <controls:DonutSegment Grid.Row="2"
-                                   Grid.Column="2"
-                                   Width="120"
-                                   Height="120"
-                                   Margin="-60,0,0,-60"
-                                   HorizontalAlignment="Center"
-                                   DonutWidth="20"
-                                   EndAngle="120"
-                                   Fill="Green"
-                                   StartAngle="10"
-                                   Stroke="Black"
-                                   StrokeThickness="1" />
           </Grid>
           <Grid DataContext="{Binding MeterViewModel}">
             <Grid.RowDefinitions>
@@ -343,6 +288,60 @@
               </controls:Gauge>
             </Grid>
             <ToggleButton Grid.Row="2" Margin="2" Command="{Binding RandomValuesCommand}">Generate Values</ToggleButton>
+          </Grid>
+        </WrapPanel>
+      </TabItem>
+      <TabItem Height="20" VerticalAlignment="Top" Header="Shapes">
+        <WrapPanel>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="Indicator" />
+            <shapes:Indicator Grid.Row="1"
+                              Width="10"
+                              Height="80"
+                              Margin="5"
+                              HorizontalAlignment="Center"
+                              Fill="Blue"
+                              Stroke="Black"
+                              StrokeThickness="1" />
+          </Grid>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="PieSegment" />
+            <shapes:PieSegment Grid.Row="1"
+                               Width="120"
+                               Height="120"
+                               Margin="-60,0,0,-60"
+                               HorizontalAlignment="Center"
+                               EndAngle="120"
+                               Fill="Red"
+                               StartAngle="10"
+                               Stroke="Black"
+                               StrokeThickness="1" />
+          </Grid>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="DonutSegment" />
+            <shapes:DonutSegment Grid.Row="1"
+                                 Width="120"
+                                 Height="120"
+                                 Margin="-60,0,0,-60"
+                                 HorizontalAlignment="Center"
+                                 DonutWidth="20"
+                                 EndAngle="120"
+                                 Fill="Green"
+                                 StartAngle="10"
+                                 Stroke="Black"
+                                 StrokeThickness="1" />
           </Grid>
         </WrapPanel>
       </TabItem>

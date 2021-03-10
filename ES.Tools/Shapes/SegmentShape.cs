@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Shapes;
 
-namespace ES.Tools.Controls
+namespace ES.Tools.Shapes
 {
   public abstract class SegmentShape : Shape
   {

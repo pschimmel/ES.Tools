@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace ES.Tools.Controls
+namespace ES.Tools.Shapes
 {
   public class Indicator : Shape
   {

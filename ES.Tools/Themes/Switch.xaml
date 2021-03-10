@@ -35,39 +35,61 @@
                         Foreground="Black"
                         IsTabStop="False"
                         Visibility="Collapsed" />
-        <Border x:Name="PART_Switch"
-                Width="{TemplateBinding SwitchWidth}"
-                HorizontalAlignment="Left"
-                Background="{TemplateBinding SwitchBrush}"
-                CornerRadius="2">
+        <Grid x:Name="SwitchGrid">
+          <Border x:Name="PART_Switch" Width="{TemplateBinding SwitchWidth}" Background="{TemplateBinding SwitchBrush}" CornerRadius="2" />
+          <Border x:Name="SwitchHover"
+                  Width="{TemplateBinding SwitchWidth}"
+                  Background="Black"
+                  CornerRadius="2"
+                  Opacity="0" />
           <Rectangle x:Name="FocusVisual"
                      Margin="2"
                      Stroke="Black"
                      StrokeDashArray="1 2"
                      StrokeThickness="1"
                      Visibility="Collapsed" />
-        </Border>
+        </Grid>
       </Grid>
     </Border>
     <ControlTemplate.Triggers>
       <Trigger Property="ToggleButton.IsEnabled" Value="False">
-        <Setter TargetName="PART_SwitchOnContent" Property="Foreground" Value="{DynamicResource Switch.DisabledForegroundBrush}" />
-        <Setter TargetName="PART_SwitchOffContent" Property="Foreground" Value="{DynamicResource Switch.DisabledForegroundBrush}" />
-        <Setter TargetName="PART_Switch" Property="Background" Value="{DynamicResource Switch.DisabledSwitchBrush}" />
+        <Setter TargetName="PART_SwitchOnContent" Property="Foreground" Value="{StaticResource Switch.DisabledForegroundBrush}" />
+        <Setter TargetName="PART_SwitchOffContent" Property="Foreground" Value="{StaticResource Switch.DisabledForegroundBrush}" />
+        <Setter TargetName="PART_Switch" Property="Background" Value="{StaticResource Switch.DisabledSwitchBrush}" />
       </Trigger>
       <Trigger Property="ToggleButton.IsChecked" Value="true">
-        <Setter TargetName="PART_Switch" Property="Grid.Column" Value="0" />
+        <Setter TargetName="SwitchGrid" Property="Grid.Column" Value="0" />
         <Setter TargetName="PART_SwitchOnContent" Property="Visibility" Value="Visible" />
       </Trigger>
       <Trigger Property="ToggleButton.IsChecked" Value="false">
-        <Setter TargetName="PART_Switch" Property="Grid.Column" Value="4" />
+        <Setter TargetName="SwitchGrid" Property="Grid.Column" Value="4" />
         <Setter TargetName="PART_SwitchOffContent" Property="Visibility" Value="Visible" />
       </Trigger>
       <Trigger Property="ToggleButton.IsChecked" Value="{x:Null}">
-        <Setter TargetName="PART_Switch" Property="Grid.Column" Value="2" />
+        <Setter TargetName="SwitchGrid" Property="Grid.Column" Value="2" />
       </Trigger>
       <Trigger Property="ToggleButton.IsFocused" Value="True">
         <Setter TargetName="FocusVisual" Property="Visibility" Value="Visible" />
+      </Trigger>
+      <Trigger Property="IsMouseOver" Value="True">
+        <Trigger.EnterActions>
+          <BeginStoryboard>
+            <Storyboard>
+              <DoubleAnimation Storyboard.TargetName="SwitchHover" Storyboard.TargetProperty="Opacity" To="0.3" Duration="0:0:0.15" />
+            </Storyboard>
+          </BeginStoryboard>
+        </Trigger.EnterActions>
+        <Trigger.ExitActions>
+          <BeginStoryboard>
+            <Storyboard>
+              <DoubleAnimation Storyboard.TargetName="SwitchHover" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.15" />
+            </Storyboard>
+          </BeginStoryboard>
+        </Trigger.ExitActions>
+        <Setter TargetName="SwitchHover" Property="Visibility" Value="Visible" />
+      </Trigger>
+      <Trigger Property="IsPressed" Value="True">
+        <Setter TargetName="SwitchHover" Property="Visibility" Value="Visible" />
       </Trigger>
     </ControlTemplate.Triggers>
   </ControlTemplate>
