@@ -12,11 +12,14 @@
     <Authors>Patrick Schimmel</Authors>
     <Company>Engineering Solutions</Company>
     <Product>ES.Tools</Product>
-    <Description>General useful WPF controls and helpers.</Description>
+    <Description>A collection of some useful WPF controls and helpers.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
     <PackageIcon>ES.Tools Logo.png</PackageIcon>
     <LangVersion>9.0</LangVersion>
     <PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/pschimmel/ES.Tools</RepositoryUrl>
+    <PackageTags>WPF, Controls, Control Library</PackageTags>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
