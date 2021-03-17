@@ -1,12 +1,33 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.2.{build}
+version: 0.5.0
+
+#init:
+#- ps: "Set-AppveyorBuildVariable -Name \"assembly_version\" -Value \"1.0\"  \nSet-AppveyorBuildVariable -Name \"assembly_file_version\" -Value \"1.0.0.0\"  \nSet-AppveyorBuildVariable -Name \"assembly_informational_version\" -Value \"1.0.0\""
+
 branches:
   only:
     - master
+
 pull_requests:
   do_not_increment_build_number: true
+
+assembly_info:
+  patch: true
+  file: SharedAssemblyInfo.*
+  assembly_version: '${version}'
+  assembly_file_version: '${version}'
+  assembly_informational_version: '${version}'
+
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
 
 #---------------------------------#
 #    environment configuration    #
