@@ -209,7 +209,7 @@
             <StackPanel Grid.Row="1">
               <controls:Switch Width="80"
                                Height="30"
-                               Margin="50"
+                               Margin="2"
                                Background="White"
                                BorderBrush="Black"
                                BorderThickness="2"

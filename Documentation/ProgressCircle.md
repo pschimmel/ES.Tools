@@ -19,4 +19,5 @@ The **ProgressCircle** control is a circular progress control. It supports all f
 ```
 **Example**
 
-![ProgressCircle example](Images/ProgressCircle.gif "ProgressCircle")
+![ProgressCircle example](Images/IntermediateProgressCircle.gif "ProgressCircle")
+![ProgressCircle example 2](Images/ProgressCircle.png "ProgressCircle 2")

@@ -52,10 +52,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A
 		Documentation\Images\ImageColor.jpg = Documentation\Images\ImageColor.jpg
 		Documentation\Images\ImageGrayscale.jpg = Documentation\Images\ImageGrayscale.jpg
 		Documentation\Images\Indicator.png = Documentation\Images\Indicator.png
-		Documentation\Images\Meter.png = Documentation\Images\Meter.png
+		Documentation\Images\IntermediateProgressCircle.gif = Documentation\Images\IntermediateProgressCircle.gif
+		Documentation\Images\Meter.gif = Documentation\Images\Meter.gif
 		Documentation\Images\OfficeSlider.png = Documentation\Images\OfficeSlider.png
 		Documentation\Images\PieSegment.png = Documentation\Images\PieSegment.png
-		Documentation\Images\ProgressCircle.gif = Documentation\Images\ProgressCircle.gif
+		Documentation\Images\ProgressCircle.png = Documentation\Images\ProgressCircle.png
 		Documentation\Images\Switch.gif = Documentation\Images\Switch.gif
 	EndProjectSection
 EndProject

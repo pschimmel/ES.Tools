@@ -40,4 +40,4 @@ The **Meter** control can be used to display values within a certain range.
 ```
 **Example**
 
-![Meter example](Images/Meter.png "Meter")
+![Meter example](Images/Meter.gif "Meter")

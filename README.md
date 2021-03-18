@@ -6,6 +6,13 @@ Great useful WPF controls and helpers.
 [![Nuget](https://img.shields.io/nuget/v/ES.Tools)](https://www.nuget.org/packages/ES.Tools/)
 [![GitHub issues](https://img.shields.io/github/issues/pschimmel/es.tools)](https://github.com/pschimmel/ES.Tools/issues)
 
+## Examples
+Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCircle, and Switch
+
+![Gauge example](Documentation/Images/Gauge.gif "Gauge")
+![ProgressCircle example](Documentation/Images/IntermediateProgressCircle.gif "ProgressCircle")
+![Switch example](Documentation/Images/Switch.gif "Switch")
+
 ## Adorners
 - [**ControlAdorner**](Documentation/ControlAdorner) - Adorner that renders any control.
 - [**DataTemplateAdorner**](Documentation/DataTemplateAdorner) - Adorner that will take a *DataTemplate* and a data object to render the adorner.
@@ -19,12 +26,12 @@ Great useful WPF controls and helpers.
 - [**AutoGrayableImage**](Documentation/AutoGrayableImage) - Image control that automatically turns itself into a grayscale image when disabled.
 - [**CustomItemsControl**](Documentation/CustomItemsControl) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
 - [**DonutSegment**](Documentation/DonutSegment) - Simple control that looks like a segment of a donut. 
-- **Gauge** - Control that looks like a gauge with an indicator. 
+- [**Gauge**](Documentation/Gauge) - Control that looks like a gauge with an indicator. 
 - [**Indicator**](Documentation/Indicator) - Control that looks like a pin. 
 - [**Meter**](Documentation/Meter) - Control that looks like a vertical or horizontal meter with or without indicator. 
 - [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
 - [**PieSegment**](Documentation/PieSegment) - Simple control that looks like a segment of a pie.
-- **ProgressCircle** - A simple circular progress bar.
+- [**ProgressCircle**](Documentation/ProgressCircle) - A simple circular progress bar.
 - [**Switch**](Documentation/Switch) - A switch button control.
 
 ## Converters
