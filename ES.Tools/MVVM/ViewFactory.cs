@@ -11,7 +11,7 @@ namespace ES.Tools.MVVM
   public class ViewFactory
   {
     private static readonly Lazy<ViewFactory> _lazy = new Lazy<ViewFactory>(() => new ViewFactory());
-    private ReaderWriterLockSlim _lock;
+    private readonly ReaderWriterLockSlim _lock;
     private readonly Dictionary<Type, Type> _typeDictionary;
 
     private ViewFactory()
@@ -35,10 +35,14 @@ namespace ES.Tools.MVVM
       try
       {
         if (_typeDictionary.ContainsKey(typeof(TViewModel)))
+        {
           throw new InvalidOperationException($"A ViewModel of type {typeof(TViewModel).Name} is already registered.");
+        }
 
         if (_typeDictionary.Values.Contains(typeof(TView)))
+        {
           throw new InvalidOperationException($"A View of type {typeof(TView).Name} is already registered.");
+        }
 
         _typeDictionary[typeof(TViewModel)] = typeof(TView);
       }
@@ -54,7 +58,7 @@ namespace ES.Tools.MVVM
     /// </summary>
     public IView CreatePage<T>(params object[] args) where T : IViewModel
     {
-      Type viewModelType = typeof(T);
+      var viewModelType = typeof(T);
       var vm = (IViewModel)Activator.CreateInstance(viewModelType, args);
       return CreatePage(vm);
     }

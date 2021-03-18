@@ -14,11 +14,15 @@ namespace ES.Tools.Controls
         return null;
       }
 
-      var doubleValue = (double)values[0];
+      double doubleValue = (double)values[0];
       if (values.Length < 2 || string.IsNullOrWhiteSpace(values[1]?.ToString()))
+      {
         return doubleValue.ToString(culture);
+      }
       else
+      {
         return doubleValue.ToString(values[1].ToString(), culture);
+      }
     }
 
     public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

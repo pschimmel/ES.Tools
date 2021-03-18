@@ -13,17 +13,17 @@ namespace ES.Tools.Controls
   /// Horizontal or vertical meter control
   /// </summary>
   [ContentProperty("Content")]
-  [TemplatePart(Name = Gauge.MainGridTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = MainGridTemplateName, Type = typeof(FrameworkElement))]
   public class Gauge : MeterBase
   {
     #region Fields
 
     private const string MainGridTemplateName = "PART_MainGrid";
-    private static double _outerDistance = 5.0;
-    private static double _indicatorWidth = 5.0;
-    private static double _indicatorCoverSize = _indicatorWidth + 2;
-    private static double _indicatorPinSize = 2.5;
-    private static double _indicatorAngle = 300;
+    private static readonly double _outerDistance = 5.0;
+    private static readonly double _indicatorWidth = 5.0;
+    private static readonly double _indicatorCoverSize = _indicatorWidth + 2;
+    private static readonly double _indicatorPinSize = 2.5;
+    private static readonly double _indicatorAngle = 300;
     private bool _resetTicks = true;
     private Indicator _indicatorControl;
     private Ellipse _indicatorCover;
@@ -50,23 +50,23 @@ namespace ES.Tools.Controls
     /// </summary>
     public object Header
     {
-      get { return (object)GetValue(HeaderProperty); }
-      set { SetValue(HeaderProperty, value); }
+      get => GetValue(HeaderProperty);
+      set => SetValue(HeaderProperty, value);
     }
 
     #endregion
 
     #region Content Property
 
-    public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(nameof(Content), typeof(Object), typeof(Gauge), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+    public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(nameof(Content), typeof(object), typeof(Gauge), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
 
     /// <summary>
     /// Content shown in the lower center of the gauge.
     /// </summary>
-    public Object Content
+    public object Content
     {
-      get { return (Object)GetValue(ContentProperty); }
-      set { SetValue(ContentProperty, value); }
+      get => GetValue(ContentProperty);
+      set => SetValue(ContentProperty, value);
     }
 
     #endregion
@@ -80,20 +80,20 @@ namespace ES.Tools.Controls
     /// </summary>
     public int TotalTicks
     {
-      get { return (int)GetValue(TotalTicksProperty); }
-      set { SetValue(TotalTicksProperty, value); }
+      get => (int)GetValue(TotalTicksProperty);
+      set => SetValue(TotalTicksProperty, value);
     }
 
     private static void TotalTicksChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      Gauge gauge = (Gauge)d;
+      var gauge = (Gauge)d;
       gauge._resetTicks = true;
       gauge.UpdateVisual();
     }
 
     private static object CoerceTotalTicks(DependencyObject d, object baseValue)
     {
-      var value = (int)baseValue;
+      int value = (int)baseValue;
       return Math.Min(100, Math.Max(0, value));
     }
 
@@ -108,20 +108,20 @@ namespace ES.Tools.Controls
 
     public int SubTicks
     {
-      get { return (int)GetValue(SubTicksProperty); }
-      set { SetValue(SubTicksProperty, value); }
+      get => (int)GetValue(SubTicksProperty);
+      set => SetValue(SubTicksProperty, value);
     }
 
     private static void SubTicksChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      Gauge gauge = (Gauge)d;
+      var gauge = (Gauge)d;
       gauge._resetTicks = true;
       gauge.UpdateVisual();
     }
 
     private static object CoerceSubTicks(DependencyObject d, object baseValue)
     {
-      var value = (int)baseValue;
+      int value = (int)baseValue;
       return Math.Min(10, Math.Max(0, value));
     }
 
@@ -169,7 +169,6 @@ namespace ES.Tools.Controls
           double maxAngle = _indicatorAngle - _indicatorAngle / 2;
 
           indicatorCanvas.RenderTransform = new RotateTransform(angle, indicatorCanvas.ActualWidth / 2, indicatorCanvas.ActualHeight / 2);
-          double backgroundSize = Math.Min(_background.ActualWidth, _background.ActualHeight);
 
           AddTickMarks();
 
@@ -255,7 +254,7 @@ namespace ES.Tools.Controls
     {
       double min = MinValue;
       double max = MaxValue;
-      var percent = max <= min ? 0.0 : (value - min) / (max - min);
+      double percent = max <= min ? 0.0 : (value - min) / (max - min);
       return percent * _indicatorAngle - _indicatorAngle / 2;
     }
 

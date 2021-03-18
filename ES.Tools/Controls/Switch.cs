@@ -6,8 +6,8 @@ using System.Windows.Media;
 
 namespace ES.Tools.Controls
 {
-  [TemplatePart(Name = Switch.BackgroundTemplateName, Type = typeof(FrameworkElement))]
-  [TemplatePart(Name = Switch.SwitchTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = BackgroundTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = SwitchTemplateName, Type = typeof(FrameworkElement))]
   public class Switch : ToggleButton
   {
     #region Fields
@@ -36,8 +36,8 @@ namespace ES.Tools.Controls
 
     public CornerRadius CornerRadius
     {
-      get { return (CornerRadius)GetValue(CornerRadiusProperty); }
-      set { SetValue(CornerRadiusProperty, value); }
+      get => (CornerRadius)GetValue(CornerRadiusProperty);
+      set => SetValue(CornerRadiusProperty, value);
     }
 
     #endregion
@@ -51,8 +51,8 @@ namespace ES.Tools.Controls
     /// </summary>
     public object OnContent
     {
-      get { return (object)GetValue(OnContentProperty); }
-      set { SetValue(OnContentProperty, value); }
+      get => GetValue(OnContentProperty);
+      set => SetValue(OnContentProperty, value);
     }
 
     #endregion
@@ -66,8 +66,8 @@ namespace ES.Tools.Controls
     /// </summary>
     public object OffContent
     {
-      get { return (object)GetValue(OffContentProperty); }
-      set { SetValue(OffContentProperty, value); }
+      get => GetValue(OffContentProperty);
+      set => SetValue(OffContentProperty, value);
     }
 
     #endregion
@@ -81,13 +81,13 @@ namespace ES.Tools.Controls
     /// </summary>
     public double SwitchWidth
     {
-      get { return (double)GetValue(SwitchWidthProperty); }
-      set { SetValue(SwitchWidthProperty, value); }
+      get => (double)GetValue(SwitchWidthProperty);
+      set => SetValue(SwitchWidthProperty, value);
     }
 
     private static object CoerceSwitchWidth(DependencyObject d, object baseValue)
     {
-      var value = (double)baseValue;
+      double value = (double)baseValue;
       return Math.Min(Math.Max(value, 10), 50);
     }
 
@@ -102,8 +102,38 @@ namespace ES.Tools.Controls
     /// </summary>
     public Brush SwitchBrush
     {
-      get { return (Brush)GetValue(SwitchBrushProperty); }
-      set { SetValue(SwitchBrushProperty, value); }
+      get => (Brush)GetValue(SwitchBrushProperty);
+      set => SetValue(SwitchBrushProperty, value);
+    }
+
+    #endregion
+
+    #region Switch Border Brush Property
+
+    public static readonly DependencyProperty SwitchBorderBrushProperty = DependencyProperty.Register(nameof(SwitchBorderBrush), typeof(Brush), typeof(Switch), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    /// <summary>
+    /// Brush of the switch button border.
+    /// </summary>
+    public Brush SwitchBorderBrush
+    {
+      get => (Brush)GetValue(SwitchBorderBrushProperty);
+      set => SetValue(SwitchBorderBrushProperty, value);
+    }
+
+    #endregion
+
+    #region Switch Border Thickness Property
+
+    public static readonly DependencyProperty SwitchBorderThicknessProperty = DependencyProperty.Register(nameof(SwitchBorderThickness), typeof(Thickness), typeof(Switch), new FrameworkPropertyMetadata(new Thickness(0), FrameworkPropertyMetadataOptions.AffectsRender));
+
+    /// <summary>
+    /// Width of the switch button border.
+    /// </summary>
+    public Thickness SwitchBorderThickness
+    {
+      get => (Thickness)GetValue(SwitchBorderThicknessProperty);
+      set => SetValue(SwitchBorderThicknessProperty, value);
     }
 
     #endregion
@@ -125,22 +155,34 @@ namespace ES.Tools.Controls
       base.OnPreviewKeyDown(e);
 
       if (!IsKeyboardFocusWithin)
+      {
         return;
+      }
 
       switch (e.Key)
       {
         case Key.Left:
           if (IsChecked == false)
+          {
             IsChecked = IsThreeState ? null : true;
+          }
           else if (IsChecked == null)
+          {
             IsChecked = true;
+          }
+
           e.Handled = true;
           break;
         case Key.Right:
           if (IsChecked == true)
+          {
             IsChecked = IsThreeState ? null : false;
+          }
           else if (IsChecked == null)
+          {
             IsChecked = false;
+          }
+
           e.Handled = true;
           break;
         case Key.Return:

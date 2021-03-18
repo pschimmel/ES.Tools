@@ -27,14 +27,14 @@ namespace ES.Tools.Controls
 
     private static void OnTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      Meter meter = (Meter)d;
+      var meter = (Meter)d;
       meter.UpdateVisual();
     }
 
     public MeterType Type
     {
-      get { return (MeterType)GetValue(TypeProperty); }
-      set { SetValue(TypeProperty, value); }
+      get => (MeterType)GetValue(TypeProperty);
+      set => SetValue(TypeProperty, value);
     }
 
     #endregion
@@ -45,14 +45,14 @@ namespace ES.Tools.Controls
 
     private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      Meter meter = (Meter)d;
+      var meter = (Meter)d;
       meter.UpdateVisual();
     }
 
     public Orientation Orientation
     {
-      get { return (Orientation)GetValue(OrientationProperty); }
-      set { SetValue(OrientationProperty, value); }
+      get => (Orientation)GetValue(OrientationProperty);
+      set => SetValue(OrientationProperty, value);
     }
 
     #endregion

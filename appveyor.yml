@@ -3,22 +3,12 @@
 #---------------------------------#
 version: 0.5.0
 
-#init:
-#- ps: "Set-AppveyorBuildVariable -Name \"assembly_version\" -Value \"1.0\"  \nSet-AppveyorBuildVariable -Name \"assembly_file_version\" -Value \"1.0.0.0\"  \nSet-AppveyorBuildVariable -Name \"assembly_informational_version\" -Value \"1.0.0\""
-
 branches:
   only:
     - master
 
 pull_requests:
   do_not_increment_build_number: true
-
-assembly_info:
-  patch: true
-  file: SharedAssemblyInfo.*
-  assembly_version: '${version}'
-  assembly_file_version: '${version}'
-  assembly_informational_version: '${version}'
 
 dotnet_csproj:
   patch: true
@@ -66,7 +56,7 @@ deploy:
     branch: master                 # release from master branch only
     APPVEYOR_REPO_TAG: true        # deploy on tag push only
 - provider: GitHub
-  release: ES.Tools-$(APPVEYOR_REPO_TAG_NAME)
+  release: ES.Tools-{version}
   auth_token:
     secure: YtGsH7B9c6fUkDmOxoazOCRXN3Br4xZSMPJN8Bswuh3NiqIWqPc0opA+jkyqB9ZP
   on:

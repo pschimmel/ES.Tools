@@ -12,8 +12,8 @@ namespace ES.Tools.Shapes
 
     public double DonutWidth
     {
-      get { return (double)GetValue(DonutWidthProperty); }
-      set { SetValue(DonutWidthProperty, value); }
+      get => (double)GetValue(DonutWidthProperty);
+      set => SetValue(DonutWidthProperty, value);
     }
 
     private static object CoerceDonutWidth(DependencyObject depObj, object value)
@@ -37,28 +37,28 @@ namespace ES.Tools.Shapes
         double maxWidth = Math.Max(0.0, RenderSize.Width - StrokeThickness);
         double maxHeight = Math.Max(0.0, RenderSize.Height - StrokeThickness);
 
-        Point start = GetOuterPoint(startAngle, maxWidth, maxHeight);
-        Point end = GetOuterPoint(endAngle, maxWidth, maxHeight);
+        var start = GetOuterPoint(startAngle, maxWidth, maxHeight);
+        var end = GetOuterPoint(endAngle, maxWidth, maxHeight);
 
         double maxWidth2 = Math.Max(0.0, RenderSize.Width - DonutWidth * 2 - StrokeThickness);
         double maxHeight2 = Math.Max(0.0, RenderSize.Height - DonutWidth * 2 - StrokeThickness);
 
-        Point start2 = GetInnerPoint(startAngle, maxWidth, maxHeight);
-        Point end2 = GetInnerPoint(endAngle, maxWidth, maxHeight);
+        var start2 = GetInnerPoint(startAngle, maxWidth, maxHeight);
+        var end2 = GetInnerPoint(endAngle, maxWidth, maxHeight);
 
-        StreamGeometry geometry = new StreamGeometry();
-        using (StreamGeometryContext geometryContext = geometry.Open())
+        var geometry = new StreamGeometry();
+        using (var geometryContext = geometry.Open())
         {
           geometryContext.BeginFigure(
             new Point(RenderSize.Width / 2.0 + start.X, RenderSize.Height / 2.0 - start.Y), true, true);
           geometryContext.ArcTo(
             new Point(RenderSize.Width / 2.0 + end.X, RenderSize.Height / 2.0 - end.Y),
-            new Size(maxWidth / 2.0, maxHeight / 2.0), 0.0, (EndAngle - StartAngle) > 180, SweepDirection.Clockwise, true, false);
+            new Size(maxWidth / 2.0, maxHeight / 2.0), 0.0, EndAngle - StartAngle > 180, SweepDirection.Clockwise, true, false);
           geometryContext.LineTo(
             new Point(RenderSize.Width / 2.0 + end2.X, RenderSize.Height / 2.0 - end2.Y), true, false);
           geometryContext.ArcTo(
             new Point(RenderSize.Width / 2.0 + start2.X, RenderSize.Height / 2.0 - start2.Y),
-            new Size(maxWidth2 / 2.0, maxHeight2 / 2.0), 0.0, (EndAngle - StartAngle) > 180, SweepDirection.Counterclockwise, true, false);
+            new Size(maxWidth2 / 2.0, maxHeight2 / 2.0), 0.0, EndAngle - StartAngle > 180, SweepDirection.Counterclockwise, true, false);
         }
 
         return geometry;
@@ -69,7 +69,7 @@ namespace ES.Tools.Shapes
 
     #region Private Members
 
-    private Point GetOuterPoint(double angle, double maxWidth, double maxHeight)
+    private static Point GetOuterPoint(double angle, double maxWidth, double maxHeight)
     {
       double xValue = maxWidth / 2.0 * Math.Cos(angle * Math.PI / 180.0);
       double yValue = maxHeight / 2.0 * Math.Sin(angle * Math.PI / 180.0);

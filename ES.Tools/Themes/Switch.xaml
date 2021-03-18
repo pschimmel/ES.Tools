@@ -23,7 +23,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Content="{TemplateBinding OnContent}"
-                        Foreground="Black"
+                        Foreground="{TemplateBinding Foreground}"
                         IsTabStop="False"
                         Visibility="Collapsed" />
         <ContentControl x:Name="PART_SwitchOffContent"
@@ -32,14 +32,21 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Content="{TemplateBinding OffContent}"
-                        Foreground="Black"
+                        Foreground="{TemplateBinding Foreground}"
                         IsTabStop="False"
                         Visibility="Collapsed" />
         <Grid x:Name="SwitchGrid">
-          <Border x:Name="PART_Switch" Width="{TemplateBinding SwitchWidth}" Background="{TemplateBinding SwitchBrush}" CornerRadius="2" />
+          <Border x:Name="PART_Switch"
+                  Width="{TemplateBinding SwitchWidth}"
+                  Background="{TemplateBinding SwitchBrush}"
+                  BorderBrush="{TemplateBinding SwitchBorderBrush}"
+                  BorderThickness="{TemplateBinding SwitchBorderThickness}"
+                  CornerRadius="2" />
           <Border x:Name="SwitchHover"
                   Width="{TemplateBinding SwitchWidth}"
                   Background="Black"
+                  BorderBrush="{TemplateBinding SwitchBorderBrush}"
+                  BorderThickness="{TemplateBinding SwitchBorderThickness}"
                   CornerRadius="2"
                   Opacity="0" />
           <Rectangle x:Name="FocusVisual"

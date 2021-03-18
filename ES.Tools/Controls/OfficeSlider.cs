@@ -25,8 +25,8 @@ namespace ES.Tools.Controls
 
     public bool ShowValue
     {
-      get { return (bool)GetValue(ShowValueProperty); }
-      set { SetValue(ShowValueProperty, value); }
+      get => (bool)GetValue(ShowValueProperty);
+      set => SetValue(ShowValueProperty, value);
     }
 
     #endregion
@@ -37,8 +37,8 @@ namespace ES.Tools.Controls
 
     public string ValueStringFormat
     {
-      get { return (string)GetValue(ValueStringFormatProperty); }
-      set { SetValue(ValueStringFormatProperty, value); }
+      get => (string)GetValue(ValueStringFormatProperty);
+      set => SetValue(ValueStringFormatProperty, value);
     }
 
     #endregion

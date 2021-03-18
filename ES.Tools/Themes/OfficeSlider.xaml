@@ -170,10 +170,11 @@
       <TextBlock x:Name="ValueTextBlock"
                  Grid.Row="1"
                  Grid.Column="3"
+                 Width="50"
                  HorizontalAlignment="Right"
                  VerticalAlignment="Center"
                  Foreground="{TemplateBinding Foreground}"
-                 Visibility="Collapsed" Width="50">
+                 Visibility="Collapsed">
         <TextBlock.Text>
           <MultiBinding Converter="{StaticResource SliderValueConverter}" Mode="OneWay">
             <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />

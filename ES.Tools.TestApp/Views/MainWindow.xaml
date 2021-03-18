@@ -195,11 +195,12 @@
             <TextBlock Grid.Row="3" Margin="2" Text="OfficeSlider" />
             <controls:OfficeSlider Grid.Row="4"
                                    Margin="2"
-                                   Maximum="10" ShowValue="False"
+                                   Maximum="10"
                                    Minimum="0"
+                                   ShowValue="False"
                                    Value="2" />
           </Grid>
-          <Grid Width="200">
+          <Grid>
             <Grid.RowDefinitions>
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
@@ -208,11 +209,22 @@
             <StackPanel Grid.Row="1">
               <controls:Switch Width="80"
                                Height="30"
-                               Margin="2"
-                               Background="LightBlue"
+                               Margin="50"
+                               Background="White"
                                BorderBrush="Black"
                                BorderThickness="2"
-                               IsThreeState="True" />
+                               IsThreeState="True"
+                               SwitchBorderBrush="Black"
+                               SwitchBorderThickness="2"
+                               SwitchBrush="White">
+                <controls:Switch.OffContent>
+                  <TextBlock FontWeight="Bold" Text="Off" />
+                </controls:Switch.OffContent>
+                <controls:Switch.OnContent>
+                  <TextBlock FontWeight="Bold" Text="On" />
+                </controls:Switch.OnContent>
+              </controls:Switch>
+              <controls:Switch Width="80" Height="30" Margin="2" />
               <controls:Switch Width="80"
                                Height="30"
                                Margin="2"
@@ -220,7 +232,14 @@
                                BorderBrush="Black"
                                BorderThickness="2"
                                IsEnabled="False"
-                               IsThreeState="True" />
+                               IsThreeState="True">
+                <controls:Switch.OffContent>
+                  <TextBlock FontWeight="Bold" Text="Off" />
+                </controls:Switch.OffContent>
+                <controls:Switch.OnContent>
+                  <TextBlock FontWeight="Bold" Text="On" />
+                </controls:Switch.OnContent>
+              </controls:Switch>
             </StackPanel>
           </Grid>
           <Grid DataContext="{Binding MeterViewModel}">
@@ -243,7 +262,7 @@
               <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <controls:Meter Width="20"
                                 Height="150"
-                                Margin="2"
+                                Margin="5"
                                 BorderBrush="Black"
                                 BorderThickness="1"
                                 ErrorValue="90"
@@ -254,7 +273,7 @@
                                 Value="{Binding Value}" />
                 <controls:Meter Width="20"
                                 Height="150"
-                                Margin="0,2,2,2"
+                                Margin="0,5,5,5"
                                 BorderBrush="Black"
                                 BorderThickness="1"
                                 ErrorValue="90"
@@ -269,7 +288,7 @@
                               Grid.Column="1"
                               Width="150"
                               Height="150"
-                              Margin="0,2,2,2"
+                              Margin="0,5,5,5"
                               BorderBrush="Black"
                               BorderThickness="1"
                               ErrorValue="90"
@@ -287,7 +306,30 @@
                 </controls:Gauge.Content>
               </controls:Gauge>
             </Grid>
-            <ToggleButton Grid.Row="2" Margin="2" Command="{Binding RandomValuesCommand}">Generate Values</ToggleButton>
+            <ToggleButton Grid.Row="2" Margin="5" Command="{Binding RandomValuesCommand}">Generate Values</ToggleButton>
+          </Grid>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="ProgressCircle" />
+            <controls:ProgressCircle Grid.Row="1"
+                                     Width="100"
+                                     Height="100"
+                                     Margin="5"
+                                     CircleWidth="10"
+                                     IsIndeterminate="true" />
+            <controls:ProgressCircle Grid.Row="2"
+                                     Width="100"
+                                     Height="100"
+                                     Margin="5"
+                                     Background="LightGreen"
+                                     BorderBrush="{x:Null}"
+                                     BorderThickness="0"
+                                     CircleWidth="10"
+                                     Value="33" />
           </Grid>
         </WrapPanel>
       </TabItem>

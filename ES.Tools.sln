@@ -28,6 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
 		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
 		Documentation\DonutSegment.md = Documentation\DonutSegment.md
+		Documentation\Gauge.md = Documentation\Gauge.md
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md
 		Documentation\Indicator.md = Documentation\Indicator.md
 		Documentation\Meter.md = Documentation\Meter.md
@@ -35,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\OfficeSlider.md = Documentation\OfficeSlider.md
 		Documentation\PasswordBoxBehavior.md = Documentation\PasswordBoxBehavior.md
 		Documentation\PieSegment.md = Documentation\PieSegment.md
+		Documentation\ProgressCircle.md = Documentation\ProgressCircle.md
+		Documentation\Switch.md = Documentation\Switch.md
 		Documentation\TextBoxBehavior.md = Documentation\TextBoxBehavior.md
 		Documentation\TreeHelper.md = Documentation\TreeHelper.md
 		Documentation\Utilities.md = Documentation\Utilities.md
@@ -44,6 +47,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A37-15B8-41F8-BE83-5E520585DEB8}"
 	ProjectSection(SolutionItems) = preProject
 		Documentation\Images\CustomItemsControl.png = Documentation\Images\CustomItemsControl.png
+		Documentation\Images\Gauge.gif = Documentation\Images\Gauge.gif
 		Documentation\Images\GrayscaleEffect.png = Documentation\Images\GrayscaleEffect.png
 		Documentation\Images\ImageColor.jpg = Documentation\Images\ImageColor.jpg
 		Documentation\Images\ImageGrayscale.jpg = Documentation\Images\ImageGrayscale.jpg
@@ -51,6 +55,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A
 		Documentation\Images\Meter.png = Documentation\Images\Meter.png
 		Documentation\Images\OfficeSlider.png = Documentation\Images\OfficeSlider.png
 		Documentation\Images\PieSegment.png = Documentation\Images\PieSegment.png
+		Documentation\Images\ProgressCircle.gif = Documentation\Images\ProgressCircle.gif
+		Documentation\Images\Switch.gif = Documentation\Images\Switch.gif
 	EndProjectSection
 EndProject
 Global

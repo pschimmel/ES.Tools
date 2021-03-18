@@ -7,10 +7,10 @@ namespace ES.Tools.Controls
   /// <summary>
   /// Base class for meter controls
   /// </summary>
-  [TemplatePart(Name = MeterBase.BackgroundTemplateName, Type = typeof(FrameworkElement))]
-  [TemplatePart(Name = MeterBase.IndicatorTemplateName, Type = typeof(FrameworkElement))]
-  [TemplatePart(Name = MeterBase.ErrorTemplateName, Type = typeof(FrameworkElement))]
-  [TemplatePart(Name = MeterBase.WarningTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = BackgroundTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = IndicatorTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = ErrorTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = WarningTemplateName, Type = typeof(FrameworkElement))]
   public abstract class MeterBase : Control
   {
     #region Fields
@@ -34,8 +34,8 @@ namespace ES.Tools.Controls
 
     public double Value
     {
-      get { return (double)GetValue(ValueProperty); }
-      set { SetValue(ValueProperty, value); }
+      get => (double)GetValue(ValueProperty);
+      set => SetValue(ValueProperty, value);
     }
 
     private static object CoerceValue(DependencyObject d, object baseValue)
@@ -45,7 +45,7 @@ namespace ES.Tools.Controls
 
     private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      MeterBase meter = (MeterBase)d;
+      var meter = (MeterBase)d;
       meter.UpdateVisual();
     }
 
@@ -57,13 +57,13 @@ namespace ES.Tools.Controls
 
     public double MinValue
     {
-      get { return (double)GetValue(MinValueProperty); }
-      set { SetValue(MinValueProperty, value); }
+      get => (double)GetValue(MinValueProperty);
+      set => SetValue(MinValueProperty, value);
     }
 
     private static void OnMinValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      MeterBase meter = (MeterBase)d;
+      var meter = (MeterBase)d;
       meter.Value = ValidateValue(meter, meter.Value);
       meter.UpdateVisual();
     }
@@ -76,13 +76,13 @@ namespace ES.Tools.Controls
 
     public double MaxValue
     {
-      get { return (double)GetValue(MaxValueProperty); }
-      set { SetValue(MaxValueProperty, value); }
+      get => (double)GetValue(MaxValueProperty);
+      set => SetValue(MaxValueProperty, value);
     }
 
     private static void OnMaxValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      MeterBase meter = (MeterBase)d;
+      var meter = (MeterBase)d;
       meter.Value = ValidateValue(meter, meter.Value);
       meter.UpdateVisual();
     }
@@ -95,14 +95,14 @@ namespace ES.Tools.Controls
 
     private static void OnWarningValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      MeterBase meter = (MeterBase)d;
+      var meter = (MeterBase)d;
       meter.UpdateVisual();
     }
 
     public double WarningValue
     {
-      get { return (double)GetValue(WarningValueProperty); }
-      set { SetValue(WarningValueProperty, value); }
+      get => (double)GetValue(WarningValueProperty);
+      set => SetValue(WarningValueProperty, value);
     }
 
     #endregion
@@ -113,14 +113,14 @@ namespace ES.Tools.Controls
 
     private static void OnErrorValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      MeterBase meter = (MeterBase)d;
+      var meter = (MeterBase)d;
       meter.UpdateVisual();
     }
 
     public double ErrorValue
     {
-      get { return (double)GetValue(ErrorValueProperty); }
-      set { SetValue(ErrorValueProperty, value); }
+      get => (double)GetValue(ErrorValueProperty);
+      set => SetValue(ErrorValueProperty, value);
     }
 
     #endregion

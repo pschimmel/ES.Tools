@@ -10,8 +10,8 @@ namespace ES.Tools.Shapes
     {
       get
       {
-        StreamGeometry geometry = new StreamGeometry();
-        using (StreamGeometryContext geometryContext = geometry.Open())
+        var geometry = new StreamGeometry();
+        using (var geometryContext = geometry.Open())
         {
           geometryContext.BeginFigure(new Point(RenderSize.Width / 2.0, 0), true, true);
           geometryContext.LineTo(new Point(0, RenderSize.Height), true, true);

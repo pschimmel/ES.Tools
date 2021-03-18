@@ -7,8 +7,8 @@ namespace ES.Tools.Controls
   /// <summary>
   /// Border that clips its content, e.g. when using round corners
   /// </summary>
-  [TemplatePart(Name = ClippingBorder.BackgroundTemplateName, Type = typeof(FrameworkElement))]
-  [TemplatePart(Name = ClippingBorder.InnerBorderTemplateName, Type = typeof(Border))]
+  [TemplatePart(Name = BackgroundTemplateName, Type = typeof(FrameworkElement))]
+  [TemplatePart(Name = InnerBorderTemplateName, Type = typeof(Border))]
   public class ClippingBorder : ContentControl
   {
     #region Fields
@@ -37,8 +37,8 @@ namespace ES.Tools.Controls
 
     public CornerRadius CornerRadius
     {
-      get { return (CornerRadius)GetValue(CornerRadiusProperty); }
-      set { SetValue(CornerRadiusProperty, value); }
+      get => (CornerRadius)GetValue(CornerRadiusProperty);
+      set => SetValue(CornerRadiusProperty, value);
     }
 
     private static void CornerRadiusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

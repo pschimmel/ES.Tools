@@ -12,8 +12,8 @@ namespace ES.Tools.Shapes
 
     public double StartAngle
     {
-      get { return (double)GetValue(StartAngleProperty); }
-      set { SetValue(StartAngleProperty, value); }
+      get => (double)GetValue(StartAngleProperty);
+      set => SetValue(StartAngleProperty, value);
     }
 
     #endregion
@@ -24,8 +24,8 @@ namespace ES.Tools.Shapes
 
     public double EndAngle
     {
-      get { return (double)GetValue(EndAngleProperty); }
-      set { SetValue(EndAngleProperty, value); }
+      get => (double)GetValue(EndAngleProperty);
+      set => SetValue(EndAngleProperty, value);
     }
 
     #endregion

@@ -18,15 +18,15 @@ namespace ES.Tools.Shapes
         double maxWidth = Math.Max(0.0, RenderSize.Width - StrokeThickness);
         double maxHeight = Math.Max(0.0, RenderSize.Height - StrokeThickness);
 
-        Point start = GetPoint(startAngle, maxWidth, maxHeight);
-        Point end = GetPoint(endAngle, maxWidth, maxHeight);
+        var start = GetPoint(startAngle, maxWidth, maxHeight);
+        var end = GetPoint(endAngle, maxWidth, maxHeight);
 
-        StreamGeometry geometry = new StreamGeometry();
-        using (StreamGeometryContext geometryContext = geometry.Open())
+        var geometry = new StreamGeometry();
+        using (var geometryContext = geometry.Open())
         {
-          geometryContext.BeginFigure(new Point((RenderSize.Width / 2.0) + start.X, (RenderSize.Height / 2.0) - start.Y), true, true);
-          geometryContext.ArcTo(new Point((RenderSize.Width / 2.0) + end.X, (RenderSize.Height / 2.0) - end.Y), new Size(maxWidth / 2.0, maxHeight / 2), 0.0, (EndAngle - StartAngle) > 180, SweepDirection.Clockwise, true, false);
-          geometryContext.LineTo(new Point((RenderSize.Width / 2.0), (RenderSize.Height / 2.0)), true, false);
+          geometryContext.BeginFigure(new Point(RenderSize.Width / 2.0 + start.X, RenderSize.Height / 2.0 - start.Y), true, true);
+          geometryContext.ArcTo(new Point(RenderSize.Width / 2.0 + end.X, RenderSize.Height / 2.0 - end.Y), new Size(maxWidth / 2.0, maxHeight / 2), 0.0, EndAngle - StartAngle > 180, SweepDirection.Clockwise, true, false);
+          geometryContext.LineTo(new Point(RenderSize.Width / 2.0, RenderSize.Height / 2.0), true, false);
         }
 
         return geometry;

@@ -10,8 +10,8 @@ namespace ES.Tools.Infrastructure
   /// </summary>
   public class Services
   {
-    private static Lazy<Services> _lazy = new Lazy<Services>(()=> new Services());
-    private ReaderWriterLockSlim _lock;
+    private static readonly Lazy<Services> _lazy = new Lazy<Services>(()=> new Services());
+    private readonly ReaderWriterLockSlim _lock;
     private readonly Dictionary<Type, object> _services;
 
     private Services()
@@ -32,7 +32,9 @@ namespace ES.Tools.Infrastructure
       {
 
         if (_services.ContainsKey(typeof(T)))
+        {
           throw new InvalidOperationException("Service is already registered.");
+        }
 
         _services[typeof(T)] = service;
       }

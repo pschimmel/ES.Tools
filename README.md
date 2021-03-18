@@ -24,6 +24,8 @@ Great useful WPF controls and helpers.
 - [**Meter**](Documentation/Meter) - Control that looks like a vertical or horizontal meter with or without indicator. 
 - [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
 - [**PieSegment**](Documentation/PieSegment) - Simple control that looks like a segment of a pie.
+- **ProgressCircle** - A simple circular progress bar.
+- [**Switch**](Documentation/Switch) - A switch button control.
 
 ## Converters
 - [**BooleanToVisibilityConverter**](Documentation/Converters) - Converts a boolean value to a *System.Windows.Visibility*.
