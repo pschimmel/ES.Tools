@@ -10,7 +10,7 @@ namespace ES.Tools.Infrastructure
   /// </summary>
   public class Services
   {
-    private static readonly Lazy<Services> _lazy = new Lazy<Services>(()=> new Services());
+    private static readonly Lazy<Services> _lazy = new(() => new Services());
     private readonly ReaderWriterLockSlim _lock;
     private readonly Dictionary<Type, object> _services;
 

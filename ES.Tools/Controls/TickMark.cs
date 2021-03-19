@@ -6,12 +6,6 @@ namespace ES.Tools.Controls
 {
   public class TickMark : Shape
   {
-    protected override Geometry DefiningGeometry
-    {
-      get
-      {
-        return new LineGeometry(new Point(RenderSize.Width / 2.0, 0), new Point(RenderSize.Width / 2.0, 10));
-      }
-    }
+    protected override Geometry DefiningGeometry => new LineGeometry(new Point(RenderSize.Width / 2.0, 0), new Point(RenderSize.Width / 2.0, 10));
   }
 }

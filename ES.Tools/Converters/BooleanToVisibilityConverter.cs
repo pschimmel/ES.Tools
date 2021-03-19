@@ -13,7 +13,7 @@ namespace ES.Tools.Converters
   {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-      if (!(parameter is Visibility falseValue))
+      if (parameter is not Visibility falseValue)
       {
         falseValue = Visibility.Collapsed;
       }

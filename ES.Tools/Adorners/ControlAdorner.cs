@@ -41,12 +41,7 @@ namespace ES.Tools.Adorners
 
     protected override Visual GetVisualChild(int index)
     {
-      if (index != 0)
-      {
-        throw new ArgumentOutOfRangeException(nameof(index));
-      }
-
-      return _child;
+      return index != 0 ? throw new ArgumentOutOfRangeException(nameof(index)) : _child;
     }
 
     /// <summary>

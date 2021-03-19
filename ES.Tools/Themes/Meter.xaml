@@ -8,13 +8,13 @@
                 Width="{Binding Width, ElementName=PART_Indicator}"
                 Margin="1"
                 HorizontalAlignment="Left"
-                Background="Yellow"
+                Background="{TemplateBinding WarningBrush}"
                 Visibility="Collapsed" />
         <Border x:Name="PART_Error"
                 Width="{Binding Width, ElementName=PART_Indicator}"
                 Margin="1"
                 HorizontalAlignment="Left"
-                Background="Red"
+                Background="{TemplateBinding ErrorBrush}"
                 Visibility="Collapsed" />
       </Grid>
     </Border>
@@ -33,8 +33,8 @@
     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" UseLayoutRounding="True">
       <Grid x:Name="Root" MinWidth="50" MinHeight="10">
         <Border x:Name="PART_Background" Margin="1" Background="{TemplateBinding Foreground}" />
-        <Border x:Name="PART_Warning" Margin="1" HorizontalAlignment="Right" Background="Yellow" />
-        <Border x:Name="PART_Error" Margin="1" HorizontalAlignment="Right" Background="Red" />
+        <Border x:Name="PART_Warning" Margin="1" HorizontalAlignment="Right" Background="{TemplateBinding WarningBrush}" />
+        <Border x:Name="PART_Error" Margin="1" HorizontalAlignment="Right" Background="{TemplateBinding ErrorBrush}" />
         <Border x:Name="PART_Indicator"
                 Margin="1"
                 HorizontalAlignment="Left"

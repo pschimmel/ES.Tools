@@ -37,7 +37,7 @@ namespace ES.Tools.Shapes
 
     #region Private Methods
 
-    private Point GetPoint(double angle, double maxWidth, double maxHeight)
+    private static Point GetPoint(double angle, double maxWidth, double maxHeight)
     {
       double xValue = maxWidth / 2.0 * Math.Cos(angle * Math.PI / 180.0);
       double yValue = maxHeight / 2.0 * Math.Sin(angle * Math.PI / 180.0);

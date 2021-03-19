@@ -6,6 +6,7 @@ The **Gauge** control can be used to display values within a certain range.
 **Properties**
 
 * *Content* - Content of the content area, displayed in the lower part of the gauge.
+* *ErrorBrush* - Brush of the error area.
 * *ErrorValue* - Value where the error area begins. Set this to 0 to remove the area.
 * *Header* - Content of the header area, displayed in the upper part of the gauge.
 * *MaxValue* - Maximum value to display.
@@ -13,6 +14,7 @@ The **Gauge** control can be used to display values within a certain range.
 * *SubTicks* - Number of sub tick lines between the main tick lines.
 * *TotalTicks* - Number of total tick lines.
 * *Value* - Current value.
+* *WarningBrush* - Brush of the warning area.
 * *WarningValue* - Value where the warning area begins. Set this to 0 to remove the area.
 
 **Usage**

@@ -10,7 +10,7 @@ namespace ES.Tools.MVVM
   /// </summary>
   public class ViewFactory
   {
-    private static readonly Lazy<ViewFactory> _lazy = new Lazy<ViewFactory>(() => new ViewFactory());
+    private static readonly Lazy<ViewFactory> _lazy = new(() => new ViewFactory());
     private readonly ReaderWriterLockSlim _lock;
     private readonly Dictionary<Type, Type> _typeDictionary;
 
@@ -72,16 +72,9 @@ namespace ES.Tools.MVVM
       _lock.EnterReadLock();
       try
       {
-        Type viewType;
-
-        if (_typeDictionary.ContainsKey(viewModel.GetType()))
-        {
-          viewType = _typeDictionary[viewModel.GetType()];
-        }
-        else
-        {
-          throw new InvalidOperationException("Unknown View for ViewModel object");
-        }
+        var viewType = _typeDictionary.ContainsKey(viewModel.GetType())
+          ? _typeDictionary[viewModel.GetType()]
+          : throw new InvalidOperationException("Unknown View for ViewModel object");
 
         var view = (IView)Activator.CreateInstance(viewType);
         view.DataContext = viewModel;

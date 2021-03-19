@@ -29,9 +29,9 @@ namespace ES.Tools.Behaviors
 
     private static void AutoScrollToCurrentItemPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      if (d is Selector selector && e.NewValue is bool)
+      if (d is Selector selector && e.NewValue is bool booleanValue)
       {
-        if ((bool)e.NewValue)
+        if (booleanValue)
         {
           selector.SelectionChanged += OnSelectionChanged;
         }
@@ -45,7 +45,7 @@ namespace ES.Tools.Behaviors
     private static void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       // Sender and selector need to be the same. Otherwise sub-items (e.g. drop-down lists of comboboxes) will also trigger this.
-      if (!(sender is Selector selector) || sender != e.OriginalSource)
+      if (sender is not Selector selector || sender != e.OriginalSource)
       {
         return;
       }
@@ -99,9 +99,9 @@ namespace ES.Tools.Behaviors
 
     private static void OnAutoBringIntoViewChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      if (d is TreeViewItem item && e.NewValue is bool)
+      if (d is TreeViewItem item && e.NewValue is bool booleanValue)
       {
-        if ((bool)e.NewValue)
+        if (booleanValue)
         {
           item.Selected += OnTreeViewItemSelected;
         }

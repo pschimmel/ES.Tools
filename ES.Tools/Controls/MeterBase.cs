@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace ES.Tools.Controls
 {
@@ -107,6 +108,18 @@ namespace ES.Tools.Controls
 
     #endregion
 
+    #region Warning Brush
+
+    public static readonly DependencyProperty WarningBrushProperty = DependencyProperty.Register(nameof(WarningBrush), typeof(Brush), typeof(MeterBase), new FrameworkPropertyMetadata(Brushes.Yellow, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    public Brush WarningBrush
+    {
+      get => (Brush)GetValue(WarningBrushProperty);
+      set => SetValue(WarningBrushProperty, value);
+    }
+
+    #endregion
+
     #region Error Value
 
     public static readonly DependencyProperty ErrorValueProperty = DependencyProperty.Register(nameof(ErrorValue), typeof(double), typeof(MeterBase), new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsRender, OnErrorValueChanged));
@@ -121,6 +134,18 @@ namespace ES.Tools.Controls
     {
       get => (double)GetValue(ErrorValueProperty);
       set => SetValue(ErrorValueProperty, value);
+    }
+
+    #endregion
+
+    #region Error Brush
+
+    public static readonly DependencyProperty ErrorBrushProperty = DependencyProperty.Register(nameof(ErrorBrush), typeof(Brush), typeof(MeterBase), new FrameworkPropertyMetadata(Brushes.Red, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    public Brush ErrorBrush
+    {
+      get => (Brush)GetValue(ErrorBrushProperty);
+      set => SetValue(ErrorBrushProperty, value);
     }
 
     #endregion

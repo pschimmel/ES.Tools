@@ -11,14 +11,14 @@
                            Margin="5"
                            DonutWidth="15"
                            EndAngle="30"
-                           Fill="Yellow"
+                           Fill="{TemplateBinding WarningBrush}"
                            StartAngle="0"
                            StrokeThickness="0" />
       <shapes:DonutSegment x:Name="PART_Error"
                            Margin="5"
                            DonutWidth="15"
                            EndAngle="25"
-                           Fill="Red"
+                           Fill="{TemplateBinding ErrorBrush}"
                            StartAngle="10"
                            StrokeThickness="0" />
       <Grid Margin="15">
