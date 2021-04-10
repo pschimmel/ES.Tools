@@ -69,14 +69,6 @@
             <controls:AccordionItem Content="ddd" Header="xxx" IsSelected="True" />
             <controls:AccordionItem Content="ddd" Header="yyy" />
           </controls:Accordion>
-          <StackPanel>
-            <controls:AnimatedProgressBar Width="300"
-                                        Height="30"
-                                        AnimatedValue="{Binding Text, ElementName=ddd, Mode=TwoWay}"
-                                        Maximum="100"
-                                        Minimum="0" Margin="5" />
-            <TextBox x:Name="ddd" Text="10" Margin="5,0,5,5" />
-          </StackPanel>
         </WrapPanel>
       </TabItem>
       <TabItem Header="Behaviors">
@@ -349,6 +341,31 @@
                                      BorderThickness="0"
                                      CircleWidth="10"
                                      Value="33" />
+          </Grid>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="AnimatedProgressBar" />
+            <controls:AnimatedProgressBar x:Name="AnimatedProgressBar"
+                                          Grid.Row="1"
+                                          Width="200"
+                                          Height="20"
+                                          Margin="5"
+                                          AnimatedValue="{Binding Text, ElementName=AnimatedProgressBarValue}"
+                                          Maximum="100"
+                                          Minimum="0">
+              <controls:AnimatedProgressBar.EasingFunction>
+                <ExponentialEase />
+              </controls:AnimatedProgressBar.EasingFunction>
+              <controls:AnimatedProgressBar.Duration>
+                0:0:5
+              </controls:AnimatedProgressBar.Duration>
+            </controls:AnimatedProgressBar>
+            <TextBox x:Name="AnimatedProgressBarValue" Grid.Row="3" Margin="5,0,5,5" Text="10" />
           </Grid>
         </WrapPanel>
       </TabItem>

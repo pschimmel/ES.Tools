@@ -15,5 +15,12 @@ Bind to the *AnimatedValue* property instead of the *Value* property to activate
 **Usage**
 
 ``` XML
-<controls:AnimatedProgressBar AnimatedValue="{Binding ProgressValue}" />
+<controls:AnimatedProgressBar AnimatedValue="{Binding ProgressValue}">
+  <controls:AnimatedProgressBar.Duration>
+    0:0:5
+  </controls:AnimatedProgressBar.Duration>
+  <cntrols:AnimatedProgressBar.EasingFunction>
+    <ExponentialEase />
+  </controls:AnimatedProgressBar.EasingFunction>
+</controls:AnimatedProgressBar>
 ```

@@ -42,6 +42,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\TextBoxBehavior.md = Documentation\TextBoxBehavior.md
 		Documentation\TreeHelper.md = Documentation\TreeHelper.md
 		Documentation\Utilities.md = Documentation\Utilities.md
+		Documentation\ViewFactory.md = Documentation\ViewFactory.md
 		Documentation\ViewModel.md = Documentation\ViewModel.md
 	EndProjectSection
 EndProject

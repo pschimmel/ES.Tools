@@ -13,16 +13,17 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 ![ProgressCircle example](Documentation/Images/IntermediateProgressCircle.gif "ProgressCircle")
 ![Switch example](Documentation/Images/Switch.gif "Switch")
 
-## Adorners
+## Controls and Tools
+### Adorners
 - [**ControlAdorner**](Documentation/ControlAdorner) - Adorner that renders any control.
 - [**DataTemplateAdorner**](Documentation/DataTemplateAdorner) - Adorner that will take a *DataTemplate* and a data object to render the adorner.
 
-## Behaviors
+### Behaviors
 - [**AutoScrollToCurrentItemBehavior**](Documentation/AutoScrollToCurrentItemBehavior) - Tries to bring the current item into the view. Works with any *Selector* control. 
 - [**TextBoxBehavior**](Documentation/TextBoxBehavior) - Use the property *SelectAllTextOnFocus* to automatically select the whole text when the control is focused. 
 - [**PasswordBoxBehavior**](Documentation/PasswordBoxBehavior) - Same as *TextBoxBehavior*, but for the WPF *PasswordBox* control.
  
-## Controls
+### Controls
 - [**AnimatedProgressBar**](Documentation/AnimatedProgressBar) - ProgressBar where the steps in between are animated.
 - [**AutoGrayableImage**](Documentation/AutoGrayableImage) - Image control that automatically turns itself into a grayscale image when disabled.
 - [**CustomItemsControl**](Documentation/CustomItemsControl) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
@@ -35,27 +36,27 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 - [**ProgressCircle**](Documentation/ProgressCircle) - A simple circular progress bar.
 - [**Switch**](Documentation/Switch) - A switch button control.
 
-## Converters
+### Converters
 - [**BooleanToVisibilityConverter**](Documentation/Converters) - Converts a boolean value to a *System.Windows.Visibility*.
 - [**ColorToStringConverter**](Documentation/Converters) - Converts a WPF *System.Windows.Media.Color* to a string and back.
 - [**DateTimeToTimeSpanConverter**](Documentation/Converters) - Converts a *System.DateTime* into a *System.TimeSpan*. This can be used for data binding when the model property has to be a *System.DateTime*.
 - [**TextTrimmingConverter**](Documentation/Converters) - Converts a string into a string with a limited number of characters. If the text exceeds the number of characters "..." is added.
 
-## Effects
+### Effects
 - [**GrayscaleEffect**](Documentation/GrayscaleEffect) - WPF *Effect* that turns the control into a monochrome colored control.
 
-## Infrastructure
+### Infrastructure
 - **Services** - Singleton class that globally manages service classes.
 - **TempServiceReplacer** - Utility class that replaces services temporarily.
 - [**Utilities**](Documentation/Utilities) - Useful tools and extensions.
 
-## MVVM
+### MVVM
 - [**ActionCommand**](Documentation/ActionCommand) - *ICommand* implementation, updating automatically when the *CanExecute* changes.
 - [**NotifyObject**](Documentation/NotifyObject) - Basic abstract implementation of *INotifyPropertyChanged*.
-- **ViewFactory** - Singleton class that manages the dependency between *ViewModel* and *View*.
+- [**ViewFactory**](Documentation/ViewFactory) - Singleton class that manages the dependency between *ViewModel* and *View*.
 - [**ViewModel**](Documentation/ViewModel) - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
 
-## UI
+### UI
 - [**DependencyPropertyWatcher**](Documentation/DependencyPropertyWatcher) - Watches a dependency property and casts an event when the value changes.
 - **DispatcherWrapper** - Wrapper that wraps a WPF dispatcher. In unit tests you can easily replace the default dispatcher by a tesing implementation.
 - [**TreeHelper**](Documentation/TreeHelper) - Extension methods that help navigate the WPF visual tree and logical tree.
