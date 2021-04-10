@@ -23,11 +23,12 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 - [**PasswordBoxBehavior**](Documentation/PasswordBoxBehavior) - Same as *TextBoxBehavior*, but for the WPF *PasswordBox* control.
  
 ## Controls
+- [**AnimatedProgressBar**](Documentation/AnimatedProgressBar) - ProgressBar where the steps in between are animated.
 - [**AutoGrayableImage**](Documentation/AutoGrayableImage) - Image control that automatically turns itself into a grayscale image when disabled.
 - [**CustomItemsControl**](Documentation/CustomItemsControl) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
 - [**DonutSegment**](Documentation/DonutSegment) - Simple control that looks like a segment of a donut. 
 - [**Gauge**](Documentation/Gauge) - Control that looks like a gauge with an indicator. 
-- [**Indicator**](Documentation/Indicator) - Control that looks like a pin. 
+- [**Indicator**](Documentation/Indicators) - Control that looks like a pin. 
 - [**Meter**](Documentation/Meter) - Control that looks like a vertical or horizontal meter with or without indicator. 
 - [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
 - [**PieSegment**](Documentation/PieSegment) - Simple control that looks like a segment of a pie.

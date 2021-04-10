@@ -1,6 +1,9 @@
 # ProgressCircle
 Namespace: **ES.Tools.Controls**
 
+![ProgressCircle example](Images/IntermediateProgressCircle.gif "ProgressCircle")
+![ProgressCircle example 2](Images/ProgressCircle.png "ProgressCircle 2")
+
 The **ProgressCircle** control is a circular progress control. It supports all features of the WPF *ProgressBar*.
 
 **Properties**
@@ -15,9 +18,5 @@ The **ProgressCircle** control is a circular progress control. It supports all f
                          BorderBrush="{x:Null}"
                          BorderThickness="0"
                          CircleWidth="10"
-                         Value="33" />
+                         Value="{Binding ProgressValue}" />
 ```
-**Example**
-
-![ProgressCircle example](Images/IntermediateProgressCircle.gif "ProgressCircle")
-![ProgressCircle example 2](Images/ProgressCircle.png "ProgressCircle 2")

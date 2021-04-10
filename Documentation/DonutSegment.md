@@ -1,6 +1,8 @@
 # DonutSegment
 Namespace: **ES.Tools.Controls**
 
+![DonutSegment example](Images/DonutSegment.png "DonutSegment")
+
 The **DonutSegment** is simple shape control that is rendered as a segment of a donut.
 
 **Properties**
@@ -21,9 +23,7 @@ The **DonutSegment** is simple shape control that is rendered as a segment of a 
                        Stroke="Black"
                        StrokeThickness="1" />
 ```
-**Example**
 
-![DonutSegment example](Images/DonutSegment.png "DonutSegment")
 
 **Remarks**
 

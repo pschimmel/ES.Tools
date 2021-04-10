@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:ES.Tools.Controls">
+  <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+  <ControlTemplate x:Key="AccordionItemTemplate" TargetType="{x:Type controls:AccordionItem}">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Border Background="LightGray">
+        <ContentPresenter x:Name="PART_Header" ContentSource="Header" />
+      </Border>
+      <Border Grid.Row="1" Visibility="{TemplateBinding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <ContentPresenter x:Name="PART_Content" ContentSource="Content" />
+      </Border>
+    </Grid>
+  </ControlTemplate>
+
+  <Style TargetType="{x:Type controls:AccordionItem}">
+    <Setter Property="Template" Value="{StaticResource AccordionItemTemplate}" />
+  </Style>
+</ResourceDictionary>

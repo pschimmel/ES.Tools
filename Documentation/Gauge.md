@@ -1,6 +1,8 @@
 # Gauge
 Namespace: **ES.Tools.Controls**
 
+![Gauge example](Images/Gauge.gif "Gauge")
+
 The **Gauge** control can be used to display values within a certain range.
 
 **Properties**
@@ -9,6 +11,8 @@ The **Gauge** control can be used to display values within a certain range.
 * *ErrorBrush* - Brush of the error area.
 * *ErrorValue* - Value where the error area begins. Set this to 0 to remove the area.
 * *Header* - Content of the header area, displayed in the upper part of the gauge.
+* *Indicator* - Type of the indicator. One of the following values: *Default*, *Thin*.
+* *IndicatorWidth* - Width of the indicator width.
 * *MaxValue* - Maximum value to display.
 * *MinValue* - Minimum value to display.
 * *SubTicks* - Number of sub tick lines between the main tick lines.
@@ -37,6 +41,3 @@ The **Gauge** control can be used to display values within a certain range.
   </controls:Gauge.Content>
 </controls:Gauge>
 ```
-**Example**
-
-![Gauge example](Images/Gauge.gif "Gauge")

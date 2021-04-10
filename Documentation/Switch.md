@@ -1,6 +1,8 @@
 # Switch
 Namespace: **ES.Tools.Controls**
 
+![Switch example](Images/Switch.gif "Switch")
+
 The **Switch** is a complete restyled toggle button control. It supports all features of the WPF *ToggleButton*.
 
 **Properties**
@@ -24,6 +26,3 @@ The **Switch** is a complete restyled toggle button control. It supports all fea
                  SwitchBorderThickness="2"
                  SwitchBrush="White">
 ```
-**Example**
-
-![Switch example](Images/Switch.gif "Switch")

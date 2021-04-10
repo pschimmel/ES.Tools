@@ -1,10 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
   <ResourceDictionary.MergedDictionaries>
-    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Meter.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Gauge.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/OfficeSlider.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Switch.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Accordion.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/AccordionItem.xaml" />
     <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/ClippingBorder.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Gauge.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Meter.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/OfficeSlider.xaml" />
     <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/ProgressCircle.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/Switch.xaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

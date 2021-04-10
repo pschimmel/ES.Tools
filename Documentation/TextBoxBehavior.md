@@ -1,4 +1,5 @@
 # TextBoxBehavior
+
 Namespace: **ES.Tools.Behaviors**
 
 The **TextBoxBehavior** is an extension for WPF *TextBox*es.

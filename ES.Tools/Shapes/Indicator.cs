@@ -14,8 +14,8 @@ namespace ES.Tools.Shapes
         using (var geometryContext = geometry.Open())
         {
           geometryContext.BeginFigure(new Point(RenderSize.Width / 2.0, 0), true, true);
-          geometryContext.LineTo(new Point(0, RenderSize.Height), true, true);
-          geometryContext.ArcTo(new Point(RenderSize.Width, RenderSize.Height), new Size(RenderSize.Width / 2.0, RenderSize.Width / 2.0), 0.0, false, SweepDirection.Counterclockwise, true, false);
+          geometryContext.LineTo(new Point(0, RenderSize.Height - RenderSize.Width / 2), true, true);
+          geometryContext.ArcTo(new Point(RenderSize.Width, RenderSize.Height - RenderSize.Width / 2), new Size(RenderSize.Width / 2.0, RenderSize.Width / 2.0), 0.0, false, SweepDirection.Counterclockwise, true, false);
         }
 
         return geometry;

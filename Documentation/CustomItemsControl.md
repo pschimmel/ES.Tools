@@ -1,12 +1,10 @@
 # CustomItemsControl
 Namespace: **ES.Tools.Controls**
 
+![CustomItemsControl example](Images/CustomItemsControl.png "CustomItemsControl example")
+
 The **CustomItemsControl** control is an extended *ItemsControl* that uses a *ContentControl* for each item.
 Therefore, the *ControlTemplate* can be overwritten in the *ItemContainerStyle*. This can be used for example to surround different controls with a border.
-
-**Example**
-
-![CustomItemsControl example](Images/CustomItemsControl.png "CustomItemsControl example")
 
 **Usage**
 

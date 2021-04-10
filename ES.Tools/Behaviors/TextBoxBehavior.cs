@@ -32,14 +32,9 @@ namespace ES.Tools.Behaviors
 
     private static void OnSelectAllTextOnFocusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-      if (d is TextBox textBox)
+      if (d is TextBox textBox && e.NewValue is bool value)
       {
-        if (e.NewValue is bool == false)
-        {
-          return;
-        }
-
-        if ((bool)e.NewValue)
+        if (value)
         {
           textBox.GotFocus += TextBox_GotFocus;
           textBox.PreviewMouseDown += TextBox_PreviewMouseDown;

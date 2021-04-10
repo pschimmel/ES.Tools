@@ -1,6 +1,8 @@
 # PieSegment
 Namespace: **ES.Tools.Controls**
 
+![PieSegment example](Images/PieSegment.png "PieSegment")
+
 The **PieSegment** is simple shape control that is rendered as a pie segment.
 
 ***Properties***
@@ -19,9 +21,6 @@ The **PieSegment** is simple shape control that is rendered as a pie segment.
                      Stroke="Black"
                      StrokeThickness="1" />
 ```
-**Example**
-
-![PieSegment example](Images/PieSegment.png "PieSegment")
 
 **Remarks**
 

@@ -16,17 +16,17 @@ namespace ES.Tools.Controls
   [TemplatePart(Name = MainGridTemplateName, Type = typeof(FrameworkElement))]
   public class Gauge : MeterBase
   {
+    public enum IndicatorType { Default, Thin }
+
     #region Fields
 
     private const string MainGridTemplateName = "PART_MainGrid";
-    private static readonly double _outerDistance = 5.0;
-    private static readonly double _indicatorWidth = 5.0;
-    private static readonly double _indicatorCoverSize = _indicatorWidth + 2;
+    private static readonly double _outerDistance = 20.0;
     private static readonly double _indicatorPinSize = 2.5;
     private static readonly double _indicatorAngle = 300;
     private bool _resetTicks = true;
-    private Indicator _indicatorControl;
-    private Ellipse _indicatorCover;
+    private Shape _indicatorControl;
+    //private Ellipse _indicatorCover;
     private Ellipse _indicatorPin;
     private Grid _mainGrid;
 
@@ -71,9 +71,57 @@ namespace ES.Tools.Controls
 
     #endregion
 
+    #region Indicator Property
+
+    /// <summary>
+    /// Type of the Indicator.
+    /// </summary>
+    public static readonly DependencyProperty IndicatorProperty = DependencyProperty.Register(nameof(Indicator), typeof(IndicatorType), typeof(Gauge), new FrameworkPropertyMetadata(IndicatorType.Default, FrameworkPropertyMetadataOptions.AffectsRender, IndicatorChanged));
+
+    public IndicatorType Indicator
+    {
+      get => (IndicatorType)GetValue(IndicatorProperty);
+      set => SetValue(IndicatorProperty, value);
+    }
+
+    private static void IndicatorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      var gauge = (Gauge)d;
+      gauge.UpdateVisual();
+    }
+
+    #endregion
+
+    #region Indicator Width Property
+
+    /// <summary>
+    /// Type of the Indicator.
+    /// </summary>
+    public static readonly DependencyProperty IndicatorWidthProperty = DependencyProperty.Register(nameof(IndicatorWidth), typeof(double), typeof(Gauge), new FrameworkPropertyMetadata(6.0, FrameworkPropertyMetadataOptions.AffectsRender, IndicatorWidthChanged, CoerceIndicatorWidth));
+
+    public double IndicatorWidth
+    {
+      get => (double)GetValue(IndicatorWidthProperty);
+      set => SetValue(IndicatorWidthProperty, value);
+    }
+
+    private static void IndicatorWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      var gauge = (Gauge)d;
+      gauge.UpdateVisual();
+    }
+
+    private static object CoerceIndicatorWidth(DependencyObject d, object baseValue)
+    {
+      double value = (double)baseValue;
+      return Math.Min(20.0, Math.Max(3.0, value));
+    }
+
+    #endregion
+
     #region TotalTicks Property
 
-    public static readonly DependencyProperty TotalTicksProperty = DependencyProperty.Register(nameof(TotalTicks), typeof(int), typeof(Gauge), new FrameworkPropertyMetadata(20, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, TotalTicksChanged, CoerceTotalTicks));
+    public static readonly DependencyProperty TotalTicksProperty = DependencyProperty.Register(nameof(TotalTicks), typeof(int), typeof(Gauge), new FrameworkPropertyMetadata(20, FrameworkPropertyMetadataOptions.AffectsRender, TotalTicksChanged, CoerceTotalTicks));
 
     /// <summary>
     /// Total amount of the tick marks.
@@ -104,7 +152,7 @@ namespace ES.Tools.Controls
     /// <summary>
     /// Sub ticks between each main tick
     /// </summary>
-    public static readonly DependencyProperty SubTicksProperty = DependencyProperty.Register(nameof(SubTicks), typeof(int), typeof(Gauge), new FrameworkPropertyMetadata(4, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, SubTicksChanged, CoerceSubTicks));
+    public static readonly DependencyProperty SubTicksProperty = DependencyProperty.Register(nameof(SubTicks), typeof(int), typeof(Gauge), new FrameworkPropertyMetadata(4, FrameworkPropertyMetadataOptions.AffectsRender, SubTicksChanged, CoerceSubTicks));
 
     public int SubTicks
     {
@@ -150,13 +198,16 @@ namespace ES.Tools.Controls
       {
         if (_indicatorControl == null)
         {
-          _indicatorControl = new Indicator { StrokeThickness = 0 };
+          _indicatorControl = Indicator == IndicatorType.Default
+            ? new Indicator { StrokeThickness = 0, StrokeLineJoin = PenLineJoin.Round }
+            : new ThinIndicator { StrokeThickness = 0, StrokeLineJoin = PenLineJoin.Round };
+
           _indicatorControl.Fill = Foreground;
           indicatorCanvas.Children.Add(_indicatorControl);
 
-          _indicatorCover = new Ellipse { StrokeThickness = 0 };
-          _indicatorCover.Fill = Foreground;
-          indicatorCanvas.Children.Add(_indicatorCover);
+          //_indicatorCover = new Ellipse { StrokeThickness = 0 };
+          //_indicatorCover.Fill = Foreground;
+          //indicatorCanvas.Children.Add(_indicatorCover);
 
           _indicatorPin = new Ellipse { StrokeThickness = 0 };
           _indicatorPin.Fill = Brushes.Black;
@@ -184,21 +235,33 @@ namespace ES.Tools.Controls
             error.EndAngle = maxAngle;
           }
 
+          //double indicatorCoverSize = IndicatorWidth + 2;
+
           if (_indicatorControl != null)
           {
-            _indicatorControl.Width = _indicatorWidth;
-            _indicatorControl.Height = Math.Min(_background.ActualHeight, _background.ActualWidth) / 2.0 - _outerDistance;
-            Canvas.SetLeft(_indicatorControl, (_background.ActualWidth - _indicatorWidth) / 2.0);
-            Canvas.SetTop(_indicatorControl, _outerDistance + Math.Abs(_background.ActualHeight - _background.ActualWidth) / 2);
+            if (Indicator == IndicatorType.Default)
+            {
+              _indicatorControl.Width = IndicatorWidth;
+              _indicatorControl.Height = Math.Min(_background.ActualHeight, _background.ActualWidth) / 2.0 + IndicatorWidth / 2.0 - _outerDistance;
+              Canvas.SetLeft(_indicatorControl, (_background.ActualWidth - IndicatorWidth) / 2.0);
+              Canvas.SetTop(_indicatorControl, _outerDistance + Math.Abs(_background.ActualHeight - _background.ActualWidth) / 2);
+            }
+            else
+            {
+              _indicatorControl.Width = IndicatorWidth;
+              _indicatorControl.Height = (Math.Min(_background.ActualHeight, _background.ActualWidth) / 2.0 + IndicatorWidth / 2.0 - _outerDistance) * 4 / 3;
+              Canvas.SetLeft(_indicatorControl, (_background.ActualWidth - IndicatorWidth) / 2.0);
+              Canvas.SetTop(_indicatorControl, _outerDistance + Math.Abs(_background.ActualHeight - _background.ActualWidth) / 2.0 - IndicatorWidth / 2.0);
+            }
           }
 
-          if (_indicatorCover != null)
-          {
-            _indicatorCover.Width = _indicatorCoverSize;
-            _indicatorCover.Height = _indicatorCoverSize;
-            Canvas.SetLeft(_indicatorCover, (_background.ActualWidth - _indicatorCoverSize) / 2.0);
-            Canvas.SetTop(_indicatorCover, (_background.ActualHeight - _indicatorCoverSize) / 2.0);
-          }
+          //if (_indicatorCover != null)
+          //{
+          //  _indicatorCover.Width = indicatorCoverSize;
+          //  _indicatorCover.Height = indicatorCoverSize;
+          //  Canvas.SetLeft(_indicatorCover, (_background.ActualWidth - indicatorCoverSize) / 2.0);
+          //  Canvas.SetTop(_indicatorCover, (_background.ActualHeight - indicatorCoverSize) / 2.0);
+          //}
 
           if (_indicatorPin != null)
           {

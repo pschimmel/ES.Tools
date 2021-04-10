@@ -60,6 +60,23 @@
                   Click="ShowControlAdornerButton_Click">
             Show ControlAdorner
           </Button>
+          <controls:Accordion Width="200" VerticalAlignment="Stretch">
+            <controls:Accordion.ItemTemplate>
+              <DataTemplate>
+                <Grid Background="Red" />
+              </DataTemplate>
+            </controls:Accordion.ItemTemplate>
+            <controls:AccordionItem Content="ddd" Header="xxx" IsSelected="True" />
+            <controls:AccordionItem Content="ddd" Header="yyy" />
+          </controls:Accordion>
+          <StackPanel>
+            <controls:AnimatedProgressBar Width="300"
+                                        Height="30"
+                                        AnimatedValue="{Binding Text, ElementName=ddd, Mode=TwoWay}"
+                                        Maximum="100"
+                                        Minimum="0" Margin="5" />
+            <TextBox x:Name="ddd" Text="10" Margin="5,0,5,5" />
+          </StackPanel>
         </WrapPanel>
       </TabItem>
       <TabItem Header="Behaviors">
@@ -292,6 +309,8 @@
                               BorderBrush="Black"
                               BorderThickness="1"
                               ErrorValue="90"
+                              Indicator="Thin"
+                              IndicatorWidth="8"
                               MaxValue="100"
                               MinValue="0"
                               SubTicks="5"
@@ -338,17 +357,44 @@
           <Grid>
             <Grid.RowDefinitions>
               <RowDefinition Height="Auto" />
-              <RowDefinition />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="Indicator" />
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.ColumnSpan="2"
+                       Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="Indicators" />
             <shapes:Indicator Grid.Row="1"
                               Width="10"
                               Height="80"
-                              Margin="5"
-                              HorizontalAlignment="Center"
+                              Margin="25,5,5,5"
+                              HorizontalAlignment="Left"
                               Fill="Blue"
                               Stroke="Black"
-                              StrokeThickness="1" />
+                              StrokeLineJoin="Round"
+                              StrokeThickness="1">
+              <shapes:Indicator.LayoutTransform>
+                <RotateTransform Angle="90" />
+              </shapes:Indicator.LayoutTransform>
+            </shapes:Indicator>
+            <shapes:ThinIndicator Grid.Row="2"
+                                  Width="15"
+                                  Height="100"
+                                  Margin="5"
+                                  HorizontalAlignment="Left"
+                                  Fill="SteelBlue"
+                                  Stroke="Black"
+                                  StrokeLineJoin="Round"
+                                  StrokeThickness="1">
+              <shapes:ThinIndicator.LayoutTransform>
+                <RotateTransform Angle="90" />
+              </shapes:ThinIndicator.LayoutTransform>
+            </shapes:ThinIndicator>
           </Grid>
           <Grid>
             <Grid.RowDefinitions>
@@ -361,6 +407,7 @@
                                Height="120"
                                Margin="-60,0,0,-60"
                                HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
                                EndAngle="120"
                                Fill="Red"
                                StartAngle="10"
@@ -378,6 +425,7 @@
                                  Height="120"
                                  Margin="-60,0,0,-60"
                                  HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
                                  DonutWidth="20"
                                  EndAngle="120"
                                  Fill="Green"

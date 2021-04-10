@@ -1,6 +1,8 @@
 # Meter
 Namespace: **ES.Tools.Controls**
 
+![Meter example](Images/Meter.gif "Meter")
+
 The **Meter** control can be used to display values within a certain range.
 
 **Properties**
@@ -40,6 +42,3 @@ The **Meter** control can be used to display values within a certain range.
                 WarningValue="70"
                 Value="{Binding Value}" />
 ```
-**Example**
-
-![Meter example](Images/Meter.gif "Meter")
