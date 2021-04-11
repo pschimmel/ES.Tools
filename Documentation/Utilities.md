@@ -1,7 +1,7 @@
 # Utilities
 Namespace: **ES.Tools.Infrastructure**
 
-*Utilities* is a static class containing useful tools and extensions.
+**Utilities** is a static class containing useful tools and extensions.
 
 ### Methods
 

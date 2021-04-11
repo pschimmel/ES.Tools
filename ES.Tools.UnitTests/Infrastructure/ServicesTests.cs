@@ -94,7 +94,7 @@ namespace ES.Tools.UnitTests.Infrastructure
 
       // Replace by temporary replacement
       var replacement = new UnitTestService1();
-      using (var replacer = new TempServiceReplacer<IService1>(replacement))
+      using (var replacer = new TempServiceReplacement<IService1>(replacement))
       {
         Assert.That(Services.Instance.GetService<IService1>(), Is.SameAs(replacement));
       }

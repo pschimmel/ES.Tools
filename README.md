@@ -55,8 +55,8 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 
 ### Infrastructure
 
-- **Services** - Singleton class that globally manages service classes.
-- **TempServiceReplacer** - Utility class that replaces services temporarily.
+- [**Services**](Documentation/Services) - Singleton class that globally manages service classes.
+- [**TempServiceReplacement**](Documentation/TempServiceReplacement) - Utility class that temporarily replaces services, e.g. for unit testing.
 - [**Utilities**](Documentation/Utilities) - Useful tools and extensions.
 
 ### MVVM

@@ -5,7 +5,8 @@ namespace ES.Tools.Infrastructure
   /// <summary>
   /// Temporarily replaces a service registered in the <see cref="Services"/> registry.
   /// </summary>
-  public class TempServiceReplacer<T> : IDisposable where T : class
+  public class TempServiceReplacement<T>
+    : IDisposable where T : class
   {
     private readonly T _serviceBackup = null;
     private bool _isDisposed = false;
@@ -13,7 +14,7 @@ namespace ES.Tools.Infrastructure
     /// <summary>
     /// Constructor
     /// </summary>
-    public TempServiceReplacer(T service)
+    public TempServiceReplacement(T service)
     {
       _serviceBackup = Services.Instance.HasService<T>() ? Services.Instance.GetService<T>() : null;
       Services.Instance.UnregisterService<T>();
@@ -21,7 +22,7 @@ namespace ES.Tools.Infrastructure
     }
 
     /// <summary>
-    /// Releases all resources used by the <see cref="TempServiceReplacer{T}"/>.
+    /// Releases all resources used by the <see cref="TempServiceReplacement{T}"/>.
     /// </summary>
     public void Dispose()
     {
@@ -30,7 +31,7 @@ namespace ES.Tools.Infrastructure
     }
 
     /// <summary>
-    /// Releases all resources used by the <see cref="TempServiceReplacer{T}"/>.
+    /// Releases all resources used by the <see cref="TempServiceReplacement{T}"/>.
     /// </summary>
     protected virtual void Dispose(bool disposing)
     {
