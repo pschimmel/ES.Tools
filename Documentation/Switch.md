@@ -5,7 +5,7 @@ Namespace: **ES.Tools.Controls**
 
 The **Switch** is a complete restyled toggle button control. It supports all features of the WPF *ToggleButton*.
 
-**Properties**
+### Properties
 
 * *CornerRadius* - One of the *MeterType* enumeration values, Bar or Column.
 * *OnContent* - Content that is displayed on the switch when the state is "On". Default value is the text "On".
@@ -15,7 +15,7 @@ The **Switch** is a complete restyled toggle button control. It supports all fea
 * *SwitchBorderBrush* - Brush of the switch thumb border.
 * *SwitchBorderThickness* - Thickness of the switch thumb border.
 
-**Usage**
+### Usage
 
 ``` XML
 <controls:Switch Background="White"

@@ -38,7 +38,7 @@ Returns all child objects of a certain type by using the WPF visual tree.
 
 Returns the parent window of a *DependencyObject*.
 
-**Usage**
+### Usage
 
 In the example, we will try to find the parent *Button* of a rectangle.
 

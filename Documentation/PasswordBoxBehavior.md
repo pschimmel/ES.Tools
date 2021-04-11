@@ -3,16 +3,18 @@ Namespace: **ES.Tools.Behaviors**
 
 The **PasswordBoxBehavior** is an extension for WPF *PasswordBox*es.
 
-### SelectAllTextOnFocus
+### Properties
+
+**SelectAllTextOnFocus**
 
 Set the *SelectAllTextOnFocus* attached dependency property to *true* to select the password text when the *PasswordBox* gets focused.
 
-**Usage**
+### Usage
 
 ``` XML
 <TextBox behaviors:PasswordBoxBehavior.SelectAllTextOnFocus="true" Password="Example" />
 ```
 
-**Remarks**
+### Remarks
 
 > See also [**TextBoxBehavior**](TextBoxBehavior).

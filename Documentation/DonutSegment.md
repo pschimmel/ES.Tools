@@ -5,13 +5,13 @@ Namespace: **ES.Tools.Controls**
 
 The **DonutSegment** is simple shape control that is rendered as a segment of a donut.
 
-**Properties**
+### Properties
 
 * *StartAngle* - Angle of the beginning of the segment (clockwise).
 * *EndAngle* - Angle of the end of the segment (clockwise).
 * *DonutWidth* - Width of the circle.
 
-**Usage**
+### Usage
 
 ``` XML
 <controls:DonutSegment Width="120"
@@ -24,7 +24,6 @@ The **DonutSegment** is simple shape control that is rendered as a segment of a 
                        StrokeThickness="1" />
 ```
 
-
-**Remarks**
+### Remarks
 
 > See also [**PieSegment**](PieSegment).

@@ -1,11 +1,11 @@
 # ActionCommand
 Namespace: **ES.Tools.MVVM**
 
-### ActionCommand
+## ActionCommand
 
 The **ActionCommand** can be used as ICommand implementation for defining commands in the *ViewModel*.
 
-**Usage**
+### Usage
 
 In the example *ViewModel* we define a public readonly property of type *ICommand*. In the constructor, a new instance of an **ActionCommand** is assigned to that property.
 
@@ -57,11 +57,11 @@ Using the command in XAML is rather easy. Just use DataBinding to bind the Comma
 <Button Command="{Binding EditItemCommand}">Edit Item</Button/>
 ```
 
-### ActionCommand&lt;T&gt;
+## ActionCommand&lt;T&gt;
 
 The **ActionCommand&lt;T&gt;** is an **ActionCommand** that takes an item of type *T* as argument for the *Execute* and *CanExecute* methods.
 
-**Usage**
+###Usage
 
 In the example *ViewModel* we define a public readonly property of type *ICommand*. In the constructor, a new instance of an **ActionCommand&lt;T&gt;** is assigned to that property.
 

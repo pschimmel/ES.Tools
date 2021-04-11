@@ -28,6 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\CustomItemsControl.md = Documentation\CustomItemsControl.md
 		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
 		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
+		Documentation\DispatcherWrapper.md = Documentation\DispatcherWrapper.md
 		Documentation\DonutSegment.md = Documentation\DonutSegment.md
 		Documentation\Gauge.md = Documentation\Gauge.md
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md

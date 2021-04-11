@@ -5,7 +5,7 @@ Namespace: **ES.Tools.Controls**
 
 The **Meter** control can be used to display values within a certain range.
 
-**Properties**
+### Properties
 
 * *ErrorBrush* - Brush of the error area.
 * *ErrorValue* - Value where the error area begins. Set this to 0 to remove the area.
@@ -17,7 +17,7 @@ The **Meter** control can be used to display values within a certain range.
 * *WarningBrush* - Brush of the warning area.
 * *WarningValue* - Value where the warning area begins. Set this to 0 to remove the area.
 
-**Usage**
+### Usage
 
 ``` XML
 <controls:Meter Width="20"

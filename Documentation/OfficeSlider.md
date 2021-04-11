@@ -4,7 +4,7 @@
 
 The **OfficeSliderStyle** is a style that can be applied to WPF *Slider* controls to change their appearance to be more office like.
 
-**Usage**
+### Usage
 
 Include the resource dictionary containing the slider style in your windows resources.
 

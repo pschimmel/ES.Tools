@@ -6,7 +6,7 @@ Namespace: **ES.Tools.Effects**
 
 The **GrayscaleEffect** is a shader effect that turns any control into a grayscale representation of it.
 
-**Usage**
+### Usage
 
 ``` XML
 <Button Content="GrayscaleEffect">

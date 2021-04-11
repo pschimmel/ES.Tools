@@ -3,7 +3,7 @@ Namespace: **ES.Tools.Adorners**
 
 The **DataTemplateAdorner** is an adorner that will take a *DataTemplate* and a data object to render the adorner.
 
-**Usage**
+### Usage
 
 For the example, we first need a simple *ViewModel* and a *DataTemplate* defined in one of the resource dictionaries:
 

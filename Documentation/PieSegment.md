@@ -5,12 +5,12 @@ Namespace: **ES.Tools.Controls**
 
 The **PieSegment** is simple shape control that is rendered as a pie segment.
 
-***Properties***
+### Properties
 
 * *StartAngle* - Angle of the beginning of the segment (clockwise).
 * *EndAngle* - Angle of the end of the segment (clockwise).
 
-**Usage**
+### Usage
 
 ``` XML
 <controls:PieSegment Width="120"
@@ -22,6 +22,6 @@ The **PieSegment** is simple shape control that is rendered as a pie segment.
                      StrokeThickness="1" />
 ```
 
-**Remarks**
+### Remarks
 
 > See also [**DonutSegment**](DonutSegment).

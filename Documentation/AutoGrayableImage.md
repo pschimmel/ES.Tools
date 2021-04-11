@@ -11,11 +11,12 @@ This will turn any image into a grayscale version of the same image when the con
 
 **AutoGrayableImage** is derived from the WPF *Image* control and therefore can be used in the same way. 
 
-**Usage**
+### Usage
 
 ``` XML
 <controls:AutoGrayableImage Width="300" Height="200" Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg">
 ```
 
-**Remarks**
+### Remarks
+
 > Uses the [*GrayscaleEffect*](GrayscaleEffect) in **ES.Tools.Effects**.

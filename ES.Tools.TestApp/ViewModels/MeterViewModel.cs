@@ -46,9 +46,9 @@ namespace ES.Tools.TestApp.ViewModels
     }
 
 
-    public double MinValue => 0;
+    public double MinValue { get; } = 0;
 
-    public double MaxValue => 100;
+    public double MaxValue { get; } = 100;
 
     public ICommand RandomValuesCommand { get; }
 
@@ -71,6 +71,7 @@ namespace ES.Tools.TestApp.ViewModels
             Value = nextValue;
             Thread.Sleep(100);
           }
+
           DispatcherWrapper.Default.InvokeIfRequired(() => (RandomValuesCommand as ActionCommand).RaiseCanExecuteChanged());
         });
       }

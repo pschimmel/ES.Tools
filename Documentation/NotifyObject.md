@@ -5,7 +5,7 @@ The **NotifyObject** is a base class for all classes that need to raise *Propert
 
 This is mainly used on the *ViewModel* level when using WPF data binding to notify the View when properties in the ViewModel have changed.
 
-**Usage**
+### Usage
 
 The example consists of an *Employee* class which inherits from **NotifyObject**. Whenever the properties *FirstName* or *LastName* is changed, a *PropertyChanged*. event is triggered by calling *OnPropertyChanged*.
 
@@ -51,5 +51,5 @@ public class Employee : NotifyObject
 }
 ```
 
-**Remarks**
+### Remarks
 >See also [*ViewModel*](ViewModel).

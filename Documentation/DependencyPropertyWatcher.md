@@ -5,7 +5,7 @@ The **DependencyPropertyWatcher** watches a dependency property and casts an eve
 
 Implements *IDisposable*.
 
-**Usage**
+### Usage
 
 In the example, the test object has a *DependencyProperty* of type *string*. Create a new **DependencyPropertyWatcher** with *string* as type argument and pass the object to be watched and the name of the property in the constructor.
 

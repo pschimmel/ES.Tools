@@ -4,15 +4,15 @@ Namespace: **ES.Tools.Controls**
 
 ![Indicators example](Images/Indicators.png "Indicators")
 
-### Indicator
+## Indicator
 
 The **Indicator** is a shape control that renders a simple indicator pin.
 
-***Properties***
+### Properties
 
 None.
 
-**Usage**
+### Usage
 
 ``` XML
 <shapes:Indicator Width="10"
@@ -23,18 +23,19 @@ None.
                   StrokeThickness="1" />
 ```
 
-**Remarks**
+### Remarks
+
 > The center of the indicator is located at a distance of Width / 2 from the bottom.
 
-### ThinIndicator
+## ThinIndicator
 
 The **ThinIndicator** is a shape control that renders a thin indicator pin with a thicker round part where the pin is mounted.
 
-***Properties***
+### Properties
 
 None.
 
-**Usage**
+### Usage
 
 ``` XML
 <shapes:ThinIndicator Width="15"
@@ -46,5 +47,5 @@ None.
                       StrokeThickness="1">
 ```
 
-**Remarks**
+### Remarks
 > The center of the indicator is located at a distance of Height / 4 from the bottom.

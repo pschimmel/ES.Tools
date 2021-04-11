@@ -3,7 +3,7 @@ Namespace: **ES.Tools.MVVM**
 
 The **ViewFactory** manages the relationships between *ViewModel* and *View* by associating a type of a *View* to a specific type of a *ViewModel*.
 
-**Usage**
+### Usage
 
 To use the **ViewFactory**, you have to register the *View* and *ViewModel* by calling *Register*. This is usually done in a central place, e.g. in *App.xaml.xs*. The *View* classes must implement the *IView* interface. The *ViewModel* classes must implement *IViewModel*. The included [*ViewModel*](ViewModel) base class already complies to that.
 
@@ -29,5 +29,5 @@ view.ShowDialog();
 
 You have access to the *ViewModel* through the *DataContext* of the *View*.
 
-**Remarks**
+### Remarks
 >See also [*ViewModel*](ViewModel).

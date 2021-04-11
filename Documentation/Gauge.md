@@ -5,7 +5,7 @@ Namespace: **ES.Tools.Controls**
 
 The **Gauge** control can be used to display values within a certain range.
 
-**Properties**
+### Properties
 
 * *Content* - Content of the content area, displayed in the lower part of the gauge.
 * *ErrorBrush* - Brush of the error area.
@@ -21,7 +21,7 @@ The **Gauge** control can be used to display values within a certain range.
 * *WarningBrush* - Brush of the warning area.
 * *WarningValue* - Value where the warning area begins. Set this to 0 to remove the area.
 
-**Usage**
+### Usage
 
 ``` XML
 <controls:Gauge BorderBrush="Black"
