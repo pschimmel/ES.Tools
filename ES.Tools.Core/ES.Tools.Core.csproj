@@ -5,21 +5,21 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>ES.Tools.Core</AssemblyName>
     <RootNamespace>ES.Tools.Core</RootNamespace>
-    <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
     <Version>0.5.2</Version>
     <PackageId>ES.Tools.Core</PackageId>
     <Authors>Patrick Schimmel</Authors>
     <Company>Engineering Solutions</Company>
-    <Product>ES.Tools</Product>
-    <Description>Contains core components for ES.Tools. Simple MVVM implementation and more.</Description>
+    <Product>ES.Tools.Core</Product>
+    <Description>Contains core components of ES.Tools. Simple MVVM implementation and more.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
-    <PackageIcon>ES.Tools Logo.png</PackageIcon>-->
+    <PackageIcon>ES.Tools.Core Logo.png</PackageIcon>
     <LangVersion>9.0</LangVersion>
-    <!--<PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
+    <PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/pschimmel/ES.Tools</RepositoryUrl>
-    <PackageTags>WPF, Control Library, MVVM</PackageTags>-->
+    <PackageTags>WPF, Control Library, MVVM</PackageTags>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
   </PropertyGroup>
@@ -33,7 +33,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Logos\ES.Tools Logo.png">
+    <None Include="..\Logos\ES.Tools.Core Logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
