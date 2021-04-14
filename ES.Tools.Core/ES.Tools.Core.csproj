@@ -7,19 +7,19 @@
     <RootNamespace>ES.Tools.Core</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
-    <Version>0.4.0</Version>
+    <Version>0.5.2</Version>
     <PackageId>ES.Tools.Core</PackageId>
     <Authors>Patrick Schimmel</Authors>
     <Company>Engineering Solutions</Company>
     <Product>ES.Tools</Product>
-    <Description>A collection of some useful WPF controls and helpers.</Description>
+    <Description>Contains core components for ES.Tools. Simple MVVM implementation and more.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
     <PackageIcon>ES.Tools Logo.png</PackageIcon>
     <LangVersion>9.0</LangVersion>
     <PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/pschimmel/ES.Tools</RepositoryUrl>
-    <PackageTags>WPF, Controls, Control Library, MVVM, Gauge, Accordion, AutograyableImage, Progress Bar, Meter, Slider, Office Slider, Switch</PackageTags>
+    <PackageTags>WPF, Control Library, MVVM</PackageTags>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
   </PropertyGroup>

@@ -5,9 +5,9 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>ES.Tools</AssemblyName>
     <RootNamespace>ES.Tools</RootNamespace>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
-    <Version>0.4.0</Version>
+    <Version>0.5.2</Version>
     <PackageId>ES.Tools</PackageId>
     <Authors>Patrick Schimmel</Authors>
     <Company>Engineering Solutions</Company>
@@ -19,11 +19,11 @@
     <PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/pschimmel/ES.Tools</RepositoryUrl>
-    <PackageTags>WPF, Controls, Control Library, MVVM, Gauge, Accordion, AutograyableImage, Progress Bar, Meter, Slider, Office Slider, Switch</PackageTags>
+    <PackageTags>WPF, Controls, Control Library, Gauge, Accordion, AutograyableImage, Progress Bar, Meter, Slider, Office Slider, Switch</PackageTags>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
   </PropertyGroup>
-  
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
@@ -46,10 +46,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ES.Tools.Core\ES.Tools.Core.csproj">
-	  <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <IncludeAssets>ES.Tools.Core.dll</IncludeAssets>
       <Private>true</Private>
-	</ProjectReference>	
+  </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
