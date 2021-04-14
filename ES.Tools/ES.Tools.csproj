@@ -22,6 +22,7 @@
     <PackageTags>WPF, Controls, Control Library, Gauge, Accordion, AutograyableImage, Progress Bar, Meter, Slider, Office Slider, Switch</PackageTags>-->
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <NoWarn>NU1603</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -30,7 +31,6 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <NoWarn>NU1603</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
