@@ -7,7 +7,7 @@ namespace ES.Tools.Controls
 {
   [TemplatePart(Name = "PART_Header", Type = typeof(FrameworkElement))]
   [TemplatePart(Name = "PART_Content", Type = typeof(FrameworkElement))]
-  public class AccordionItem : ContentControl
+  public class AccordionItem : HeaderedContentControl
   {
     #region Fields
 
@@ -31,20 +31,22 @@ namespace ES.Tools.Controls
 
     #region Dependency Properties
 
-    #region Content Property
+    //#region Header Property
 
-    public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object), typeof(AccordionItem), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+    //public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object), typeof(AccordionItem), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
 
-    /// <summary>
-    /// Content shown in the lower center of the gauge.
-    /// </summary>
-    public object Header
-    {
-      get => GetValue(HeaderProperty);
-      set => SetValue(HeaderProperty, value);
-    }
+    ///// <summary>
+    ///// Content shown in the lower center of the gauge.
+    ///// </summary>
+    //public object Header
+    //{
+    //  get => GetValue(HeaderProperty);
+    //  set => SetValue(HeaderProperty, value);
+    //}
 
-    #endregion
+    //#endregion
+
+    #region IsSelected Property
 
     /// <summary>
     /// Indicates whether this AccordionItem is selected.
@@ -84,6 +86,8 @@ namespace ES.Tools.Controls
 
       //accordionItem.UpdateVisualState();
     }
+
+    #endregion
 
     //private void UpdateVisualState()
     //{

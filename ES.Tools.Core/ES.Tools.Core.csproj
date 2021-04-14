@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;NET472;net5.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyName>ES.Tools</AssemblyName>
-    <RootNamespace>ES.Tools</RootNamespace>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <AssemblyName>ES.Tools.Core</AssemblyName>
+    <RootNamespace>ES.Tools.Core</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
     <Version>0.4.0</Version>
-    <PackageId>ES.Tools</PackageId>
+    <PackageId>ES.Tools.Core</PackageId>
     <Authors>Patrick Schimmel</Authors>
     <Company>Engineering Solutions</Company>
     <Product>ES.Tools</Product>
@@ -33,7 +33,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Effects\Grayscale.ps" />
     <None Include="..\Logos\ES.Tools Logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -42,47 +41,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ES.Tools.Core\ES.Tools.Core.csproj">
-	  <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-      <IncludeAssets>ES.Tools.Core.dll</IncludeAssets>
-      <Private>true</Private>
-	</ProjectReference>	
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Effects\Grayscale.ps">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="Themes\AccordionItem.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\Accordion.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\ProgressCircle.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\Gauge.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\ClippingBorder.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\Switch.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
 
 </Project>

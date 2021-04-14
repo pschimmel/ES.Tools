@@ -5,7 +5,7 @@
         xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
-        xmlns:infrastructure="clr-namespace:ES.Tools.Infrastructure;assembly=ES.Tools"
+        xmlns:infrastructure="clr-namespace:ES.Tools.Infrastructure;assembly=ES.Tools.Core"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:shapes="clr-namespace:ES.Tools.Shapes;assembly=ES.Tools"
         xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
@@ -60,7 +60,7 @@
                   Click="ShowControlAdornerButton_Click">
             Show ControlAdorner
           </Button>
-          <controls:Accordion Width="200" VerticalAlignment="Stretch">
+          <!--<controls:Accordion Width="200" VerticalAlignment="Stretch">
             <controls:Accordion.ItemTemplate>
               <DataTemplate>
                 <Grid Background="Red" />
@@ -68,7 +68,16 @@
             </controls:Accordion.ItemTemplate>
             <controls:AccordionItem Content="ddd" Header="xxx" IsSelected="True" />
             <controls:AccordionItem Content="ddd" Header="yyy" />
-          </controls:Accordion>
+          </controls:Accordion>-->
+          <TabControl>
+            <TabControl.ItemTemplate>
+              <DataTemplate>
+                <CheckBox />
+              </DataTemplate>
+            </TabControl.ItemTemplate>
+            Blah
+            Blubb
+          </TabControl>
         </WrapPanel>
       </TabItem>
       <TabItem Header="Behaviors">

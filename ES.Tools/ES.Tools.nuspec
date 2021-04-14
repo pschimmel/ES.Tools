@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ES.Tools</id>
+    <version>0.4.0</version>
+    <title>ES.Tools</title>
+    <authors>Patrick Schimmel</authors>
+    <owners>Patrick Schimmel</owners>
+    <license type="file">MIT.txt</license>
+    <licenseUrl>https://github.com/pschimmel/ES.Tools/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/pschimmel/ES.Tools</projectUrl>
+    <icon>ES.Tools Logo.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A collection of some useful WPF controls and helpers.</description>
+    <releaseNotes>This is a prerelease. Use on your own risk.</releaseNotes>
+    <copyright>Copyright 2021</copyright>
+    <tags>WPF, Controls, Control Library, MVVM, Gauge, Accordion, AutograyableImage, Progress Bar, Meter, Slider, Office Slider, Switch</tags>
+    <repository type="git" url="https://github.com/pschimmel/ES.Tools" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2" />
+      <group targetFramework=".NETCoreApp3.1" />
+      <group targetFramework="net5.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+      <group targetFramework="net5.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+      <group targetFramework=".NETFramework4.7.2" />
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="bin\release\net472\ES.Tools.dll" target="lib\net472" />
+    <file src="bin\release\net472\ES.Tools.pdb" target="lib\net472" />
+    <file src="bin\release\net472\ES.Tools.Core.dll" target="lib\net472" />
+    <file src="bin\release\net472\ES.Tools.Core.pdb" target="lib\net472" />
+    <file src="bin\release\netcoreapp3.1\ES.Tools.dll" target="lib\netcoreapp3.1" />
+    <file src="bin\release\netcoreapp3.1\ES.Tools.pdb" target="lib\netcoreapp3.1" />
+    <file src="bin\release\netcoreapp3.1\ES.Tools.Core.dll" target="lib\netcoreapp3.1" />
+    <file src="bin\release\netcoreapp3.1\ES.Tools.Core.pdb" target="lib\netcoreapp3.1" />
+    <file src="bin\release\netcoreapp3.1\ES.Tools.deps.json" target="lib\netcoreapp3.1" />
+    <file src="bin\release\net5.0-windows\ES.Tools.dll" target="lib\net5.0-windows" />
+    <file src="bin\release\net5.0-windows\ES.Tools.pdb" target="lib\net5.0-windows" />
+    <file src="bin\release\net5.0-windows\ES.Tools.Core.dll" target="lib\net5.0-windows" />
+    <file src="bin\release\net5.0-windows\ES.Tools.Core.pdb" target="lib\net5.0-windows" />
+    <file src="bin\release\net5.0-windows\ES.Tools.deps.json" target="lib\net5.0-windows" />
+    <file src="bin\release\net5.0-windows\ref\ES.Tools.dll" target="lib\net5.0-windows\ref" />
+  </files>
+</package>

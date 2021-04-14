@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace ES.Tools.Controls
 {
@@ -25,9 +24,23 @@ namespace ES.Tools.Controls
       DefaultStyleKeyProperty.OverrideMetadata(typeof(Accordion), new FrameworkPropertyMetadata(typeof(Accordion)));
     }
 
+    public Accordion()
+    {
+      Focusable = false;
+    }
+
     #endregion
 
     #region Dependency Properties
+
+    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(nameof(Orientation), typeof(Orientation), typeof(Accordion), new FrameworkPropertyMetadata(Orientation.Vertical, FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+    public Orientation Orientation
+    {
+      get => (Orientation)GetValue(OrientationProperty);
+      set => SetValue(OrientationProperty, value);
+    }
+
 
     public static readonly DependencyProperty SelectionModeProperty = DependencyProperty.Register(nameof(SelectionMode), typeof(AccordionSelectionMode), typeof(Accordion), new FrameworkPropertyMetadata(AccordionSelectionMode.Single, FrameworkPropertyMetadataOptions.AffectsMeasure, SelectionModeChanged));
 
@@ -39,17 +52,6 @@ namespace ES.Tools.Controls
         var accordionItem = accordion.Items.OfType<AccordionItem>().FirstOrDefault(x => x.IsSelected);
         // DeselectOthers can cope with null values
         accordion.DeselectOthers(accordionItem);
-      }
-    }
-
-    internal void DeselectOthers(AccordionItem selectedItem)
-    {
-      foreach (var accordionItem in Items.OfType<AccordionItem>())
-      {
-        if (accordionItem != selectedItem)
-        {
-          accordionItem.IsSelected = false;
-        }
       }
     }
 
@@ -90,7 +92,7 @@ namespace ES.Tools.Controls
     protected override void OnInitialized(EventArgs e)
     {
       base.OnInitialized(e);
-      ItemContainerGenerator.StatusChanged += new EventHandler(OnGeneratorStatusChanged);
+      //ItemContainerGenerator.StatusChanged += new EventHandler(OnGeneratorStatusChanged);
     }
 
     ///// <summary>
@@ -117,18 +119,18 @@ namespace ES.Tools.Controls
     //  base.OnSelectionChanged(e);
     //}
 
-    private void OnGeneratorStatusChanged(object sender, EventArgs e)
-    {
-      if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
-      {
-        //if (HasItems && _selectedItems.Count == 0)
-        //{
-        //  SelectedIndex = 0;
-        //}
+    //private void OnGeneratorStatusChanged(object sender, EventArgs e)
+    //{
+    //  if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+    //  {
+    //    //if (HasItems && _selectedItems.Count == 0)
+    //    //{
+    //    //  SelectedIndex = 0;
+    //    //}
 
-        //UpdateSelectedContent();
-      }
-    }
+    //    //UpdateSelectedContent();
+    //  }
+    //}
 
     private static readonly DependencyPropertyKey SelectedContentPropertyKey = DependencyProperty.RegisterReadOnly(nameof(SelectedContent), typeof(object), typeof(Accordion), new FrameworkPropertyMetadata((object)null));
 
@@ -266,37 +268,66 @@ namespace ES.Tools.Controls
     //  }
     //}
 
+    ///// <summary>
+    ///// Return true if the item is (or is eligible to be) its own ItemContainer
+    ///// </summary>
+    //protected override bool IsItemItsOwnContainerOverride(object item)
+    //{
+    //  return item is AccordionItem;
+    //}
+
+    ///// <summary> Create or identify the element used to display the given item. </summary>
+    //protected override DependencyObject GetContainerForItemOverride()
+    //{
+    //  return new AccordionItem();
+    //}
+
+    #endregion
+
+    #region Internal Methods
+
+    internal void DeselectOthers(AccordionItem selectedItem)
+    {
+      foreach (var accordionItem in Items.OfType<AccordionItem>())
+      {
+        if (accordionItem != selectedItem)
+        {
+          accordionItem.IsSelected = false;
+        }
+      }
+    }
+
     #endregion
 
     #region Private Methods
 
-    private AccordionItem FindNextAccordionItem(int startIndex, int direction)
-    {
-      AccordionItem nextItem = null;
-      if (direction != 0)
-      {
-        int index = startIndex;
-        for (int i = 0; i < Items.Count; i++)
-        {
-          index += direction;
-          if (index >= Items.Count)
-          {
-            index = 0;
-          }
-          else if (index < 0)
-          {
-            index = Items.Count - 1;
-          }
+    //private AccordionItem FindNextAccordionItem(int startIndex, int direction)
+    //{
+    //  AccordionItem nextItem = null;
+    //  if (direction != 0)
+    //  {
+    //    int index = startIndex;
+    //    for (int i = 0; i < Children.Count; i++)
+    //    {
+    //      index += direction;
+    //      if (index >= Children.Count)
+    //      {
+    //        index = 0;
+    //      }
+    //      else if (index < 0)
+    //      {
+    //        index = Children.Count - 1;
+    //      }
 
-          if (ItemContainerGenerator.ContainerFromIndex(index) is AccordionItem Item && Item.IsEnabled && Item.Visibility == Visibility.Visible)
-          {
-            nextItem = Item;
-            break;
-          }
-        }
-      }
-      return nextItem;
-    }
+    //      if (ItemContainerGenerator.ContainerFromIndex(index) is AccordionItem Item && Item.IsEnabled && Item.Visibility == Visibility.Visible)
+    //      {
+    //        nextItem = Item;
+    //        break;
+    //      }
+    //    }
+    //  }
+    //  return nextItem;
+    //}
 
     #endregion
 
