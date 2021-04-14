@@ -7,7 +7,6 @@
     <LangVersion>8.0</LangVersion>
     <ApplicationIcon>ES.Tools Logo.ico</ApplicationIcon>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <NoWarn>NU1603</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

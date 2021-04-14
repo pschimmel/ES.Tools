@@ -30,7 +30,6 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <NoWarn>NU1603</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,7 +45,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ES.Tools.Core" Version="0.0.1" />
+    <ProjectReference Include="..\ES.Tools.Core\ES.Tools.Core.csproj">
+    <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <IncludeAssets>ES.Tools.Core.dll</IncludeAssets>
+      <Private>true</Private>
+  </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
