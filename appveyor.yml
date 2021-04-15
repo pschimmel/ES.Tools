@@ -1,11 +1,11 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.0
+version: 0.6.1
 
-#branches:
-#  only:
-#    - master
+branches:
+  only:
+    - master
 
 pull_requests:
   do_not_increment_build_number: true
@@ -18,6 +18,9 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
+
+# build Configuration, i.e. Debug, Release, etc.
+configuration: Release
 
 #---------------------------------#
 #    environment configuration    #
@@ -49,16 +52,18 @@ build:
 # provider names are case-sensitive!
 # Refreshing key in Appveyor: Account > Encrypt YAML
 deploy:
+
 - provider: NuGet
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
   on:
     branch: master                 # release from master branch only
-    APPVEYOR_REPO_TAG: true        # deploy on tag push only
+#    appveyor_repo_tag: true        # deploy on tag push only
+
 - provider: GitHub
   release: ES.Tools-{version}
   auth_token:
     secure: YtGsH7B9c6fUkDmOxoazOCRXN3Br4xZSMPJN8Bswuh3NiqIWqPc0opA+jkyqB9ZP
   on:
     branch: master                 # release from master branch only
-    APPVEYOR_REPO_TAG: true        # deploy on tag push only
+    appveyor_repo_tag: true        # deploy on tag push only
