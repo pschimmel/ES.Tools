@@ -7,9 +7,9 @@
     <RootNamespace>ES.Tools.Core</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
-    <Version>0.5.2</Version>
+    <Version>0.6.2</Version>
     <PackageId>ES.Tools.Core</PackageId>
-    <Authors>Patrick Schimmel</Authors>
+    <Authors>Engineering Solutions</Authors>
     <Company>Engineering Solutions</Company>
     <Product>ES.Tools.Core</Product>
     <Description>Contains core components of ES.Tools. Simple MVVM implementation and more.</Description>

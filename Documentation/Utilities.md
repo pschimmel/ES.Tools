@@ -5,6 +5,6 @@ Namespace: **ES.Tools.Infrastructure**
 
 ### Methods
 
-**IsInDesignMode**
+**IsDesignTime**
 
-Returns a boolean value defining if the current code runs in a WPF designer or not.
+Returns a boolean value defining if the current code runs in the WPF designer or not.

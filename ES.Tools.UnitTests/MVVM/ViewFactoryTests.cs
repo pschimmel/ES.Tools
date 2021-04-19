@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using ES.Tools.MVVM;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
@@ -20,29 +21,29 @@ namespace ES.Tools.UnitTests.MVVM
     [Test]
     public void CreateViewFromTypeTest()
     {
-      var view = ViewFactory.Instance.CreatePage<ViewModel1>();
+      var view = ViewFactory.Instance.CreateView<ViewModel1>();
       Assert.That(view, Is.Not.Null);
-      Assert.That(view.DataContext, Is.Not.Null);
-      Assert.That(view.DataContext, Is.InstanceOf(typeof(ViewModel1)));
+      Assert.That(view.ViewModel, Is.Not.Null);
+      Assert.That(view.ViewModel, Is.InstanceOf(typeof(ViewModel1)));
     }
 
     [Test]
     public void CreateViewFromViewModelTest()
     {
       var viewModel = new ViewModel2();
-      var view = ViewFactory.Instance.CreatePage(viewModel);
+      var view = ViewFactory.Instance.CreateView(viewModel);
       Assert.That(view, Is.Not.Null);
-      Assert.That(view.DataContext, Is.SameAs(viewModel));
+      Assert.That(view.ViewModel, Is.SameAs(viewModel));
     }
 
     [Test]
     public void CreateViewFromTypeWithParametersTest()
     {
-      var view = ViewFactory.Instance.CreatePage<ViewModel2>("Test");
+      var view = ViewFactory.Instance.CreateView<ViewModel2>("Test");
       Assert.That(view, Is.Not.Null);
-      Assert.That(view.DataContext, Is.Not.Null);
-      Assert.That(view.DataContext, Is.InstanceOf(typeof(ViewModel2)));
-      Assert.That((view.DataContext as ViewModel2).Arguments, Is.EqualTo("Test"));
+      Assert.That(view.ViewModel, Is.Not.Null);
+      Assert.That(view.ViewModel, Is.InstanceOf(typeof(ViewModel2)));
+      Assert.That((view.ViewModel as ViewModel2).Arguments, Is.EqualTo("Test"));
     }
 
     [Test]
@@ -60,12 +61,20 @@ namespace ES.Tools.UnitTests.MVVM
     [Test]
     public void CreateUnknownViewFromTypeTest()
     {
-      Assert.Throws<InvalidOperationException>(() => ViewFactory.Instance.CreatePage<ViewModel4>());
+      Assert.Throws<InvalidOperationException>(() => ViewFactory.Instance.CreateView<ViewModel4>());
     }
 
     internal class View1 : IView
     {
-      public object DataContext { get; set; }
+      public IViewModel ViewModel { get; set; }
+
+      public Window Owner { get; set; }
+
+      public bool Topmost { get; set; }
+
+      public void Close() { }
+
+      public void Hide() { }
 
       public void Show() { }
 
@@ -77,7 +86,15 @@ namespace ES.Tools.UnitTests.MVVM
 
     internal class View2 : IView
     {
-      public object DataContext { get; set; }
+      public IViewModel ViewModel { get; set; }
+
+      public Window Owner { get; set; }
+
+      public bool Topmost { get; set; }
+
+      public void Close() { }
+
+      public void Hide() { }
 
       public void Show() { }
 

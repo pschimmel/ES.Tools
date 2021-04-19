@@ -43,7 +43,7 @@ namespace ES.Tools.TestApp.ViewModels
     private void OpenSampleWindowExecute()
     {
       var vm = new SampleWindowViewModel(SampleWindowText);
-      var view = ViewFactory.Instance.CreatePage(vm);
+      var view = ViewFactory.Instance.CreateView(vm);
       view.ShowDialog();
     }
 

@@ -69,15 +69,6 @@
             <controls:AccordionItem Content="ddd" Header="xxx" IsSelected="True" />
             <controls:AccordionItem Content="ddd" Header="yyy" />
           </controls:Accordion>-->
-          <TabControl>
-            <TabControl.ItemTemplate>
-              <DataTemplate>
-                <CheckBox />
-              </DataTemplate>
-            </TabControl.ItemTemplate>
-            Blah
-            Blubb
-          </TabControl>
         </WrapPanel>
       </TabItem>
       <TabItem Header="Behaviors">
@@ -509,7 +500,7 @@
                        Text="Utilities.IsInDesignMode"
                        TextWrapping="Wrap" />
             <TextBlock Grid.Row="1" Margin="2" TextWrapping="Wrap">The CheckBox should be checked in Visual Studio Designer and unchecked when running application.</TextBlock>
-            <CheckBox Grid.Row="2" HorizontalAlignment="Center" IsChecked="{x:Static infrastructure:Utilities.IsInDesignMode}" IsEnabled="False" />
+            <CheckBox Grid.Row="2" HorizontalAlignment="Center" IsChecked="{x:Static infrastructure:Utilities.IsDesignTime}" IsEnabled="False" />
           </Grid>
         </WrapPanel>
       </TabItem>

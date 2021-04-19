@@ -1,11 +1,15 @@
-﻿namespace ES.Tools.MVVM
+﻿using System.Windows;
+
+namespace ES.Tools.MVVM
 {
   public interface IView
   {
-    public object DataContext { get; set; }
-
-    public void Show();
-
-    public bool? ShowDialog();
+    IViewModel ViewModel { get; set; }
+    bool? ShowDialog();
+    Window Owner { get; set; }
+    bool Topmost { get; set; }
+    void Show();
+    void Hide();
+    void Close();
   }
 }

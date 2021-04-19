@@ -11,19 +11,19 @@ To use the **ViewFactory**, you have to register the *View* and *ViewModel* by c
 ViewFactory.Instance.Register<SampleWindow, SampleViewModel>();
 ```
 
-Then you can create a new instance of the *View* type by calling the *CreatePage* method of the *ViewFactory*.
+Then you can create a new instance of the *View* type by calling the *CreateView* method of the *ViewFactory*.
 In this example we already have an instance of the *ViewModel*: 
 
 ``` CSharp
 var vm = new SampleViewModel();
-var view = ViewFactory.Instance.CreatePage(vm);
+var view = ViewFactory.Instance.CreateView(vm);
 view.ShowDialog();
 ```
 
-*CreatePage* also has a generic overload that also creates the ViewModel for you. Optionally you can call *CreatePage* with arguments if your *ViewModel* has no parameterless constructor.  
+*CreateView* also has a generic overload that also creates the ViewModel for you. Optionally you can call *CreateView* with arguments if your *ViewModel* has no parameterless constructor.  
 
 ``` CSharp
-var view = ViewFactory.Instance.CreatePage<SampleViewModel>();
+var view = ViewFactory.Instance.CreateView<SampleViewModel>();
 view.ShowDialog();
 ```
 

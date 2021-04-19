@@ -7,9 +7,9 @@
     <RootNamespace>ES.Tools</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>MIT.txt</PackageLicenseFile>
-    <Version>0.5.2</Version>
+    <Version>0.6.2</Version>
     <PackageId>ES.Tools</PackageId>
-    <Authors>Patrick Schimmel</Authors>
+    <Authors>Engineering Solutions</Authors>
     <Company>Engineering Solutions</Company>
     <Product>ES.Tools</Product>
     <Description>A collection of some useful WPF controls and helpers.</Description>
@@ -47,9 +47,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ES.Tools.Core" Version="0.5.0" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
-    <PackageReference Include="ES.Tools.Core" Version="0.5.0" Condition="'$(TargetFramework)' == 'NET472'" />
-    <PackageReference Include="ES.Tools.Core" Version="0.5.0" Condition="'$(TargetFramework)' == 'net5.0-windows'" />
+    <PackageReference Include="ES.Tools.Core" Version="0.6.*" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
+    <PackageReference Include="ES.Tools.Core" Version="0.6.*" Condition="'$(TargetFramework)' == 'NET472'" />
+    <PackageReference Include="ES.Tools.Core" Version="0.6.*" Condition="'$(TargetFramework)' == 'net5.0-windows'" />
   </ItemGroup>
 
   <ItemGroup>

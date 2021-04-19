@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using ES.Tools.Core.Infrastructure;
 
 namespace ES.Tools.MVVM
 {
@@ -56,18 +57,18 @@ namespace ES.Tools.MVVM
     /// Creates a new matching View with a new instance of the the ViewModel.
     /// Optionally takes parameters that are used as parameters for the ViewModels constructor.
     /// </summary>
-    public IView CreatePage<T>(params object[] args) where T : IViewModel
+    public IView CreateView<T>(params object[] args) where T : IViewModel
     {
       var viewModelType = typeof(T);
       var vm = (IViewModel)Activator.CreateInstance(viewModelType, args);
-      return CreatePage(vm);
+      return CreateView(vm);
     }
 
     /// <summary>
     /// Creates a new matching View for the given ViewModel.
     /// Throws <exception cref="InvalidOperationException"/> when there is no View registered for the ViewModel.
     /// </summary>
-    public IView CreatePage(IViewModel viewModel)
+    public IView CreateView(IViewModel viewModel, bool setOwner = true)
     {
       _lock.EnterReadLock();
       try
@@ -77,7 +78,13 @@ namespace ES.Tools.MVVM
           : throw new InvalidOperationException("Unknown View for ViewModel object");
 
         var view = (IView)Activator.CreateInstance(viewType);
-        view.DataContext = viewModel;
+        view.ViewModel = viewModel;
+
+        if (setOwner && !view.Topmost)
+        {
+          view.Owner = ApplicationHelper.ActiveWindow;
+        }
+
         return view;
       }
       finally

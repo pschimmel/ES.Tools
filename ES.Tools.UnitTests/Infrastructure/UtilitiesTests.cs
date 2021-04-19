@@ -14,8 +14,8 @@ namespace ES.Tools.UnitTests.Infrastructure
     [Test]
     public void IsInDesignModeTest()
     {
-      // Not a real test, but better than nothing
-      Assert.AreEqual(false, Utilities.IsInDesignMode);
+      // Not a real test, but better than nothing. The unit test will not in design time.
+      Assert.AreEqual(false, Utilities.IsDesignTime);
     }
   }
 }

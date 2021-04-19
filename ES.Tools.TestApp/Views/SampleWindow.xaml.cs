@@ -12,6 +12,12 @@ namespace ES.Tools.TestApp.Views
       InitializeComponent();
     }
 
+    public IViewModel ViewModel
+    {
+      get => DataContext as IViewModel;
+      set => DataContext = value;
+    }
+
     private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
     {
       DialogResult = true;
