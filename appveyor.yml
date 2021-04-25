@@ -1,12 +1,13 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.2
+version: 0.6.4
 
 branches:
   only:
-    - master       # Development branch
-    - production   # Release branch
+    - master       # Release branch
+    - development  # Development branch
+    - /v\d+\.\d+\.\d+/
 
 pull_requests:
   do_not_increment_build_number: true
@@ -43,8 +44,8 @@ build:
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
-#artifacts:
-#  - path: bin\package\*.*
+artifacts:
+  - path: \artifacts\*.*
 
 #---------------------------------#
 #     deployment configuration    #
@@ -57,10 +58,10 @@ deploy:
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
   on:
-    branch: production     # Release from production branch only
+    branch: master     # Deploy from release branch only
 - provider: GitHub
   release: ES.Tools-{version}
   auth_token:
     secure: YtGsH7B9c6fUkDmOxoazOCRXN3Br4xZSMPJN8Bswuh3NiqIWqPc0opA+jkyqB9ZP
   on:
-    branch: production     # Release from master branch only
+    branch: master     # Deploy from release branch only
