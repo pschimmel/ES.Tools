@@ -1,7 +1,7 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.5-{build}
+version: 0.6.5.{build}
 
 branches:
   only:
@@ -12,13 +12,6 @@ branches:
 pull_requests:
   do_not_increment_build_number: false
 
-assembly_info:
-  patch: true
-  file: AssemblyInfo.*
-  assembly_version: "2.2.{build}"
-  assembly_file_version: "{version}"
-  assembly_informational_version: "{version}"
-
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
@@ -28,6 +21,9 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
+  on:
+    branch: master          # Deploy from release branch only
+    APPVEYOR_REPO_TAG: true # Deploy builds with version tags only
 
 # build Configuration, i.e. Debug, Release, etc.
 configuration: Release
@@ -70,7 +66,7 @@ deploy:
     APPVEYOR_REPO_TAG: true # Deploy builds with version tags only
 
 - provider: GitHub
-  release: ES.Tools-{version}
+  release: ES.Tools-$(APPVEYOR_REPO_TAG_NAME)
   auth_token:
     secure: YtGsH7B9c6fUkDmOxoazOCRXN3Br4xZSMPJN8Bswuh3NiqIWqPc0opA+jkyqB9ZP
   on:
