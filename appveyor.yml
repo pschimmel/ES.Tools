@@ -1,7 +1,7 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.2
+version: 0.6.4
 
 branches:
   only:
@@ -53,13 +53,11 @@ build:
 # provider names are case-sensitive!
 # Refreshing key in Appveyor: Account > Encrypt YAML
 deploy:
-
 - provider: NuGet
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
   on:
     branch: production     # Release from production branch only
-
 - provider: GitHub
   release: ES.Tools-{version}
   auth_token:
