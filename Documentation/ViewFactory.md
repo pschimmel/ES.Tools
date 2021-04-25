@@ -1,7 +1,30 @@
 # ViewFactory
 Namespace: **ES.Tools.MVVM**
 
-The **ViewFactory** manages the relationships between *ViewModel* and *View* by associating a type of a *View* to a specific type of a *ViewModel*.
+The **ViewFactory** is a singleton factory class that manages the relationships between *ViewModel* and *View* by associating a type of a *View* to a specific type of a *ViewModel*.
+
+### Methods
+
+**Register&lt;TView, TViewModel&gt;()**
+
+Register a new View/ViewModel relationship.
+
+**Type[] RegisteredViewModelTypes()**
+
+Returns an array of the registered ViewModel types..
+
+**Type GetViewType(Type viewModelType)**
+
+ Returns the View type for a ViewModel type.
+
+**IView CreateView&lt;T&gt;(params object[] args)**
+
+Creates a new matching View with a new instance of the ViewModel.
+Optionally takes parameters that are used as parameters for the ViewModels constructor.
+
+**IView CreateView(IViewModel viewModel, bool setOwner [optional])**
+
+Creates a new matching View for the given ViewModel.
 
 ### Usage
 

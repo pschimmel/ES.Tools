@@ -8,7 +8,11 @@ namespace ES.Tools.MVVM
   public class ActionCommand : ActionCommand<object>
   {
     public ActionCommand(Action execute, Func<bool> canExecute = null)
-      : base(x => execute(), canExecute == null ? null : x => canExecute())
+      : this(x => execute(), canExecute == null ? null : x => canExecute())
+    { }
+
+    public ActionCommand(Action<object> execute, Func<object, bool> canExecute = null)
+      : base(execute, canExecute)
     { }
   }
 }

@@ -54,14 +54,47 @@ namespace ES.Tools.MVVM
     }
 
     /// <summary>
-    /// Creates a new matching View with a new instance of the the ViewModel.
+    /// Returns an array of the registered ViewModel types.
+    /// </summary>
+    public Type[] RegisteredViewModelTypes()
+    {
+      try
+      {
+        _lock.EnterReadLock();
+        return _typeDictionary.Keys.ToArray();
+      }
+      finally
+      {
+        _lock.ExitReadLock();
+      }
+    }
+
+    /// <summary>
+    /// Returns the View type for a ViewModel type.
+    /// </summary>
+    /// <returns>Null, if the type was not found.</returns>
+    public Type GetViewType(Type viewModelType)
+    {
+      try
+      {
+        _lock.EnterReadLock();
+        return _typeDictionary.TryGetValue(viewModelType, out var result) ? result : null;
+      }
+      finally
+      {
+        _lock.ExitReadLock();
+      }
+    }
+
+    /// <summary>
+    /// Creates a new matching View with a new instance of the ViewModel.
     /// Optionally takes parameters that are used as parameters for the ViewModels constructor.
     /// </summary>
-    public IView CreateView<T>(params object[] args) where T : IViewModel
+    public IView CreateView<T>(bool setOwner = true, params object[] args) where T : IViewModel
     {
       var viewModelType = typeof(T);
       var vm = (IViewModel)Activator.CreateInstance(viewModelType, args);
-      return CreateView(vm);
+      return CreateView(vm, setOwner);
     }
 
     /// <summary>

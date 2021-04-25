@@ -39,7 +39,7 @@ namespace ES.Tools.UnitTests.MVVM
     [Test]
     public void CreateViewFromTypeWithParametersTest()
     {
-      var view = ViewFactory.Instance.CreateView<ViewModel2>("Test");
+      var view = ViewFactory.Instance.CreateView<ViewModel2>(false, "Test");
       Assert.That(view, Is.Not.Null);
       Assert.That(view.ViewModel, Is.Not.Null);
       Assert.That(view.ViewModel, Is.InstanceOf(typeof(ViewModel2)));
