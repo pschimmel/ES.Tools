@@ -3,9 +3,10 @@
 #---------------------------------#
 version: 0.6.2
 
-#branches:
-#  only:
-#    - master
+branches:
+  only:
+    - master       # Development branch
+    - production   # Release branch
 
 pull_requests:
   do_not_increment_build_number: true
@@ -57,13 +58,11 @@ deploy:
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
   on:
-    branch: master                 # release from master branch only
-#    appveyor_repo_tag: true        # deploy on tag push only
+    branch: production     # Release from production branch only
 
 - provider: GitHub
   release: ES.Tools-{version}
   auth_token:
     secure: YtGsH7B9c6fUkDmOxoazOCRXN3Br4xZSMPJN8Bswuh3NiqIWqPc0opA+jkyqB9ZP
   on:
-    branch: master                 # release from master branch only
-    appveyor_repo_tag: true        # deploy on tag push only
+    branch: production     # Release from master branch only
