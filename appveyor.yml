@@ -1,7 +1,7 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.4
+version: 0.6.5
 
 branches:
   only:
@@ -44,8 +44,8 @@ build:
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
-artifacts:
-  - path: \artifacts\*.*
+#artifacts:
+#  - path: \artifacts\*.*
 
 #---------------------------------#
 #     deployment configuration    #
