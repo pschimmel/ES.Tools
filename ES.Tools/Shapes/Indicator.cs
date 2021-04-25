@@ -4,6 +4,9 @@ using System.Windows.Shapes;
 
 namespace ES.Tools.Shapes
 {
+  /// <summary>
+  /// A shape that looks like the indicator of a gauge. A thin pin.
+  /// </summary>
   public class Indicator : Shape
   {
     protected override Geometry DefiningGeometry
