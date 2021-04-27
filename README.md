@@ -15,7 +15,23 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 ![ProgressCircle example](Documentation/Images/IntermediateProgressCircle.gif "ProgressCircle")
 ![Switch example](Documentation/Images/Switch.gif "Switch")
 
-## Controls and Tools
+## Basic Toold (*ES.Tools.Infrastructure*)
+
+### Infrastructure
+
+- [**Services**](Documentation/Services) - Singleton class that globally manages service classes.
+- [**TempServiceReplacement**](Documentation/TempServiceReplacement) - Utility class that temporarily replaces services, e.g. for unit testing.
+- [**Utilities**](Documentation/Utilities) - Useful tools and extensions.
+
+### MVVM
+
+- [**ActionCommand**](Documentation/ActionCommand) - *ICommand* implementation, updating automatically when the *CanExecute* changes.
+- [**NotifyObject**](Documentation/NotifyObject) - Basic abstract implementation of *INotifyPropertyChanged*.
+- [**ViewFactory**](Documentation/ViewFactory) - Singleton class that manages the dependency between *ViewModel* and *View*.
+- [**ViewModel**](Documentation/ViewModel) - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
+- [**ViewModelExtensions**](Documentation/ViewModelExtensions) - Helpful extension methods that can be use in the context of *ViewModels*.
+
+## Controls (*ES.Tools*)
 
 ### Adorners
 
@@ -52,19 +68,6 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 ### Effects
 
 - [**GrayscaleEffect**](Documentation/GrayscaleEffect) - WPF *Effect* that turns the control into a monochrome colored control.
-
-### Infrastructure
-
-- [**Services**](Documentation/Services) - Singleton class that globally manages service classes.
-- [**TempServiceReplacement**](Documentation/TempServiceReplacement) - Utility class that temporarily replaces services, e.g. for unit testing.
-- [**Utilities**](Documentation/Utilities) - Useful tools and extensions.
-
-### MVVM
-
-- [**ActionCommand**](Documentation/ActionCommand) - *ICommand* implementation, updating automatically when the *CanExecute* changes.
-- [**NotifyObject**](Documentation/NotifyObject) - Basic abstract implementation of *INotifyPropertyChanged*.
-- [**ViewFactory**](Documentation/ViewFactory) - Singleton class that manages the dependency between *ViewModel* and *View*.
-- [**ViewModel**](Documentation/ViewModel) - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
 
 ### UI
 

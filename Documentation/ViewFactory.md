@@ -1,5 +1,5 @@
 # ViewFactory
-Namespace: **ES.Tools.MVVM**
+Namespace: **ES.Tools.MVVM** *(ES.Tools.Core)*
 
 The **ViewFactory** is a singleton factory class that manages the relationships between *ViewModel* and *View* by associating a type of a *View* to a specific type of a *ViewModel*.
 

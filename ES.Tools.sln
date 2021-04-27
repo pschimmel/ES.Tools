@@ -49,6 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\Utilities.md = Documentation\Utilities.md
 		Documentation\ViewFactory.md = Documentation\ViewFactory.md
 		Documentation\ViewModel.md = Documentation\ViewModel.md
+		Documentation\ViewModelExtensions.md = Documentation\ViewModelExtensions.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A37-15B8-41F8-BE83-5E520585DEB8}"

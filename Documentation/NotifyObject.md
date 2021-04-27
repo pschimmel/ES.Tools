@@ -1,5 +1,5 @@
 # NotifyObject
-Namespace: **ES.Tools.MVVM**
+Namespace: **ES.Tools.MVVM** *(ES.Tools.Core)*
 
 The **NotifyObject** is a base class for all classes that need to raise *PropertyChanged* events. It implements interface *INotifyPropertyChanged*.
 
