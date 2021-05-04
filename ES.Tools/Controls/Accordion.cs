@@ -31,7 +31,7 @@ namespace ES.Tools.Controls
 
     #endregion
 
-    #region Dependency Properties
+    #region Orientation
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(nameof(Orientation), typeof(Orientation), typeof(Accordion), new FrameworkPropertyMetadata(Orientation.Vertical, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
@@ -41,6 +41,9 @@ namespace ES.Tools.Controls
       set => SetValue(OrientationProperty, value);
     }
 
+    #endregion
+
+    #region SelectionMode
 
     public static readonly DependencyProperty SelectionModeProperty = DependencyProperty.Register(nameof(SelectionMode), typeof(AccordionSelectionMode), typeof(Accordion), new FrameworkPropertyMetadata(AccordionSelectionMode.Single, FrameworkPropertyMetadataOptions.AffectsMeasure, SelectionModeChanged));
 
@@ -288,11 +291,14 @@ namespace ES.Tools.Controls
 
     internal void DeselectOthers(AccordionItem selectedItem)
     {
-      foreach (var accordionItem in Items.OfType<AccordionItem>())
+      if (SelectionMode == AccordionSelectionMode.Single)
       {
-        if (accordionItem != selectedItem)
+        foreach (var accordionItem in Items.OfType<AccordionItem>())
         {
-          accordionItem.IsSelected = false;
+          if (accordionItem != selectedItem)
+          {
+            accordionItem.IsSelected = false;
+          }
         }
       }
     }

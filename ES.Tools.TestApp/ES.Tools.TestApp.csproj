@@ -11,16 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <None Remove="Model\**" />
+    <Page Remove="Model\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Images\Painting.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ES.Tools.Core\ES.Tools.Core.csproj" />
     <ProjectReference Include="..\ES.Tools\ES.Tools.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,6 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/ES.Tools.TestApp;Component/Views/DataTemplates.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/ES.Tools;component/Themes/OfficeSlider.xaml" />
       </ResourceDictionary.MergedDictionaries>
 
       <ControlTemplate x:Key="ColorBoxTemplate" TargetType="{x:Type ContentControl}">
@@ -60,15 +59,16 @@
                   Click="ShowControlAdornerButton_Click">
             Show ControlAdorner
           </Button>
-          <!--<controls:Accordion Width="200" VerticalAlignment="Stretch">
+          <controls:Accordion Width="200" SelectionMode="Multiple" VerticalAlignment="Top">
             <controls:Accordion.ItemTemplate>
               <DataTemplate>
                 <Grid Background="Red" />
               </DataTemplate>
             </controls:Accordion.ItemTemplate>
-            <controls:AccordionItem Content="ddd" Header="xxx" IsSelected="True" />
-            <controls:AccordionItem Content="ddd" Header="yyy" />
-          </controls:Accordion>-->
+            <controls:AccordionItem Content="Content 1" Header="Header 1" IsSelected="True" />
+            <controls:AccordionItem Content="Content 2" Header="Header 2" />
+            <controls:AccordionItem Content="Content 3" Header="Header 3" />
+          </controls:Accordion>
         </WrapPanel>
       </TabItem>
       <TabItem Header="Behaviors">
