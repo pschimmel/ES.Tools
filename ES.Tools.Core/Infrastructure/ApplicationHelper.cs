@@ -5,6 +5,9 @@ using System.Windows;
 
 namespace ES.Tools.Core.Infrastructure
 {
+  /// <summary>
+  /// Contains some useful static methods.
+  /// </summary>
   public static class ApplicationHelper
   {
     public static string StartupPath => Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
