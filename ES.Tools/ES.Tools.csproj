@@ -46,11 +46,10 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ES.Tools.Core" Version="0.6.*" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
+<!--  <ItemGroup>
     <PackageReference Include="ES.Tools.Core" Version="0.6.*" Condition="'$(TargetFramework)' == 'NET472'" />
     <PackageReference Include="ES.Tools.Core" Version="0.6.*" Condition="'$(TargetFramework)' == 'net5.0-windows'" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <Resource Include="Effects\Grayscale.ps">

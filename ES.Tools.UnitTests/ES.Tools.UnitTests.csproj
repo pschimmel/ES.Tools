@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ES.Tools.Core\ES.Tools.Core.csproj" />
     <ProjectReference Include="..\ES.Tools\ES.Tools.csproj" />
   </ItemGroup>
   
