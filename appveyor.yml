@@ -1,12 +1,13 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.7.{build}
+version: 0.6.8.{build}
 
 branches:
   only:
     - master       # Release branch
-    - /v\d+\.\d+\.\d+/
+    - development
+#    - /v\d+\.\d+\.\d+/
 
 pull_requests:
   do_not_increment_build_number: false
