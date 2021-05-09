@@ -21,6 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.Tools.UnitTests", "ES.To
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{40EC297E-E90F-4AD4-A100-034EC5A02EED}"
 	ProjectSection(SolutionItems) = preProject
+		Documentation\Accordion.md = Documentation\Accordion.md
 		Documentation\ActionCommand.md = Documentation\ActionCommand.md
 		Documentation\AnimatedProgressBar.md = Documentation\AnimatedProgressBar.md
 		Documentation\AutoGrayableImage.md = Documentation\AutoGrayableImage.md
@@ -31,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\DataTemplateAdorner.md = Documentation\DataTemplateAdorner.md
 		Documentation\DependencyPropertyWatcher.md = Documentation\DependencyPropertyWatcher.md
 		Documentation\DispatcherWrapper.md = Documentation\DispatcherWrapper.md
+		Documentation\Donut.md = Documentation\Donut.md
 		Documentation\DonutSegment.md = Documentation\DonutSegment.md
 		Documentation\Gauge.md = Documentation\Gauge.md
 		Documentation\GrayscaleEffect.md = Documentation\GrayscaleEffect.md
@@ -54,8 +56,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F7F53A37-15B8-41F8-BE83-5E520585DEB8}"
 	ProjectSection(SolutionItems) = preProject
+		Documentation\Images\Accordion.png = Documentation\Images\Accordion.png
 		Documentation\Images\AnimatedProgressBar.gif = Documentation\Images\AnimatedProgressBar.gif
 		Documentation\Images\CustomItemsControl.png = Documentation\Images\CustomItemsControl.png
+		Documentation\Images\Donut.png = Documentation\Images\Donut.png
 		Documentation\Images\Gauge.gif = Documentation\Images\Gauge.gif
 		Documentation\Images\GrayscaleEffect.png = Documentation\Images\GrayscaleEffect.png
 		Documentation\Images\ImageColor.jpg = Documentation\Images\ImageColor.jpg

@@ -7,5 +7,6 @@
 
   <Style TargetType="{x:Type controls:Accordion}">
     <Setter Property="Template" Value="{StaticResource AccordionTemplate}" />
+    <Setter Property="UseLayoutRounding" Value="true" />
   </Style>
 </ResourceDictionary>

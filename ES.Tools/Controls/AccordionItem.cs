@@ -1,6 +1,10 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using ES.Tools.UI;
 
 namespace ES.Tools.Controls
 {
@@ -10,10 +14,9 @@ namespace ES.Tools.Controls
   {
     #region Fields
 
-    //private bool _settingFocus = false;
-    //private bool _setFocusOnContent = false;
-    private FrameworkElement _headerHost;
-    private FrameworkElement _contentHost;
+    private FrameworkElement _header;
+    private FrameworkElement _content;
+    private const double _animationDuration = 0.5;
 
     #endregion
 
@@ -28,24 +31,47 @@ namespace ES.Tools.Controls
 
     #endregion
 
+    #region Routed Events
+
+    #region Expanded
+
+    public static readonly RoutedEvent ExpandedEvent = EventManager.RegisterRoutedEvent(nameof(Expanded), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(AccordionItem));
+
+    public event RoutedEventHandler Expanded
+    {
+      add { AddHandler(ExpandedEvent, value); }
+      remove { RemoveHandler(ExpandedEvent, value); }
+    }
+
+    private void RaiseExpandedEvent()
+    {
+      RaiseEvent(new RoutedEventArgs(AccordionItem.ExpandedEvent));
+    }
+
+    #endregion
+
+    #region Collapsed
+
+    public static readonly RoutedEvent CollapsedEvent = EventManager.RegisterRoutedEvent(nameof(Collapsed), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(AccordionItem));
+
+    public event RoutedEventHandler Collapsed
+    {
+      add { AddHandler(CollapsedEvent, value); }
+      remove { RemoveHandler(CollapsedEvent, value); }
+    }
+
+    private void RaiseCollapsedEvent()
+    {
+      RaiseEvent(new RoutedEventArgs(AccordionItem.CollapsedEvent));
+    }
+
+    #endregion
+
+    #endregion
+
     #region Dependency Properties
 
-    //#region Header Property
-
-    //public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object), typeof(AccordionItem), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
-
-    ///// <summary>
-    ///// Content shown in the lower center of the gauge.
-    ///// </summary>
-    //public object Header
-    //{
-    //  get => GetValue(HeaderProperty);
-    //  set => SetValue(HeaderProperty, value);
-    //}
-
-    //#endregion
-
-    #region IsSelected Property
+    #region IsSelected
 
     /// <summary>
     /// Indicates whether this AccordionItem is selected.
@@ -65,56 +91,34 @@ namespace ES.Tools.Controls
 
       if (isSelected)
       {
-        accordionItem.AccordionItemParent.DeselectOthers(accordionItem);
+        accordionItem.AccordionItemParent?.DeselectOthers(accordionItem);
+        accordionItem.RaiseExpandedEvent();
+
+        if (accordionItem._content != null && accordionItem.AccordionItemParent?.IsAnimated == true)
+        {
+          double currentScale = (accordionItem._content.LayoutTransform as ScaleTransform)?.ScaleY ?? 0.0;
+          accordionItem._content.LayoutTransform = new ScaleTransform(1, 0);
+          var animation = new DoubleAnimation(1, TimeSpan.FromSeconds(_animationDuration * (1 - currentScale)));
+          accordionItem._content.LayoutTransform.BeginAnimation(ScaleTransform.ScaleYProperty, animation);
+          animation.Completed += (s, e) => accordionItem._content.Visibility = Visibility.Collapsed;
+        }
       }
+      else
+      {
+        accordionItem.RaiseCollapsedEvent();
 
-      //var parentTabControl = accordionItem.AccordionItemParent;
-      //if (parentTabControl != null)
-      //{
-      //  //parentTabControl.RaiseIsSelectedChangedAutomationEvent(accordionItem, isSelected);
-      //}
-
-      //if (isSelected)
-      //{
-      //  accordionItem.OnSelected(new RoutedEventArgs(Selector.SelectedEvent, accordionItem));
-      //}
-      //else
-      //{
-      //  accordionItem.OnUnselected(new RoutedEventArgs(Selector.UnselectedEvent, accordionItem));
-      //}
-
-      //accordionItem.UpdateVisualState();
+        if (accordionItem._content != null && accordionItem.AccordionItemParent?.IsAnimated == true)
+        {
+          accordionItem._content.Visibility = Visibility.Visible;
+          double currentScale = (accordionItem._content.LayoutTransform as ScaleTransform)?.ScaleY ?? 1.0;
+          accordionItem._content.LayoutTransform = new ScaleTransform(1, currentScale);
+          var animation = new DoubleAnimation(0, TimeSpan.FromSeconds(_animationDuration * currentScale));
+          accordionItem._content.LayoutTransform.BeginAnimation(ScaleTransform.ScaleYProperty, animation);
+        }
+      }
     }
 
     #endregion
-
-    //private void UpdateVisualState()
-    //{
-    //  //throw new NotImplementedException();
-    //}
-
-    ///// <summary>
-    /////     Event indicating that the IsSelected property is now true.
-    ///// </summary>
-    ///// <param name="e">Event arguments</param>
-    //protected virtual void OnSelected(RoutedEventArgs e)
-    //{
-    //  HandleIsSelectedChanged(true, e);
-    //}
-
-    ///// <summary>
-    /////     Event indicating that the IsSelected property is now false.
-    ///// </summary>
-    ///// <param name="e">Event arguments</param>
-    //protected virtual void OnUnselected(RoutedEventArgs e)
-    //{
-    //  HandleIsSelectedChanged(false, e);
-    //}
-
-    //private void HandleIsSelectedChanged(bool newValue, RoutedEventArgs e)
-    //{
-    //  RaiseEvent(e);
-    //}
 
     #endregion
 
@@ -124,17 +128,14 @@ namespace ES.Tools.Controls
     public override void OnApplyTemplate()
     {
       base.OnApplyTemplate();
-      _headerHost = GetTemplateChild("PART_Header") as FrameworkElement;
-      _contentHost = GetTemplateChild("PART_Content") as FrameworkElement;
+      _header = GetTemplateChild("PART_Header") as FrameworkElement;
+      _header.PreviewMouseLeftButtonUp += Header_PreviewMouseLeftButtonUp;
+      _content = GetTemplateChild("PART_Content") as FrameworkElement;
     }
 
-    /// <inheritdoc />
-    protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+    private void Header_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
     {
-      if (ReferenceEquals(e.Source, this))
-      {
-        IsSelected = !IsSelected;
-      }
+      IsSelected = !IsSelected;
     }
 
     /// <inheritdoc />
@@ -150,77 +151,25 @@ namespace ES.Tools.Controls
       }
     }
 
-    ///// <summary>
-    ///// Focus event handler
-    ///// </summary>
-    //protected override void OnPreviewGotKeyboardFocus(KeyboardFocusChangedEventArgs e)
-    //{
-    //  base.OnPreviewGotKeyboardFocus(e);
-    //  if (!e.Handled && e.NewFocus == this)
-    //  {
-    //    if (!IsSelected && AccordionItemParent != null)
-    //    {
-    //      IsSelected = true;
+    #endregion
 
-    //      // If focus moved in result of selection - handle the event to prevent setting focus back on the new item
-    //      if (e.OldFocus != Keyboard.FocusedElement)
-    //      {
-    //        e.Handled = true;
-    //      }
-    //    }
+    #region Protected Members
 
-    //    if (!e.Handled && _setFocusOnContent)
-    //    {
-    //      var parentTabControl = AccordionItemParent;
-    //      if (parentTabControl != null)
-    //      {
-    //        // Save the parent and check for null to make sure that SetCurrentValue didn't have a change handler
-    //        // that removed the AccordionItem from the tree.
-    //        var selectedContentPresenter = parentTabControl.SelectedContentPresenter;
-    //        if (selectedContentPresenter != null)
-    //        {
-    //          parentTabControl.UpdateLayout(); // Wait for layout
-    //          bool success = selectedContentPresenter.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+    protected Accordion AccordionItemParent
+    {
+      get
+      {
+        var parent = ItemsControl.ItemsControlFromItemContainer(this);
 
-    //          // If we successfully move focus inside the content then don't set focus to the header
-    //          if (success)
-    //          {
-    //            e.Handled = true;
-    //          }
-    //        }
-    //      }
-    //    }
-    //  }
-    //}
+        if (parent == null)
+        {
+          // If it is not a direct child, use the visual tree to get the parent.
+          parent = this.GetParent<Accordion>();
+        }
 
-    //internal bool SetFocus()
-    //{
-    //  bool returnValue = false;
-
-    //  if (!_settingFocus)
-    //  {
-    //    var currentFocus = Keyboard.FocusedElement as AccordionItem;
-
-    //    // If current focus was another AccordionItem in the same TabControl - dont set focus on content
-    //    bool setFocusOnContent = !IsKeyboardFocusWithin && (currentFocus == this || currentFocus == null || currentFocus.AccordionItemParent != AccordionItemParent);
-    //    _settingFocus = true;
-    //    _setFocusOnContent = setFocusOnContent;
-
-    //    try
-    //    {
-    //      returnValue = Focus() || setFocusOnContent;
-    //    }
-    //    finally
-    //    {
-    //      _settingFocus = false;
-    //      _setFocusOnContent = false;
-    //    }
-    //  }
-
-    //  return returnValue;
-    //}
-
-    protected Accordion AccordionItemParent => ItemsControl.ItemsControlFromItemContainer(this) as Accordion;
+        return parent as Accordion;
+      }
+    }
 
     #endregion
   }
