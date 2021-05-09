@@ -51,7 +51,7 @@ namespace ES.Tools.Controls
 
     #region Dependency Properties
 
-    #region Width
+    #region Circle Width
 
     public static readonly DependencyProperty CircleWidthProperty = DependencyProperty.Register(nameof(CircleWidth), typeof(double), typeof(ProgressCircle), new FrameworkPropertyMetadata(10d, FrameworkPropertyMetadataOptions.AffectsRender));
 
@@ -59,6 +59,18 @@ namespace ES.Tools.Controls
     {
       get => (double)GetValue(CircleWidthProperty);
       set => SetValue(CircleWidthProperty, value);
+    }
+
+    #endregion
+
+    #region Is Rotating
+
+    public static readonly DependencyProperty IsRotatingProperty = DependencyProperty.Register(nameof(IsRotating), typeof(bool), typeof(ProgressCircle), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    public bool IsRotating
+    {
+      get => (bool)GetValue(IsRotatingProperty);
+      set => SetValue(IsRotatingProperty, value);
     }
 
     #endregion

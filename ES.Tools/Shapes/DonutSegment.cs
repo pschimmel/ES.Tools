@@ -4,6 +4,9 @@ using System.Windows.Media;
 
 namespace ES.Tools.Shapes
 {
+  /// <summary>
+  /// A segment of a donut.
+  /// </summary>
   public class DonutSegment : SegmentShape
   {
     #region Donut Width Property

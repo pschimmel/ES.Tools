@@ -1,5 +1,5 @@
 # Services
-Namespace: **ES.Tools.Infrastructure**
+Namespace: **ES.Tools.Infrastructure** *(ES.Tools.Core)*
 
 **Services** provides an infrastructure for services. It can be used as simple DI container. It is a singleton  class.
 

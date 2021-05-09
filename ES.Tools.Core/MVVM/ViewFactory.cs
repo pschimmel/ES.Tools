@@ -17,7 +17,7 @@ namespace ES.Tools.MVVM
 
     private ViewFactory()
     {
-      _lock = new ReaderWriterLockSlim();
+      _lock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
       _typeDictionary = new Dictionary<Type, Type>();
     }
 
@@ -70,7 +70,7 @@ namespace ES.Tools.MVVM
     }
 
     /// <summary>
-    /// Returns the View type for a ViewModel type.
+    /// Returns the View type for a ViewModel type. If the ViewModel type is not registered, but a base class, this will be accepted as well.
     /// </summary>
     /// <returns>Null, if the type was not found.</returns>
     public Type GetViewType(Type viewModelType)
@@ -78,7 +78,27 @@ namespace ES.Tools.MVVM
       try
       {
         _lock.EnterReadLock();
-        return _typeDictionary.TryGetValue(viewModelType, out var result) ? result : null;
+
+        Type viewType = null;
+
+        if (_typeDictionary.ContainsKey(viewModelType))
+        {
+          viewType = _typeDictionary[viewModelType];
+        }
+        else
+        {
+          foreach (var registeredViewModelType in _typeDictionary.Keys)
+          {
+            if (registeredViewModelType.IsAssignableFrom(viewModelType))
+            {
+              viewType = _typeDictionary[registeredViewModelType];
+              break;
+            }
+          }
+        }
+
+        return viewType;
+
       }
       finally
       {
@@ -98,7 +118,7 @@ namespace ES.Tools.MVVM
     }
 
     /// <summary>
-    /// Creates a new matching View for the given ViewModel.
+    /// Creates a new matching View for the given ViewModel. If the ViewModel type is not registered, but a base class, this will be accepted as well.
     /// Throws <exception cref="InvalidOperationException"/> when there is no View registered for the ViewModel.
     /// </summary>
     public IView CreateView(IViewModel viewModel, bool setOwner = true)
@@ -106,9 +126,13 @@ namespace ES.Tools.MVVM
       _lock.EnterReadLock();
       try
       {
-        var viewType = _typeDictionary.ContainsKey(viewModel.GetType())
-          ? _typeDictionary[viewModel.GetType()]
-          : throw new InvalidOperationException("Unknown View for ViewModel object");
+        var viewModelType = viewModel.GetType();
+        var viewType = GetViewType(viewModelType);
+
+        if (viewType == null)
+        {
+          throw new InvalidOperationException("Unknown View for ViewModel object");
+        }
 
         var view = (IView)Activator.CreateInstance(viewType);
         view.ViewModel = viewModel;

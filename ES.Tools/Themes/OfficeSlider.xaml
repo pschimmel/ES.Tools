@@ -289,7 +289,6 @@
 
   <Style TargetType="{x:Type controls:OfficeSlider}">
     <Setter Property="UseLayoutRounding" Value="true" />
-    <Setter Property="OverridesDefaultStyle" Value="true" />
     <Style.Triggers>
       <Trigger Property="Orientation" Value="Horizontal">
         <Setter Property="MinWidth" Value="104" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using ES.Tools.MVVM;
 using NUnit.Framework;
@@ -16,6 +17,25 @@ namespace ES.Tools.UnitTests.MVVM
     {
       ViewFactory.Instance.Register<View1, ViewModel1>();
       ViewFactory.Instance.Register<View2, ViewModel2>();
+    }
+
+    [Test]
+    public void GetViewModelTypesTest()
+    {
+      var types = ViewFactory.Instance.RegisteredViewModelTypes();
+
+      Assert.That(types.Count(), Is.EqualTo(2));
+      Assert.That(types, Contains.Item(typeof(ViewModel1)));
+      Assert.That(types, Contains.Item(typeof(ViewModel2)));
+    }
+
+    [Test]
+    public void GetViewTypeTest()
+    {
+      Assert.That(ViewFactory.Instance.GetViewType(typeof(ViewModel1)), Is.EqualTo(typeof(View1)));
+      Assert.That(ViewFactory.Instance.GetViewType(typeof(ViewModel2)), Is.EqualTo(typeof(View2)));
+      Assert.That(ViewFactory.Instance.GetViewType(typeof(ViewModel3)), Is.Null);
+      Assert.That(ViewFactory.Instance.GetViewType(typeof(GenericViewModel<int>)), Is.EqualTo(typeof(View1)));
     }
 
     [Test]
@@ -44,6 +64,17 @@ namespace ES.Tools.UnitTests.MVVM
       Assert.That(view.ViewModel, Is.Not.Null);
       Assert.That(view.ViewModel, Is.InstanceOf(typeof(ViewModel2)));
       Assert.That((view.ViewModel as ViewModel2).Arguments, Is.EqualTo("Test"));
+    }
+
+    [Test]
+    public void CreateViewFromGenericDerivedTypTest()
+    {
+      var viewModel = new GenericViewModel<string>();
+      var view = ViewFactory.Instance.CreateView(viewModel);
+      Assert.That(view, Is.Not.Null);
+      Assert.That(view.ViewModel, Is.Not.Null);
+      Assert.That(view.ViewModel, Is.InstanceOf(typeof(GenericViewModel<string>)));
+      Assert.That(view.ViewModel, Is.AssignableTo(typeof(ViewModel1)));
     }
 
     [Test]
@@ -126,6 +157,10 @@ namespace ES.Tools.UnitTests.MVVM
     }
 
     internal class ViewModel4 : ViewModel
+    {
+    }
+
+    internal class GenericViewModel<T> : ViewModel1
     {
     }
   }

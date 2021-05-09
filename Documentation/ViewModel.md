@@ -1,5 +1,5 @@
 # ViewModel
-Namespace: **ES.Tools.MVVM**
+Namespace: **ES.Tools.MVVM** *(ES.Tools.Core)*
 
 Simple implementation of the MVVM pattern. The **ViewModel** can be used as base class for all *ViewModel*s.
 

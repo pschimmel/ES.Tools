@@ -1,5 +1,5 @@
 # TempServiceReplacement
-Namespace: **ES.Tools.Infrastructure**
+Namespace: **ES.Tools.Infrastructure** *(ES.Tools.Core)*
 
 **TempServiceReplacement** is a temporary replacement for services. This can be used for example in unit tests.
 This implements *IDisposable*. As soon as the instance is disposed, the previously registered service is restored.

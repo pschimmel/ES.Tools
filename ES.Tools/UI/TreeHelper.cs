@@ -38,6 +38,15 @@ namespace ES.Tools.UI
     }
 
     /// <summary>
+    /// Returns true, if the current object is in the visual tree of the parent object.
+    /// </summary>
+    public static bool IsChildOf(this DependencyObject child, DependencyObject parent)
+    {
+      var parentObject = child.GetParentObject();
+      return parentObject != null && (parentObject == parent || parentObject.IsChildOf(parent));
+    }
+
+    /// <summary>
     /// Returns the child elements of a certain type using the visual tree.
     /// </summary>
     public static T GetVisualChild<T>(this DependencyObject obj) where T : DependencyObject

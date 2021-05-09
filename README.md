@@ -15,7 +15,23 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 ![ProgressCircle example](Documentation/Images/IntermediateProgressCircle.gif "ProgressCircle")
 ![Switch example](Documentation/Images/Switch.gif "Switch")
 
-## Controls and Tools
+## Basic Toold (*ES.Tools.Infrastructure*)
+
+### Infrastructure
+
+- [**Services**](Documentation/Services) - Singleton class that globally manages service classes.
+- [**TempServiceReplacement**](Documentation/TempServiceReplacement) - Utility class that temporarily replaces services, e.g. for unit testing.
+- [**Utilities**](Documentation/Utilities) - Useful tools and extensions.
+
+### MVVM
+
+- [**ActionCommand**](Documentation/ActionCommand) - *ICommand* implementation, updating automatically when the *CanExecute* changes.
+- [**NotifyObject**](Documentation/NotifyObject) - Basic abstract implementation of *INotifyPropertyChanged*.
+- [**ViewFactory**](Documentation/ViewFactory) - Singleton class that manages the dependency between *ViewModel* and *View*.
+- [**ViewModel**](Documentation/ViewModel) - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
+- [**ViewModelExtensions**](Documentation/ViewModelExtensions) - Helpful extension methods that can be use in the context of *ViewModels*.
+
+## Controls (*ES.Tools*)
 
 ### Adorners
 
@@ -30,13 +46,15 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
  
 ### Controls
 
-- [**AnimatedProgressBar**](Documentation/AnimatedProgressBar) - ProgressBar where the steps in between are animated.
-- [**AutoGrayableImage**](Documentation/AutoGrayableImage) - Image control that automatically turns itself into a grayscale image when disabled.
+- [**Accordion**](Documentation/Accordion) - *Accordion* control that contains headered items that can be collapsed and expanded.
+- [**AnimatedProgressBar**](Documentation/AnimatedProgressBar) - *ProgressBar* where the steps in between are animated.
+- [**AutoGrayableImage**](Documentation/AutoGrayableImage) - *Image* control that automatically turns itself into a gray scale image when disabled.
 - [**CustomItemsControl**](Documentation/CustomItemsControl) - *ItemsControl* that uses a *ContentControl* as item container. This enables implicit *ViewModel* data templates.
+- [**Donut**](Documentation/Donut) - Simple control that looks like a donut. 
 - [**DonutSegment**](Documentation/DonutSegment) - Simple control that looks like a segment of a donut. 
-- [**Gauge**](Documentation/Gauge) - Control that looks like a gauge with an indicator. 
+- [**Gauge**](Documentation/Gauge) - Control that looks like a real gauge with indicator, warning and error areas. 
 - [**Indicator**](Documentation/Indicators) - Control that looks like a pin. 
-- [**Meter**](Documentation/Meter) - Control that looks like a vertical or horizontal meter with or without indicator. 
+- [**Meter**](Documentation/Meter) - Control that looks like a vertical or horizontal meter with an indicator. 
 - [**OfficeSlider**](Documentation/OfficeSlider) - Restyling of the WPF slider that it looks more similar to the slider in Office applications.
 - [**PieSegment**](Documentation/PieSegment) - Simple control that looks like a segment of a pie.
 - [**ProgressCircle**](Documentation/ProgressCircle) - A simple circular progress bar.
@@ -52,19 +70,6 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 ### Effects
 
 - [**GrayscaleEffect**](Documentation/GrayscaleEffect) - WPF *Effect* that turns the control into a monochrome colored control.
-
-### Infrastructure
-
-- [**Services**](Documentation/Services) - Singleton class that globally manages service classes.
-- [**TempServiceReplacement**](Documentation/TempServiceReplacement) - Utility class that temporarily replaces services, e.g. for unit testing.
-- [**Utilities**](Documentation/Utilities) - Useful tools and extensions.
-
-### MVVM
-
-- [**ActionCommand**](Documentation/ActionCommand) - *ICommand* implementation, updating automatically when the *CanExecute* changes.
-- [**NotifyObject**](Documentation/NotifyObject) - Basic abstract implementation of *INotifyPropertyChanged*.
-- [**ViewFactory**](Documentation/ViewFactory) - Singleton class that manages the dependency between *ViewModel* and *View*.
-- [**ViewModel**](Documentation/ViewModel) - Basic abstract implementation of a *ViewModel*. Inherits from *NotifyObject* and implements *IDisposable*.
 
 ### UI
 

@@ -7,7 +7,7 @@ namespace ES.Tools.MVVM
   public static class ViewModelExtensions
   {
     /// <summary>
-    /// Returns the default collection view of a list object
+    /// Returns the default collection view of a list object.
     /// </summary>
     public static CollectionView GetView(this IEnumerable source)
     {
@@ -46,7 +46,7 @@ namespace ES.Tools.MVVM
     }
 
     /// <summary>
-    /// Sets a new <see cref="SortDescription"/> of the default view of a collection.
+    /// Sets a new <see cref="SortDescription"/> to the default view of a collection.
     /// </summary>
     public static void SetSorting(this IEnumerable source, params SortDescription[] sortDescriptions)
     {
@@ -67,7 +67,7 @@ namespace ES.Tools.MVVM
     }
 
     /// <summary>
-    /// Removes all <see cref="SortDescription"/>s of the default view of a collection.
+    /// Removes all <see cref="SortDescription"/>s from the default view of a collection.
     /// </summary>
     public static void ClearSorting(this IEnumerable source)
     {
