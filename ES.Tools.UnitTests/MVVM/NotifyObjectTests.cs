@@ -1,4 +1,4 @@
-﻿using ES.Tools.MVVM;
+﻿using ES.Tools.Core.MVVM;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 

@@ -1,5 +1,5 @@
 # ViewModelExtensions
-Namespace: **ES.Tools.MVVM** *(ES.Tools.Core)*
+Namespace: **ES.Tools.Core.MVVM** *(ES.Tools.Core)*
 
 Helpful extension methods that can be use in the context of *ViewModels*.
 

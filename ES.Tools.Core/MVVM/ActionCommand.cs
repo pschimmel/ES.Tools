@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
   /// <summary>
   /// Action command without a specific object as parameter.

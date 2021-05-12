@@ -1,5 +1,5 @@
 # Utilities
-Namespace: **ES.Tools.Infrastructure**
+Namespace: **ES.Tools.Core.Infrastructure**
 
 **Utilities** is a static class containing useful tools and extensions.
 

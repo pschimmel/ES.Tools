@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using ES.Tools.MVVM;
+using ES.Tools.Core.MVVM;
 using ES.Tools.TestApp.ViewModels;
 using ES.Tools.TestApp.Views;
 
@@ -12,7 +12,7 @@ namespace ES.Tools.TestApp
   {
     public App()
     {
-      ViewFactory.Instance.Register<SampleWindow, SampleWindowViewModel>();
+      ViewFactory.Instance.Register<SampleWindowViewModel, SampleWindow>();
     }
   }
 }

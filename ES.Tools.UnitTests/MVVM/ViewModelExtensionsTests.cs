@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
-using ES.Tools.MVVM;
+using ES.Tools.Core.MVVM;
 using NUnit.Framework;
 
 namespace ES.Tools.UnitTests.MVVM

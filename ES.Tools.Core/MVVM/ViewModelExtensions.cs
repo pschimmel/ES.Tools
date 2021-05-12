@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Data;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
   public static class ViewModelExtensions
   {

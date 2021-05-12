@@ -1,4 +1,4 @@
-﻿using ES.Tools.MVVM;
+﻿using ES.Tools.Core.MVVM;
 
 namespace ES.Tools.TestApp.ViewModels
 {

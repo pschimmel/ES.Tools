@@ -15,7 +15,7 @@ Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCir
 ![ProgressCircle example](Documentation/Images/IntermediateProgressCircle.gif "ProgressCircle")
 ![Switch example](Documentation/Images/Switch.gif "Switch")
 
-## Basic Toold (*ES.Tools.Infrastructure*)
+## Basic Tools (*ES.Tools.Core*)
 
 ### Infrastructure
 
