@@ -1,4 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:ES.Tools.Converters;assembly=ES.Tools" xmlns:vm="clr-namespace:ES.Tools.TestApp.ViewModels" xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
+                    xmlns:converters="clr-namespace:ES.Tools.Converters;assembly=ES.Tools"
+                    xmlns:vm="clr-namespace:ES.Tools.TestApp.ViewModels">
 
   <converters:ColorToStringConverter x:Key="ColorToStringConverter" />
   <converters:TextTrimmingConverter x:Key="TextTrimmingConverter" />

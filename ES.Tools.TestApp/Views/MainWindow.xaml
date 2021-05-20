@@ -5,7 +5,8 @@
         xmlns:controls="clr-namespace:ES.Tools.Controls;assembly=ES.Tools"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:effects="clr-namespace:ES.Tools.Effects;assembly=ES.Tools"
-        xmlns:infrastructure="clr-namespace:ES.Tools.Infrastructure;assembly=ES.Tools.Core"
+        xmlns:helpers="clr-namespace:ES.Tools.TestApp.Helpers"
+        xmlns:infrastructure="clr-namespace:ES.Tools.Core.Infrastructure;assembly=ES.Tools.Core"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:shapes="clr-namespace:ES.Tools.Shapes;assembly=ES.Tools"
         xmlns:viewmodel="clr-namespace:ES.Tools.TestApp.ViewModels"
@@ -39,6 +40,8 @@
           <ContentPresenter Grid.Row="1" Margin="1" HorizontalAlignment="Center" />
         </Grid>
       </ControlTemplate>
+
+      <helpers:ClassToTypeNameConverter x:Key="ClassToTypeNameConverter" />
     </ResourceDictionary>
   </Window.Resources>
   <Grid>
@@ -348,16 +351,32 @@
                                           Height="20"
                                           Margin="5"
                                           AnimatedValue="{Binding Text, ElementName=AnimatedProgressBarValue}"
+                                          EasingFunction="{Binding SelectedItem, ElementName=AnimatedProgressBarEasingFunction, Mode=TwoWay}"
                                           Maximum="100"
                                           Minimum="0">
-              <controls:AnimatedProgressBar.EasingFunction>
-                <ExponentialEase />
-              </controls:AnimatedProgressBar.EasingFunction>
               <controls:AnimatedProgressBar.Duration>
                 0:0:5
               </controls:AnimatedProgressBar.Duration>
             </controls:AnimatedProgressBar>
-            <TextBox x:Name="AnimatedProgressBarValue" Grid.Row="3" Margin="5,0,5,5" Text="10" />
+            <TextBox x:Name="AnimatedProgressBarValue" Grid.Row="2" Margin="5,0,5,5" Text="10" />
+            <ComboBox x:Name="AnimatedProgressBarEasingFunction" Grid.Row="3" Margin="5,0,5,5" SelectedIndex="5" IsEditable="False">
+              <ComboBox.ItemTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding Converter={StaticResource ClassToTypeNameConverter}}" />
+                </DataTemplate>
+              </ComboBox.ItemTemplate>
+              <BackEase />
+              <BounceEase />
+              <CircleEase />
+              <CubicEase />
+              <ElasticEase />
+              <ExponentialEase />
+              <PowerEase />
+              <QuadraticEase />
+              <QuarticEase />
+              <QuinticEase />
+              <SineEase />
+            </ComboBox>
           </Grid>
           <Grid>
             <Grid.RowDefinitions>
@@ -374,21 +393,21 @@
                                 SelectionMode="Multiple">
               <controls:AccordionItem Header="Horror Movies" IsSelected="True">
                 <StackPanel>
-                  <TextBlock Text="Halloween"/>
-                  <TextBlock Text="Hellraiser"/>
-                  <TextBlock Text="Friday 13th"/>
+                  <TextBlock Text="Halloween" />
+                  <TextBlock Text="Hellraiser" />
+                  <TextBlock Text="Friday 13th" />
                 </StackPanel>
               </controls:AccordionItem>
               <controls:AccordionItem Header="SciFi Movies">
                 <StackPanel>
-                  <TextBlock Text="2001 - A Space Odyssey"/>
-                  <TextBlock Text="Alien"/>
+                  <TextBlock Text="2001 - A Space Odyssey" />
+                  <TextBlock Text="Alien" />
                 </StackPanel>
               </controls:AccordionItem>
               <controls:AccordionItem Header="Action Movies">
                 <StackPanel>
-                  <TextBlock Text="Rambo"/>
-                  <TextBlock Text="Rocky"/>
+                  <TextBlock Text="Rambo" />
+                  <TextBlock Text="Rocky" />
                 </StackPanel>
               </controls:AccordionItem>
             </controls:Accordion>
