@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace ES.Tools.Infrastructure
+namespace ES.Tools.Core.Infrastructure
 {
   /// <summary>
   /// Provides an infrastructure for services. Can be used as simple DI container.

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Markup;
 
-namespace ES.Tools.Infrastructure
+namespace ES.Tools.Core.Infrastructure
 {
   /// <summary>
   /// General utilities class.

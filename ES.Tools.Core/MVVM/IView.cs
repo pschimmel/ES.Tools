@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
   public interface IView
   {

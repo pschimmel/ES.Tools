@@ -1,9 +1,8 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
-  public interface IViewModel : INotifyPropertyChanged, IDisposable
+  public interface IViewModel : INotifyPropertyChanged
   {
   }
 }

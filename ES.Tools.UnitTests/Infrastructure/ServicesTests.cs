@@ -1,5 +1,5 @@
 ﻿using System;
-using ES.Tools.Infrastructure;
+using ES.Tools.Core.Infrastructure;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 

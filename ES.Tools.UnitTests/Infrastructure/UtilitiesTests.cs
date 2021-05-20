@@ -1,4 +1,4 @@
-using ES.Tools.Infrastructure;
+using ES.Tools.Core.Infrastructure;
 using NUnit.Framework;
 
 namespace ES.Tools.UnitTests.Infrastructure

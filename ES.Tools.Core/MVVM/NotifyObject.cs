@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
   /// <summary>
   /// Base class that implements <see cref="INotifyPropertyChanged"./>

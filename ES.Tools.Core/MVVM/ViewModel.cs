@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
   /// <summary>
   /// Base class for View Models. Implements IDisposable.
   /// </summary>
-  public abstract class ViewModel : NotifyObject, IViewModel
+  public abstract class ViewModel : NotifyObject, IViewModel, IDisposable
   {
     private bool _disposed = false; // To detect redundant calls
 

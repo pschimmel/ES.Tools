@@ -1,5 +1,5 @@
 # ActionCommand
-Namespace: **ES.Tools.MVVM** *(ES.Tools.Core)*
+Namespace: **ES.Tools.Core.MVVM** *(ES.Tools.Core)*
 
 ## ActionCommand
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ES.Tools.Infrastructure
+namespace ES.Tools.Core.Infrastructure
 {
   /// <summary>
   /// Temporarily replaces a service registered in the <see cref="Services"/> registry.

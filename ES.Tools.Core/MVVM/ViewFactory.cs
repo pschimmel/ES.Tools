@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using ES.Tools.Core.Infrastructure;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
   /// <summary>
   /// Factory that manages the relationship between Views and ViewModels.
@@ -26,11 +26,11 @@ namespace ES.Tools.MVVM
     /// <summary>
     /// Register a new View/ViewModel relationship.
     /// </summary>
-    /// <typeparam name="TView">Type of the View.</typeparam>
     /// <typeparam name="TViewModel">Type of the ViewModel</typeparam>
-    public void Register<TView, TViewModel>()
-        where TView : IView
+    /// <typeparam name="TView">Type of the View.</typeparam>
+    public void Register<TViewModel, TView>()
         where TViewModel : IViewModel
+        where TView : IView
     {
       _lock.EnterWriteLock();
       try

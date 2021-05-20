@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using ES.Tools.MVVM;
+using ES.Tools.Core.MVVM;
 using ES.Tools.UI;
 
 namespace ES.Tools.TestApp.ViewModels

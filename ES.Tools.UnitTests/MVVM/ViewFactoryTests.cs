@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
-using ES.Tools.MVVM;
+using ES.Tools.Core.MVVM;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
@@ -15,8 +15,8 @@ namespace ES.Tools.UnitTests.MVVM
     [OneTimeSetUp]
     public void Initialize()
     {
-      ViewFactory.Instance.Register<View1, ViewModel1>();
-      ViewFactory.Instance.Register<View2, ViewModel2>();
+      ViewFactory.Instance.Register<ViewModel1, View1>();
+      ViewFactory.Instance.Register<ViewModel2, View2>();
     }
 
     [Test]
@@ -80,13 +80,13 @@ namespace ES.Tools.UnitTests.MVVM
     [Test]
     public void RegisterSameViewModelTwiceTest()
     {
-      Assert.Throws<InvalidOperationException>(() => ViewFactory.Instance.Register<View1, ViewModel1>());
+      Assert.Throws<InvalidOperationException>(() => ViewFactory.Instance.Register<ViewModel1, View1>());
     }
 
     [Test]
     public void RegisterSameViewTwiceTest()
     {
-      Assert.Throws<InvalidOperationException>(() => ViewFactory.Instance.Register<View1, ViewModel3>());
+      Assert.Throws<InvalidOperationException>(() => ViewFactory.Instance.Register<ViewModel3, View1>());
     }
 
     [Test]

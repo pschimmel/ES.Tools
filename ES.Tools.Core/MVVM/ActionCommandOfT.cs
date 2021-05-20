@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace ES.Tools.MVVM
+namespace ES.Tools.Core.MVVM
 {
   /// <summary>
   /// Implementation of a generic action command.
