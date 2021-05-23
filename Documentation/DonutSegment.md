@@ -26,4 +26,5 @@ The **DonutSegment** is simple shape control that is rendered as a segment of a 
 
 ### Remarks
 
-> See also [**PieSegment**](PieSegment).
+> See also [**PieSegment**](PieSegment.md).
+> See also [**Donut**](Donut.md).

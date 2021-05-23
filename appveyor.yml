@@ -1,13 +1,14 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.12.{build}
+version: 0.6.13
+#version: 0.6.12.{build}
 
 branches:
   only:
     - master       # Release branch
-    - development
-#    - /v\d+\.\d+\.\d+/
+#    - development
+    - /v\d+\.\d+\.\d+/
 
 pull_requests:
   do_not_increment_build_number: false
@@ -59,13 +60,13 @@ deploy:
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
   on:
-    branch: master          # Deploy from release branch only
-#    APPVEYOR_REPO_TAG: true # Deploy builds with version tags only
+    #branch: master          # Deploy from release branch only
+    APPVEYOR_REPO_TAG: true # Deploy builds with version tags only
 
 - provider: GitHub
-#  release: ES.Tools-v$(APPVEYOR_BUILD_VERSION)
+  release: ES.Tools-v$(APPVEYOR_BUILD_VERSION)
   auth_token:
     secure: 1WaCyi/uL8oVBMCLlDopygdhRfEpFe2x7DcACaNtWHp8ueBrs8vJ8X/V13BEU7Xy
   on:
-    branch: master          # Deploy from release branch only
-#    APPVEYOR_REPO_TAG: true # Deploy builds with version tags only
+    #branch: master          # Deploy from release branch only
+    APPVEYOR_REPO_TAG: true # Deploy builds with version tags only

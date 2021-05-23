@@ -21,3 +21,5 @@ Sets a new *SortDescription* to the default view of a collection.
 
 Removes all *SortDescription*s from the default view of a collection.
 
+### Remarks
+>See also [*ViewModel*](ViewModel.md).

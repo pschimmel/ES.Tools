@@ -6,7 +6,7 @@
     <AssemblyName>ES.Tools.Core</AssemblyName>
     <RootNamespace>ES.Tools.Core</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseFile>MIT.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Version>0.6.2</Version>
     <PackageId>ES.Tools.Core</PackageId>
     <Authors>Engineering Solutions</Authors>
@@ -33,11 +33,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Logos\ES.Tools.Core Logo.png">
+    <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\MIT.txt">
+    <None Include="..\Logos\ES.Tools.Core Logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

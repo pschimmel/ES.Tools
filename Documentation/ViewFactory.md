@@ -53,4 +53,4 @@ view.ShowDialog();
 You have access to the *ViewModel* through the *DataContext* of the *View*.
 
 ### Remarks
->See also [*ViewModel*](ViewModel).
+>See also [*ViewModel*](ViewModel.md).

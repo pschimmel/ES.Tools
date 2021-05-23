@@ -16,4 +16,4 @@ Set the *SelectAllTextOnFocus* attached dependency property to *true* to select 
 
 ### Remarks
 
-> See also [**PasswordBoxBehavior**](PasswordBoxBehavior).
+> See also [**PasswordBoxBehavior**](PasswordBoxBehavior.md).

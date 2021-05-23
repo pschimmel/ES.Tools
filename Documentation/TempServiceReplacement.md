@@ -19,4 +19,4 @@ using (var replacer = new TempServiceReplacement<IService1>(replacement))
 
 ### Remarks
 
->See also [*Services*](Services).
+>See also [*Services*](Services.md).
