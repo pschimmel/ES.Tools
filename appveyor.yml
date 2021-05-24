@@ -1,16 +1,16 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.14
+version: 0.6.15.{build}
 
 branches:
   only:
-#    - master       # Release branch
+    - master       # Release branch
 #    - development
     - /v\d+\.\d+\.\d+/
 
 pull_requests:
-  do_not_increment_build_number: false
+  do_not_increment_build_number: true
 
 dotnet_csproj:
   patch: true
