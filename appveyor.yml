@@ -60,7 +60,7 @@ deploy:
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
   on:
-    branch: master          # Deploy from release branch only
+    #branch: master          # Deploy from release branch only
     APPVEYOR_REPO_TAG: true  # Deploy builds with version tags only
 
 - provider: GitHub
