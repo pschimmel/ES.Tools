@@ -1,7 +1,7 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.16.{build}
+version: 0.6.17.{build}
 
 branches:
   only:
@@ -68,7 +68,7 @@ deploy:
   auth_token:
     secure: 1WaCyi/uL8oVBMCLlDopygdhRfEpFe2x7DcACaNtWHp8ueBrs8vJ8X/V13BEU7Xy
   on:
-    branch: #master         # Deploy from release branch only
-      - master
-      - /v\d\.\d\.\d/
+#    branch: #master         # Deploy from release branch only
+#      - master
+#      - /v\d\.\d\.\d/
     APPVEYOR_REPO_TAG: true  # deploy on tag push only
