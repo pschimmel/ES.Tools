@@ -1,7 +1,7 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.17.{build}
+version: 0.6.18.{build}
 
 branches:
   only:
@@ -63,7 +63,7 @@ deploy:
     APPVEYOR_REPO_TAG: true  # Deploy builds with version tags only
 
 - provider: GitHub
-  release: ES.Tools-v$(APPVEYOR_BUILD_VERSION)
+  release: "%APPVEYOR_REPO_TAG_NAME%"
   desription: "Release %APPVEYOR_REPO_TAG_NAME%"
   auth_token:
     secure: 1WaCyi/uL8oVBMCLlDopygdhRfEpFe2x7DcACaNtWHp8ueBrs8vJ8X/V13BEU7Xy
