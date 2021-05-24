@@ -17,4 +17,4 @@ Set the *SelectAllTextOnFocus* attached dependency property to *true* to select 
 
 ### Remarks
 
-> See also [**TextBoxBehavior**](TextBoxBehavior).
+> See also [**TextBoxBehavior**](TextBoxBehavior.md).

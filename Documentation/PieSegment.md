@@ -24,4 +24,4 @@ The **PieSegment** is simple shape control that is rendered as a pie segment.
 
 ### Remarks
 
-> See also [**DonutSegment**](DonutSegment).
+> See also [**DonutSegment**](DonutSegment.md).

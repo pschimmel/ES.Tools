@@ -44,4 +44,4 @@ bool result1 = Services.Instance.TryGetService(out IService1 resultService1);
 
 ### Remarks
 
->See also [*TempServiceReplacement*](TempServiceReplacement).
+>See also [*TempServiceReplacement*](TempServiceReplacement.md).

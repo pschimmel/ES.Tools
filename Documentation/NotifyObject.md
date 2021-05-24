@@ -52,4 +52,4 @@ public class Employee : NotifyObject
 ```
 
 ### Remarks
->See also [*ViewModel*](ViewModel).
+>See also [*ViewModel*](ViewModel.md).

@@ -7,4 +7,4 @@ Simple implementation of the MVVM pattern. The **ViewModel** can be used as base
 
 ### Remarks
 
->See also [*NotifyObject*](NotifyObject).
+>See also [*NotifyObject*](NotifyObject.md).

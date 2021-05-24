@@ -22,4 +22,4 @@ The **Donut** is simple shape that is looks like a donut.
 
 ### Remarks
 
-> See also [**DonutSegment**](DonutSegment).
+> See also [**DonutSegment**](DonutSegment.md).

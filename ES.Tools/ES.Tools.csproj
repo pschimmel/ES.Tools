@@ -6,7 +6,7 @@
     <AssemblyName>ES.Tools</AssemblyName>
     <RootNamespace>ES.Tools</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseFile>MIT.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Version>0.6.2</Version>
     <PackageId>ES.Tools</PackageId>
     <Authors>Engineering Solutions</Authors>
@@ -36,11 +36,11 @@
 
   <ItemGroup>
     <None Remove="Effects\Grayscale.ps" />
-    <None Include="..\Logos\ES.Tools Logo.png">
+    <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\MIT.txt">
+    <None Include="..\Logos\ES.Tools Logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
