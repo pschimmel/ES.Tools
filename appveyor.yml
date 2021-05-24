@@ -1,8 +1,7 @@
 #---------------------------------#
 #      general configuration      #
 #---------------------------------#
-version: 0.6.13
-#version: 0.6.12.{build}
+version: 0.6.15
 
 branches:
   only:
@@ -11,7 +10,7 @@ branches:
 #    - /v\d+\.\d+\.\d+/
 
 pull_requests:
-  do_not_increment_build_number: false
+  do_not_increment_build_number: true
 
 dotnet_csproj:
   patch: true
@@ -69,7 +68,7 @@ deploy:
   auth_token:
     secure: 1WaCyi/uL8oVBMCLlDopygdhRfEpFe2x7DcACaNtWHp8ueBrs8vJ8X/V13BEU7Xy
   on:
-    #branch: #master          # Deploy from release branch only
+    #branch: #master         # Deploy from release branch only
     #  - master
     #  - /v\d\.\d\.\d/
     #  - /\d\.\d\.\d/
