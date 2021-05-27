@@ -98,6 +98,9 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="TextBoxBehavior" />
             <TextBox Grid.Row="1" behaviors:TextBoxBehavior.SelectAllTextOnFocus="{Binding IsChecked, ElementName=TextBoxBehaviorSwitch}" Text="Example" />
@@ -119,6 +122,19 @@
                       VerticalAlignment="Center"
                       Content="On"
                       IsChecked="True" />
+            <TextBlock Grid.Row="6"
+                       Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="FileDragDropBehavior" />
+            <TextBox Grid.Row="7"
+                     behaviors:FileDragDropBehavior.FileDragDropTarget="{Binding FileViewModel}"
+                     behaviors:FileDragDropBehavior.IsFileDragDropEnabled="True"
+                     AllowDrop="True"
+                     Text="{Binding FileViewModel.FilePath}" />
+            <Border Grid.Row="8" Background="LightYellow">
+              <TextBlock TextWrapping="Wrap">Drop a text file from windows explorer to the textbox above to see the behavior in action. Also see FileViewModel.</TextBlock>
+            </Border>
           </Grid>
         </WrapPanel>
       </TabItem>
@@ -359,7 +375,11 @@
               </controls:AnimatedProgressBar.Duration>
             </controls:AnimatedProgressBar>
             <TextBox x:Name="AnimatedProgressBarValue" Grid.Row="2" Margin="5,0,5,5" Text="10" />
-            <ComboBox x:Name="AnimatedProgressBarEasingFunction" Grid.Row="3" Margin="5,0,5,5" SelectedIndex="5" IsEditable="False">
+            <ComboBox x:Name="AnimatedProgressBarEasingFunction"
+                      Grid.Row="3"
+                      Margin="5,0,5,5"
+                      IsEditable="False"
+                      SelectedIndex="5">
               <ComboBox.ItemTemplate>
                 <DataTemplate>
                   <TextBlock Text="{Binding Converter={StaticResource ClassToTypeNameConverter}}" />
