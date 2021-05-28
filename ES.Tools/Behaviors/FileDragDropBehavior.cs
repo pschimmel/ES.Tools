@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace ES.Tools.Behaviors
@@ -51,16 +50,16 @@ namespace ES.Tools.Behaviors
 
     #region FileDragDropTargetProperty
 
-    public static readonly DependencyProperty FileDragDropTargetProperty = DependencyProperty.RegisterAttached("FileDragDropTarget", typeof(object), typeof(FileDragDropBehavior), null);
+    public static readonly DependencyProperty FileDragDropTargetProperty = DependencyProperty.RegisterAttached("FileDragDropTarget", typeof(IFileDragDropTarget), typeof(FileDragDropBehavior), null);
 
-    public static bool GetFileDragDropTarget(UIElement obj)
+    public static IFileDragDropTarget GetFileDragDropTarget(UIElement obj)
     {
-      return (bool)obj.GetValue(FileDragDropTargetProperty);
+      return (IFileDragDropTarget)obj.GetValue(FileDragDropTargetProperty);
     }
 
-    public static void SetFileDragDropTarget(UIElement obj, bool value)
+    public static void SetFileDragDropTarget(UIElement obj, IFileDragDropTarget target)
     {
-      obj.SetValue(FileDragDropTargetProperty, value);
+      obj.SetValue(FileDragDropTargetProperty, target);
     }
 
     #endregion
@@ -82,15 +81,12 @@ namespace ES.Tools.Behaviors
 
     private static void Element_PreviewDragOver(object sender, DragEventArgs e)
     {
-      if (sender is not DependencyObject d)
+      if (sender is not UIElement uiElement)
       {
         return;
       }
 
-      if (d.GetValue(FileDragDropTargetProperty) is not IFileDragDropTarget fileTarget)
-      {
-        throw new Exception("FileDragDropTarget object must be of type IFileDragDropTarget");
-      }
+      var fileTarget = GetFileDragDropTarget(uiElement);
 
       e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop)
         && e.Data.GetData(DataFormats.FileDrop) is string[] pathList
@@ -103,15 +99,12 @@ namespace ES.Tools.Behaviors
 
     private static void Element_Drop(object sender, DragEventArgs e)
     {
-      if (sender is not DependencyObject d)
+      if (sender is not UIElement uiElement)
       {
         return;
       }
 
-      if (d.GetValue(FileDragDropTargetProperty) is not IFileDragDropTarget fileTarget)
-      {
-        throw new Exception("FileDragDropTarget object must be of type IFileDragDropTarget");
-      }
+      var fileTarget = GetFileDragDropTarget(uiElement);
 
       if (e.Data.GetDataPresent(DataFormats.FileDrop))
       {
