@@ -20,6 +20,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.Tools", "ES.Tools\ES.Too
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ES.Tools.UnitTests", "ES.Tools.UnitTests\ES.Tools.UnitTests.csproj", "{1CD60B7F-D9B6-46A9-8B7F-C386D501AEDA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AB9AF087-F136-4A45-9FA0-41FFA1DC963E}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Gauge.gif = Documentation\Gauge.gif
+		Documentation\IntermediateProgressCircle.gif = Documentation\IntermediateProgressCircle.gif
+		Documentation\Switch.gif = Documentation\Switch.gif
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +52,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB9AF087-F136-4A45-9FA0-41FFA1DC963E} = {C77DF1B7-7CAD-480E-A96A-201F6D760606}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87705C13-DF71-4C01-B3CC-292843B56B4A}
