@@ -14,13 +14,13 @@ namespace ES.Tools.UnitTests.Converters
     /// Test conversion from boolean value to visibility.
     /// </summary>
     [Test]
-    public void BooleanToVisibilityConverterTestValidValues()
+    public void BooleanToVisibilityConverterTestConvert()
     {
       var converter = new BooleanToVisibilityConverter();
 
-      Assert.AreEqual(Visibility.Visible, (Visibility)converter.Convert(true, typeof(Visibility), null, CultureInfo.InvariantCulture));
-      Assert.AreEqual(Visibility.Collapsed, (Visibility)converter.Convert(false, typeof(Visibility), null, CultureInfo.InvariantCulture));
-      Assert.AreEqual(Visibility.Collapsed, (Visibility)converter.Convert(null, typeof(Visibility), null, CultureInfo.InvariantCulture));
+      Assert.That((Visibility)converter.Convert(true, typeof(Visibility), null, CultureInfo.InvariantCulture), Is.EqualTo(Visibility.Visible));
+      Assert.That((Visibility)converter.Convert(false, typeof(Visibility), null, CultureInfo.InvariantCulture), Is.EqualTo(Visibility.Collapsed));
+      Assert.That((Visibility)converter.Convert(null, typeof(Visibility), null, CultureInfo.InvariantCulture), Is.EqualTo(Visibility.Collapsed));
 
       Assert.AreEqual(Visibility.Visible, (Visibility)converter.Convert(true, typeof(Visibility), Visibility.Hidden, CultureInfo.InvariantCulture));
       Assert.AreEqual(Visibility.Hidden, (Visibility)converter.Convert(false, typeof(Visibility), Visibility.Hidden, CultureInfo.InvariantCulture));
@@ -31,13 +31,13 @@ namespace ES.Tools.UnitTests.Converters
     /// Test conversion from visibility to boolean value.
     /// </summary>
     [Test]
-    public void BooleanToVisibilityConverterTestInvalidValues()
+    public void BooleanToVisibilityConverterTestConvertBack()
     {
       var converter = new BooleanToVisibilityConverter();
 
-      Assert.AreEqual(true, (bool)converter.ConvertBack(Visibility.Visible, typeof(bool), null, CultureInfo.InvariantCulture));
-      Assert.AreEqual(false, (bool)converter.ConvertBack(Visibility.Collapsed, typeof(bool), null, CultureInfo.InvariantCulture));
-      Assert.AreEqual(false, (bool)converter.ConvertBack(Visibility.Hidden, typeof(bool), null, CultureInfo.InvariantCulture));
+      Assert.That((bool)converter.ConvertBack(Visibility.Visible, typeof(bool), null, CultureInfo.InvariantCulture), Is.True);
+      Assert.That((bool)converter.ConvertBack(Visibility.Collapsed, typeof(bool), null, CultureInfo.InvariantCulture), Is.False);
+      Assert.That((bool)converter.ConvertBack(Visibility.Hidden, typeof(bool), null, CultureInfo.InvariantCulture), Is.False);
     }
   }
 }

@@ -26,10 +26,10 @@ namespace ES.Tools.UnitTests.Converters
       {
         var dateResult = (DateTime?)converter.Convert(time, typeof(DateTime?), null, CultureInfo.InvariantCulture);
         var expectedDate = time == null ? (DateTime?)null : new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, time.Value.Hours, time.Value.Minutes, time.Value.Seconds);
-        Assert.AreEqual(expectedDate, dateResult);
+        Assert.That(dateResult, Is.EqualTo(expectedDate));
 
         var timeResult = (TimeSpan?)converter.ConvertBack(dateResult, typeof(TimeSpan?), null, CultureInfo.InvariantCulture);
-        Assert.AreEqual(time, timeResult);
+        Assert.That(timeResult, Is.EqualTo(time));
       }
     }
   }
