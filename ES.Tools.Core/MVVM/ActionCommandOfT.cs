@@ -12,9 +12,9 @@ namespace ES.Tools.Core.MVVM
     private event EventHandler InternalCanExecuteChanged;
 
     private readonly Action<T> execute;
-    private readonly Func<T, bool> canExecute;
+    private readonly Predicate<T> canExecute;
 
-    public ActionCommand(Action<T> execute, Func<T, bool> canExecute = null)
+    public ActionCommand(Action<T> execute, Predicate<T> canExecute = null)
     {
       this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
       this.canExecute = canExecute;

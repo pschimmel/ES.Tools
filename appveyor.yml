@@ -1,5 +1,10 @@
+# This script will make Appveyor to create a new build and execute the unit test
+# whenever something is pushed to the master branch.
+# By creating a release in Github with a version number following the scheme v1.0.0,
+# it additionally pushes the Nuget packages to nuget.org and adds them to the release.
+
 #---------------------------------#
-#      general configuration      #
+#      General Configuration      #
 #---------------------------------#
 version: 0.6.19.{build}
 
@@ -12,6 +17,9 @@ branches:
 pull_requests:
   do_not_increment_build_number: false
 
+#---------------------------------#
+#        Version Patching         #
+#---------------------------------#
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
@@ -26,9 +34,10 @@ dotnet_csproj:
 configuration: Release
 
 #---------------------------------#
-#    environment configuration    #
+#    Environment Configuration    #
 #---------------------------------#
 image: Visual Studio 2019
+
 nuget:
   disable_publish_on_pr: true
 
@@ -59,16 +68,13 @@ deploy:
   api_key:
     secure: GmeoMj+joMz9148pEjfMbZbBLyNZjUH7+MeOL6x6t4FxE3iLg75lNBChaGe/RD4O
   on:
-    branch: master          # Deploy from release branch only
-#    APPVEYOR_REPO_TAG: true  # Deploy builds with version tags only
+    branch: master           # Deploy from release branch only
+    APPVEYOR_REPO_TAG: true  # Deploy builds with version tags only
 
 - provider: GitHub
-  release: "%APPVEYOR_REPO_TAG_NAME%"
-  desription: "Release %APPVEYOR_REPO_TAG_NAME%"
+  release: "%APPVEYOR_REPO_TAG_NAME%"  #Do not change this or building will end in an infinite loop
   auth_token:
     secure: 1WaCyi/uL8oVBMCLlDopygdhRfEpFe2x7DcACaNtWHp8ueBrs8vJ8X/V13BEU7Xy
   on:
-#    branch: #master         # Deploy from release branch only
-#      - master
-#      - /v\d\.\d\.\d/
+    branch: master           # Deploy from release branch only
     APPVEYOR_REPO_TAG: true  # deploy on tag push only

@@ -20,6 +20,8 @@ namespace ES.Tools.TestApp.ViewModels
       CustomItemsControlViewModel = new CustomItemsControlViewModel();
       OpenSampleWindowCommand = new ActionCommand(OpenSampleWindowExecute, OpenSampleWindowCanExecute);
       MeterViewModel = new MeterViewModel();
+      FileViewModel = new FileViewModel();
+
       AccordionItems = new List<AccordionContentViewModel>
       {
         new AccordionContentViewModel("A", "Sample A"),
@@ -42,6 +44,8 @@ namespace ES.Tools.TestApp.ViewModels
     public List<AccordionContentViewModel> AccordionItems { get; }
 
     public MeterViewModel MeterViewModel { get; }
+
+    public FileViewModel FileViewModel { get; }
 
     #endregion
 

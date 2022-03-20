@@ -17,19 +17,19 @@ namespace ES.Tools.UnitTests.Converters
     private static readonly List<string> invalidValues = new List<string> { "Blah", "#aagg44", "#44" };
 
     [Test]
-    public void ColorToStringConverterTestValidValues()
+    public void ColorToStringConverterTestConvertValidValues()
     {
       var converter = new ColorToStringConverter();
       foreach (string validValue in validValues)
       {
         var result = (Color)converter.Convert(validValue, typeof(Color), null, CultureInfo.InvariantCulture);
-        Assert.IsNotNull(result);
-        Assert.AreNotEqual(Colors.Black, result);
+        Assert.That(result, Is.Not.Null);
+        Assert.That(result, Is.Not.EqualTo(Colors.Black));
       }
     }
 
     [Test]
-    public void ColorToStringConverterTestInvalidValues()
+    public void ColorToStringConverterTestConvertInvalidValues()
     {
       var converter = new ColorToStringConverter();
 

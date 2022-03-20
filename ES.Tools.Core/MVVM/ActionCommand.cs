@@ -11,7 +11,7 @@ namespace ES.Tools.Core.MVVM
       : this(x => execute(), canExecute == null ? null : x => canExecute())
     { }
 
-    public ActionCommand(Action<object> execute, Func<object, bool> canExecute = null)
+    public ActionCommand(Action<object> execute, Predicate<object> canExecute = null)
       : base(execute, canExecute)
     { }
   }
