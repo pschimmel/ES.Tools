@@ -10,7 +10,7 @@ Great useful WPF controls and helpers.
 
 ## Examples
 
-Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCircle, and Switch
+Here are some examples of controls contained in **ES.Tools**: Gauge, ProgressCircle, and Switch:
 
 ![Gauge example](Documentation/Gauge.gif "Gauge")
 ![ProgressCircle example](Documentation/IntermediateProgressCircle.gif "ProgressCircle")
