@@ -6,7 +6,7 @@
 #---------------------------------#
 #      General Configuration      #
 #---------------------------------#
-version: 0.6.25.{build}
+version: 0.6.27.{build}
 
 branches:
   only:
@@ -36,7 +36,7 @@ configuration: Release
 #---------------------------------#
 #    Environment Configuration    #
 #---------------------------------#
-image: Visual Studio 2019
+image: Visual Studio 2022
 
 nuget:
   disable_publish_on_pr: true
@@ -68,13 +68,13 @@ deploy:
   api_key:
     secure: +5wjRnwLCQ1+GpCYZtUA3gdkAbLqErgYVaJUXDeZ8rHfx4ckg02Ycv9ZU0LPE+8U
   on:
-    branch: master           # Deploy from release branch only
-#    APPVEYOR_REPO_TAG: true  # Deploy builds with version tags only
+    #branch: master           # Deploy from release branch only
+    APPVEYOR_REPO_TAG: true  # Deploy builds with version tags only
 
 - provider: GitHub
   release: "%APPVEYOR_REPO_TAG_NAME%"  #Do not change this or building will end in an infinite loop
   auth_token:
     secure: CmRHe2aNBEC3ht/2k+vUrCo0kwEFGVBVOo0PtYtjaLbCeYyFxd+QHuaTpsLiYBf5
   on:
-    branch: master           # Deploy from release branch only
-#    APPVEYOR_REPO_TAG: true  # deploy on tag push only
+    #branch: master           # Deploy from release branch only
+    APPVEYOR_REPO_TAG: true  # deploy on tag push only
