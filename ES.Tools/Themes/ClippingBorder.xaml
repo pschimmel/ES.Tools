@@ -9,7 +9,10 @@
             <VisualBrush Visual="{Binding Source={x:Reference Name=PART_InnerBorder}}" />
           </Grid.OpacityMask>
 
-          <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Content}" />
+          <ContentControl Margin="{TemplateBinding Padding}"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Content="{TemplateBinding Content}" />
         </Grid>
       </Grid>
     </Border>

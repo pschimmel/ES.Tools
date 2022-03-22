@@ -4,9 +4,12 @@
                     xmlns:converters="clr-namespace:ES.Tools.Converters;assembly=ES.Tools"
                     xmlns:vm="clr-namespace:ES.Tools.TestApp.ViewModels">
 
+  <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
   <converters:ColorToStringConverter x:Key="ColorToStringConverter" />
-  <converters:TextTrimmingConverter x:Key="TextTrimmingConverter" />
   <converters:DateTimeToTimeSpanConverter x:Key="DateTimeToTimeSpanConverter" />
+  <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
+  <converters:TextTrimmingConverter x:Key="TextTrimmingConverter" />
+  <converters:NegationConverter x:Key="NegationConverter" />
 
   <DataTemplate DataType="{x:Type vm:ColorToStringConverterViewModel}">
     <Grid>
@@ -18,6 +21,36 @@
       <Ellipse Grid.Column="1" Margin="10,0">
         <Ellipse.Fill>
           <SolidColorBrush Color="{Binding ColorText, Converter={StaticResource ColorToStringConverter}}" />
+        </Ellipse.Fill>
+      </Ellipse>
+    </Grid>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:BooleanToVisibilityConverterViewModel}">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+      <CheckBox IsChecked="{Binding Value, UpdateSourceTrigger=PropertyChanged}">Check to show control</CheckBox>
+      <Ellipse Grid.Column="1" Margin="10,0" Visibility="{Binding Value, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <Ellipse.Fill>
+          <SolidColorBrush Color="Green" />
+        </Ellipse.Fill>
+      </Ellipse>
+    </Grid>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:InverseBooleanToVisibilityConverterViewModel}">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+      <CheckBox IsChecked="{Binding Value, UpdateSourceTrigger=PropertyChanged}">Uncheck to show control</CheckBox>
+      <Ellipse Grid.Column="1" Margin="10,0" Visibility="{Binding Value, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
+        <Ellipse.Fill>
+          <SolidColorBrush Color="Blue" />
         </Ellipse.Fill>
       </Ellipse>
     </Grid>
@@ -42,6 +75,20 @@
       </Grid.ColumnDefinitions>
       <TextBox Text="{Binding Time, UpdateSourceTrigger=PropertyChanged}" />
       <TextBlock Grid.Column="1" Margin="10,0" Text="{Binding Time, Converter={StaticResource DateTimeToTimeSpanConverter}}" />
+    </Grid>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type vm:NegationConverterViewModel}">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+      <CheckBox IsChecked="{Binding Value, UpdateSourceTrigger=PropertyChanged}">Check to toggle other CheckBox</CheckBox>
+      <CheckBox Grid.Column="1"
+                Margin="10,0"
+                IsChecked="{Binding Value, Converter={StaticResource NegationConverter}}"
+                IsEnabled="False" />
     </Grid>
   </DataTemplate>
 
@@ -71,13 +118,25 @@
                  FontWeight="Bold"
                  Text="Car" />
       <TextBlock Grid.Row="1" Margin="5" Text="Brand:" />
-      <TextBox Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding Brand}" />
+      <TextBox Grid.Row="1"
+               Grid.Column="1"
+               Margin="2"
+               Text="{Binding Brand}" />
       <TextBlock Grid.Row="2" Margin="5" Text="Model:" />
-      <TextBox Grid.Row="2" Grid.Column="1" Margin="2" Text="{Binding Model}" />
+      <TextBox Grid.Row="2"
+               Grid.Column="1"
+               Margin="2"
+               Text="{Binding Model}" />
       <TextBlock Grid.Row="3" Margin="5" Text="Year:" />
-      <TextBox Grid.Row="3" Grid.Column="1" Margin="2" Text="{Binding Year}" />
+      <TextBox Grid.Row="3"
+               Grid.Column="1"
+               Margin="2"
+               Text="{Binding Year}" />
       <TextBlock Grid.Row="4" Margin="5" Text="Wheels:" />
-      <TextBlock Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding Wheels}" />
+      <TextBlock Grid.Row="4"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding Wheels}" />
     </Grid>
   </DataTemplate>
 
@@ -98,9 +157,15 @@
                  FontWeight="Bold"
                  Text="Bicycle" />
       <TextBlock Grid.Row="1" Margin="5" Text="Brand:" />
-      <TextBox Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding Brand}" />
+      <TextBox Grid.Row="1"
+               Grid.Column="1"
+               Margin="2"
+               Text="{Binding Brand}" />
       <TextBlock Grid.Row="2" Margin="5" Text="Wheels:" />
-      <TextBlock Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding Wheels}" />
+      <TextBlock Grid.Row="2"
+                 Grid.Column="1"
+                 Margin="5"
+                 Text="{Binding Wheels}" />
     </Grid>
   </DataTemplate>
 

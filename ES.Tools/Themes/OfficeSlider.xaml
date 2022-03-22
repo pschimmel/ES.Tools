@@ -1,4 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:ES.Tools.Controls" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ES.Tools.Controls"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
   <sys:Double x:Key="LineWidth">1</sys:Double>
   <sys:Double x:Key="ThumbHeight">14</sys:Double>
   <sys:Double x:Key="ThumbWidth">6</sys:Double>
@@ -142,7 +145,10 @@
               Margin="0"
               Background="{TemplateBinding Foreground}"
               BorderThickness="0" />
-      <RepeatButton Grid.Row="1" Margin="5,0" Command="Slider.DecreaseSmall" Style="{StaticResource MinusButtonStyle}" />
+      <RepeatButton Grid.Row="1"
+                    Margin="5,0"
+                    Command="Slider.DecreaseSmall"
+                    Style="{StaticResource MinusButtonStyle}" />
       <Track x:Name="PART_Track" Grid.Row="1" Grid.Column="1">
         <Track.DecreaseRepeatButton>
           <RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderButtonStyle}" />
@@ -231,7 +237,10 @@
               Margin="0"
               Background="{TemplateBinding Foreground}"
               BorderThickness="0" />
-      <RepeatButton Grid.Column="1" Margin="0,5" Command="Slider.DecreaseSmall" Style="{StaticResource MinusButtonStyle}" />
+      <RepeatButton Grid.Column="1"
+                    Margin="0,5"
+                    Command="Slider.DecreaseSmall"
+                    Style="{StaticResource MinusButtonStyle}" />
       <Track x:Name="PART_Track" Grid.Row="1" Grid.Column="1">
         <Track.DecreaseRepeatButton>
           <RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderButtonStyle}" />
