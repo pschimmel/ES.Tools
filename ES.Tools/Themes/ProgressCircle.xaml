@@ -1,4 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:ES.Tools.Controls" xmlns:shapes="clr-namespace:ES.Tools.Shapes">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ES.Tools.Controls"
+                    xmlns:shapes="clr-namespace:ES.Tools.Shapes">
 
   <Storyboard x:Key="RotateAnimation">
     <DoubleAnimation RepeatBehavior="Forever"
@@ -9,7 +12,10 @@
   </Storyboard>
 
   <ControlTemplate x:Key="ProgressCircleTemplate" TargetType="{x:Type controls:ProgressCircle}">
-    <Grid x:Name="PART_MainGrid" MinWidth="50" MinHeight="50" RenderTransformOrigin="0.5, 0.5">
+    <Grid x:Name="PART_MainGrid"
+          MinWidth="50"
+          MinHeight="50"
+          RenderTransformOrigin="0.5, 0.5">
       <Grid.RenderTransform>
         <RotateTransform />
       </Grid.RenderTransform>
@@ -35,7 +41,10 @@
   </ControlTemplate>
 
   <ControlTemplate x:Key="IndeterminateProgressCircleTemplate" TargetType="{x:Type controls:ProgressCircle}">
-    <Grid x:Name="PART_MainGrid" MinWidth="50" MinHeight="50" RenderTransformOrigin="0.5, 0.5">
+    <Grid x:Name="PART_MainGrid"
+          MinWidth="50"
+          MinHeight="50"
+          RenderTransformOrigin="0.5, 0.5">
       <Grid.RenderTransform>
         <RotateTransform />
       </Grid.RenderTransform>

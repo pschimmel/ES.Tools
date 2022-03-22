@@ -14,7 +14,11 @@
       <Border x:Name="PART_Header" Background="{StaticResource Accordion.Header.BackgroundBrush}">
         <ContentPresenter Margin="5,2" ContentSource="Header" />
       </Border>
-      <Border x:Name="PART_Content" Grid.Row="1" Background="{StaticResource Accordion.Content.BackgroundBrush}" Visibility="{TemplateBinding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+      <Border x:Name="PART_Content"
+              Grid.Row="1"
+              Background="{StaticResource Accordion.Content.BackgroundBrush}"
+              Visibility="{TemplateBinding IsSelected,
+                                           Converter={StaticResource BooleanToVisibilityConverter}}">
         <ContentPresenter Margin="5" ContentSource="Content" />
       </Border>
     </Grid>

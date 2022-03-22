@@ -82,14 +82,20 @@
         <Trigger.EnterActions>
           <BeginStoryboard>
             <Storyboard>
-              <DoubleAnimation Storyboard.TargetName="SwitchHover" Storyboard.TargetProperty="Opacity" To="0.3" Duration="0:0:0.15" />
+              <DoubleAnimation Storyboard.TargetName="SwitchHover"
+                               Storyboard.TargetProperty="Opacity"
+                               To="0.3"
+                               Duration="0:0:0.15" />
             </Storyboard>
           </BeginStoryboard>
         </Trigger.EnterActions>
         <Trigger.ExitActions>
           <BeginStoryboard>
             <Storyboard>
-              <DoubleAnimation Storyboard.TargetName="SwitchHover" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.15" />
+              <DoubleAnimation Storyboard.TargetName="SwitchHover"
+                               Storyboard.TargetProperty="Opacity"
+                               To="0"
+                               Duration="0:0:0.15" />
             </Storyboard>
           </BeginStoryboard>
         </Trigger.ExitActions>

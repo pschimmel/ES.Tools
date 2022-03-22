@@ -12,9 +12,12 @@ namespace ES.Tools.TestApp.ViewModels
     {
       Converters = new List<ConverterViewModel>
       {
+        new BooleanToVisibilityConverterViewModel(),
         new ColorToStringConverterViewModel(),
+        new DateTimeToTimeSpanConverterViewModel(),
+        new InverseBooleanToVisibilityConverterViewModel(),
+        new NegationConverterViewModel(),
         new TextTrimmingConverterViewModel(),
-        new DateTimeToTimeSpanConverterViewModel()
       };
 
       CustomItemsControlViewModel = new CustomItemsControlViewModel();

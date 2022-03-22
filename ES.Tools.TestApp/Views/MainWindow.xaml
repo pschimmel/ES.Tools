@@ -75,7 +75,10 @@
               <RowDefinition />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="AutoScrollToCurrentItemBehavior" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="AutoScrollToCurrentItemBehavior" />
             <ListBox Grid.Row="1"
                      Height="100"
                      behaviors:AutoScrollToCurrentItemBehavior.AutoScrollToCurrentItem="{Binding IsChecked, ElementName=AutoScrollBehaviorSwitch}"
@@ -102,7 +105,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="TextBoxBehavior" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="TextBoxBehavior" />
             <TextBox Grid.Row="1" behaviors:TextBoxBehavior.SelectAllTextOnFocus="{Binding IsChecked, ElementName=TextBoxBehaviorSwitch}" Text="Example" />
             <CheckBox x:Name="TextBoxBehaviorSwitch"
                       Grid.Row="2"
@@ -146,8 +152,14 @@
               <RowDefinition />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="AutoGrayableImage" />
-            <controls:AutoGrayableImage Grid.Row="1" Width="300" Margin="2" Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg">
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="AutoGrayableImage" />
+            <controls:AutoGrayableImage Grid.Row="1"
+                                        Width="300"
+                                        Margin="2"
+                                        Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg">
               <controls:AutoGrayableImage.Style>
                 <Style TargetType="{x:Type controls:AutoGrayableImage}">
                   <Setter Property="IsEnabled" Value="False" />
@@ -170,7 +182,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="CustomItemsControl" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="CustomItemsControl" />
             <controls:CustomItemsControl Grid.Row="1" ItemsSource="{Binding Items}">
               <controls:CustomItemsControl.ItemContainerStyle>
                 <Style TargetType="ContentControl">
@@ -194,8 +209,14 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="ClippingBorder" />
-            <controls:ClippingBorder Grid.Row="1" BorderBrush="Black" BorderThickness="2" CornerRadius="20,15,10,5">
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="ClippingBorder" />
+            <controls:ClippingBorder Grid.Row="1"
+                                     BorderBrush="Black"
+                                     BorderThickness="2"
+                                     CornerRadius="20,15,10,5">
               <Image Source="pack://application:,,,/ES.Tools.TestApp;Component/Images/Painting.jpg" />
             </controls:ClippingBorder>
           </Grid>
@@ -207,7 +228,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="OfficeSlider" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="OfficeSlider" />
             <TextBlock Grid.Row="1" Margin="2" Text="Default WPF Slider" />
             <Slider Grid.Row="2" Margin="2" Value="2" />
             <TextBlock Grid.Row="3" Margin="2" Text="OfficeSlider" />
@@ -223,7 +247,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="Switch" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="Switch" />
             <StackPanel Grid.Row="1">
               <controls:Switch Width="80"
                                Height="30"
@@ -266,7 +293,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="Meter Controls" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="Meter Controls" />
             <Grid Grid.Row="1">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -301,7 +331,10 @@
                                 WarningValue="70"
                                 Value="{Binding Value}" />
               </StackPanel>
-              <TextBlock Grid.Column="1" Margin="2" HorizontalAlignment="Center" Text="Gauges" />
+              <TextBlock Grid.Column="1"
+                         Margin="2"
+                         HorizontalAlignment="Center"
+                         Text="Gauges" />
               <controls:Gauge Grid.Row="1"
                               Grid.Column="1"
                               Width="150"
@@ -334,7 +367,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="ProgressCircle" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="ProgressCircle" />
             <controls:ProgressCircle Grid.Row="1"
                                      Width="100"
                                      Height="100"
@@ -360,7 +396,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="AnimatedProgressBar" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="AnimatedProgressBar" />
             <controls:AnimatedProgressBar x:Name="AnimatedProgressBar"
                                           Grid.Row="1"
                                           Width="200"
@@ -374,7 +413,10 @@
                 0:0:5
               </controls:AnimatedProgressBar.Duration>
             </controls:AnimatedProgressBar>
-            <TextBox x:Name="AnimatedProgressBarValue" Grid.Row="2" Margin="5,0,5,5" Text="10" />
+            <TextBox x:Name="AnimatedProgressBarValue"
+                     Grid.Row="2"
+                     Margin="5,0,5,5"
+                     Text="10" />
             <ComboBox x:Name="AnimatedProgressBarEasingFunction"
                       Grid.Row="3"
                       Margin="5,0,5,5"
@@ -404,7 +446,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="Accordion" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="Accordion" />
             <controls:Accordion Grid.Row="1"
                                 Width="200"
                                 Margin="5"
@@ -490,7 +535,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="Donut" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="Donut" />
             <shapes:Donut Grid.Row="1"
                           Width="80"
                           Height="80"
@@ -506,7 +554,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="PieSegment" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="PieSegment" />
             <shapes:PieSegment Grid.Row="1"
                                Width="120"
                                Height="120"
@@ -524,7 +575,10 @@
               <RowDefinition Height="Auto" />
               <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="DonutSegment" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="DonutSegment" />
             <shapes:DonutSegment Grid.Row="1"
                                  Width="120"
                                  Height="120"
@@ -588,7 +642,10 @@
                        Text="Utilities.IsInDesignMode"
                        TextWrapping="Wrap" />
             <TextBlock Grid.Row="1" Margin="2" TextWrapping="Wrap">The CheckBox should be checked in Visual Studio Designer and unchecked when running application.</TextBlock>
-            <CheckBox Grid.Row="2" HorizontalAlignment="Center" IsChecked="{x:Static infrastructure:Utilities.IsDesignTime}" IsEnabled="False" />
+            <CheckBox Grid.Row="2"
+                      HorizontalAlignment="Center"
+                      IsChecked="{x:Static infrastructure:Utilities.IsDesignTime}"
+                      IsEnabled="False" />
           </Grid>
         </WrapPanel>
       </TabItem>
@@ -610,9 +667,17 @@
                        FontWeight="Bold"
                        Text="ViewFactory"
                        TextWrapping="Wrap" />
-            <TextBlock Grid.Row="1" Margin="4" VerticalAlignment="Center" Text="Text:" />
+            <TextBlock Grid.Row="1"
+                       Margin="4"
+                       VerticalAlignment="Center"
+                       Text="Text:" />
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SampleWindowText, UpdateSourceTrigger=PropertyChanged}" />
-            <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="2" Command="{Binding OpenSampleWindowCommand}">Open Dialog</Button>
+            <Button Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="2"
+                    Command="{Binding OpenSampleWindowCommand}">
+              Open Dialog
+            </Button>
           </Grid>
         </WrapPanel>
       </TabItem>
@@ -625,9 +690,15 @@
               <RowDefinition />
               <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Margin="2" HorizontalAlignment="Center" FontWeight="Bold" Text="DependencyPropertyWatcher" />
+            <TextBlock Margin="2"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Text="DependencyPropertyWatcher" />
             <views:TextUserControl x:Name="TextUserControl" Grid.Row="1" />
-            <TextBlock Grid.Row="2" Margin="5" Text="Target updated using DependencyPropertyWatcher:" TextWrapping="Wrap" />
+            <TextBlock Grid.Row="2"
+                       Margin="5"
+                       Text="Target updated using DependencyPropertyWatcher:"
+                       TextWrapping="Wrap" />
             <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1">
               <TextBlock x:Name="DependencyPropertyWatcherTarget" Margin="4" />
             </Border>

@@ -3,7 +3,10 @@
     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
       <Grid x:Name="Root" MinWidth="50" MinHeight="10">
         <Border x:Name="PART_Background" Margin="1" Background="{TemplateBinding Background}" />
-        <Border x:Name="PART_Indicator" Margin="1" HorizontalAlignment="Left" Background="{TemplateBinding Foreground}" />
+        <Border x:Name="PART_Indicator"
+                Margin="1"
+                HorizontalAlignment="Left"
+                Background="{TemplateBinding Foreground}" />
         <Border x:Name="PART_Warning"
                 Width="{Binding Width, ElementName=PART_Indicator}"
                 Margin="1"
@@ -30,11 +33,20 @@
   </ControlTemplate>
 
   <ControlTemplate x:Key="BarMeterTemplate" TargetType="{x:Type controls:Meter}">
-    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" UseLayoutRounding="True">
+    <Border Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}"
+            UseLayoutRounding="True">
       <Grid x:Name="Root" MinWidth="50" MinHeight="10">
         <Border x:Name="PART_Background" Margin="1" Background="{TemplateBinding Foreground}" />
-        <Border x:Name="PART_Warning" Margin="1" HorizontalAlignment="Right" Background="{TemplateBinding WarningBrush}" />
-        <Border x:Name="PART_Error" Margin="1" HorizontalAlignment="Right" Background="{TemplateBinding ErrorBrush}" />
+        <Border x:Name="PART_Warning"
+                Margin="1"
+                HorizontalAlignment="Right"
+                Background="{TemplateBinding WarningBrush}" />
+        <Border x:Name="PART_Error"
+                Margin="1"
+                HorizontalAlignment="Right"
+                Background="{TemplateBinding ErrorBrush}" />
         <Border x:Name="PART_Indicator"
                 Margin="1"
                 HorizontalAlignment="Left"
