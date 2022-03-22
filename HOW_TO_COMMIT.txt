@@ -6,3 +6,5 @@ How to commit new releases:
 4. Switch to Master branch.
 5. Merge Development into Master branch.
 6. Create tag on merged changeset of Master branch with the version number in format "v0.6.21".
+
+This should automatically create a new release in GitHub and a new Nuget package.
