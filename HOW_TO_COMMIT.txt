@@ -1,0 +1,8 @@
+How to commit new releases:
+
+1. Update version number in appveyor.yml.
+2. Commit changes on Development branch.
+3. Push outgoing changes on Development branch.
+4. Switch to Master branch.
+5. Merge Development into Master branch.
+6. Create tag on merged changeset of Master branch with the version number in format "v0.6.21".
