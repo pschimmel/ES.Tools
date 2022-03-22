@@ -6,8 +6,7 @@
 
     public NegationConverterViewModel()
       : base("NegationConverter")
-    {
-    }
+    { }
 
     public bool Value
     {
