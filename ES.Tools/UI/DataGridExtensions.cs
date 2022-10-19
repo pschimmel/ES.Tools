@@ -56,22 +56,20 @@ namespace ES.Tools.UI
     /// </summary>
     public static DataGridCell GetCell(this DataGrid grid, DataGridRow row, int columnIndex)
     {
-      if (item == null)
-      {
-        throw new ArgumentNullException(nameof(item));
-      }
-
       var presenter = row.GetVisualChild<DataGridCellsPresenter>();
       if (presenter == null)
       {
         grid.ScrollIntoView(row, grid.Columns[columnIndex]);
         presenter = row.GetVisualChild<DataGridCellsPresenter>();
       }
+
       if (presenter != null)
       {
         var cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(columnIndex);
         return cell;
       }
+
+      return null;
     }
 
     /// <summary>
@@ -80,12 +78,7 @@ namespace ES.Tools.UI
     public static DataGridCell GetCell(this DataGrid grid, int rowIndex, int columnIndex)
     {
       var gridRow = GetRow(grid, rowIndex);
-      if (gridRow == null)
-      {
-        return null;
-      }
-
-      return GetCell(grid, gridRow, columnIndex);
+      return gridRow == null ? null : GetCell(grid, gridRow, columnIndex);
     }
   }
 }
