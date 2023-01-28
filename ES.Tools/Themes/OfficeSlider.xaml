@@ -132,23 +132,23 @@
         <ColumnDefinition Width="Auto" />
       </Grid.ColumnDefinitions>
       <TickBar x:Name="TopTick"
-               Grid.Column="1"
                Height="4"
                Fill="{TemplateBinding Foreground}"
                Placement="Top"
                SnapsToDevicePixels="True"
-               Visibility="Collapsed" />
+               Visibility="Collapsed"
+               Grid.Column="1" />
       <Border x:Name="TrackBackground"
-              Grid.Row="1"
-              Grid.Column="1"
               Height="{StaticResource LineWidth}"
               Margin="0"
               Background="{TemplateBinding Foreground}"
-              BorderThickness="0" />
-      <RepeatButton Grid.Row="1"
-                    Margin="5,0"
+              BorderThickness="0"
+              Grid.Row="1"
+              Grid.Column="1" />
+      <RepeatButton Margin="5,0"
                     Command="Slider.DecreaseSmall"
-                    Style="{StaticResource MinusButtonStyle}" />
+                    Style="{StaticResource MinusButtonStyle}"
+                    Grid.Row="1" />
       <Track x:Name="PART_Track" Grid.Row="1" Grid.Column="1">
         <Track.DecreaseRepeatButton>
           <RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderButtonStyle}" />
@@ -161,26 +161,26 @@
         </Track.IncreaseRepeatButton>
       </Track>
       <TickBar x:Name="BottomTick"
-               Grid.Row="2"
-               Grid.Column="1"
                Height="4"
                Fill="{TemplateBinding Foreground}"
                Placement="Bottom"
                SnapsToDevicePixels="True"
-               Visibility="Collapsed" />
-      <RepeatButton Grid.Row="1"
-                    Grid.Column="2"
-                    Margin="5,0"
+               Visibility="Collapsed"
+               Grid.Row="2"
+               Grid.Column="1" />
+      <RepeatButton Margin="5,0"
                     Command="Slider.IncreaseSmall"
-                    Style="{StaticResource PlusButtonStyle}" />
+                    Style="{StaticResource PlusButtonStyle}"
+                    Grid.Row="1"
+                    Grid.Column="2" />
       <TextBlock x:Name="ValueTextBlock"
-                 Grid.Row="1"
-                 Grid.Column="3"
                  Width="50"
                  HorizontalAlignment="Right"
                  VerticalAlignment="Center"
                  Foreground="{TemplateBinding Foreground}"
-                 Visibility="Collapsed">
+                 Visibility="Collapsed"
+                 Grid.Row="1"
+                 Grid.Column="3">
         <TextBlock.Text>
           <MultiBinding Converter="{StaticResource SliderValueConverter}" Mode="OneWay">
             <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -221,26 +221,26 @@
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <TickBar x:Name="TopTick"
-               Grid.Row="1"
                Width="4"
                Placement="Left"
                SnapsToDevicePixels="True"
-               Visibility="Collapsed">
+               Visibility="Collapsed"
+               Grid.Row="1">
         <TickBar.Fill>
           <SolidColorBrush Color="{TemplateBinding Foreground}" />
         </TickBar.Fill>
       </TickBar>
       <Border x:Name="TrackBackground"
-              Grid.Row="1"
-              Grid.Column="1"
               Width="{StaticResource LineWidth}"
               Margin="0"
               Background="{TemplateBinding Foreground}"
-              BorderThickness="0" />
-      <RepeatButton Grid.Column="1"
-                    Margin="0,5"
+              BorderThickness="0"
+              Grid.Row="1"
+              Grid.Column="1" />
+      <RepeatButton Margin="0,5"
                     Command="Slider.DecreaseSmall"
-                    Style="{StaticResource MinusButtonStyle}" />
+                    Style="{StaticResource MinusButtonStyle}"
+                    Grid.Column="1" />
       <Track x:Name="PART_Track" Grid.Row="1" Grid.Column="1">
         <Track.DecreaseRepeatButton>
           <RepeatButton Command="Slider.DecreaseLarge" Style="{StaticResource SliderButtonStyle}" />
@@ -253,24 +253,24 @@
         </Track.IncreaseRepeatButton>
       </Track>
       <TickBar x:Name="BottomTick"
-               Grid.Row="1"
-               Grid.Column="2"
                Width="4"
                Fill="{TemplateBinding Foreground}"
                Placement="Right"
                SnapsToDevicePixels="True"
-               Visibility="Collapsed" />
-      <RepeatButton Grid.Row="2"
-                    Grid.Column="1"
-                    Margin="0,5"
+               Visibility="Collapsed"
+               Grid.Row="1"
+               Grid.Column="2" />
+      <RepeatButton Margin="0,5"
                     Command="Slider.IncreaseSmall"
-                    Style="{StaticResource PlusButtonStyle}" />
+                    Style="{StaticResource PlusButtonStyle}"
+                    Grid.Row="2"
+                    Grid.Column="1" />
       <TextBlock x:Name="ValueTextBlock"
-                 Grid.Row="3"
-                 Grid.Column="1"
                  HorizontalAlignment="Center"
                  Foreground="{TemplateBinding Foreground}"
-                 Visibility="Collapsed">
+                 Visibility="Collapsed"
+                 Grid.Row="3"
+                 Grid.Column="1">
         <TextBlock.Text>
           <MultiBinding Converter="{StaticResource SliderValueConverter}" Mode="OneWay">
             <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
