@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 
-namespace ES.Tools.Infrastructure
+namespace ES.Tools.UI
 {
   /// <summary>
   /// The shared resource dictionary is a specialized resource dictionary

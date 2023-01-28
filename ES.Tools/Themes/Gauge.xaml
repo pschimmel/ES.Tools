@@ -30,10 +30,10 @@
           <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Header}" />
-        <ContentControl Grid.Row="1"
-                        HorizontalAlignment="Center"
+        <ContentControl HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
-                        Content="{TemplateBinding Content}" />
+                        Content="{TemplateBinding Content}"
+                        Grid.Row="1" />
       </Grid>
       <Canvas x:Name="PART_Indicator" />
     </Grid>

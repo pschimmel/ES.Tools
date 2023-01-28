@@ -18,7 +18,7 @@
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
       <TextBox Text="{Binding ColorText, UpdateSourceTrigger=PropertyChanged}" />
-      <Ellipse Grid.Column="1" Margin="10,0">
+      <Ellipse Margin="10,0" Grid.Column="1">
         <Ellipse.Fill>
           <SolidColorBrush Color="{Binding ColorText, Converter={StaticResource ColorToStringConverter}}" />
         </Ellipse.Fill>
@@ -33,7 +33,7 @@
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
       <CheckBox IsChecked="{Binding Value, UpdateSourceTrigger=PropertyChanged}">Check to show control</CheckBox>
-      <Ellipse Grid.Column="1" Margin="10,0" Visibility="{Binding Value, Converter={StaticResource BooleanToVisibilityConverter}}">
+      <Ellipse Margin="10,0" Visibility="{Binding Value, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Column="1">
         <Ellipse.Fill>
           <SolidColorBrush Color="Green" />
         </Ellipse.Fill>
@@ -48,7 +48,7 @@
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
       <CheckBox IsChecked="{Binding Value, UpdateSourceTrigger=PropertyChanged}">Uncheck to show control</CheckBox>
-      <Ellipse Grid.Column="1" Margin="10,0" Visibility="{Binding Value, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
+      <Ellipse Margin="10,0" Visibility="{Binding Value, Converter={StaticResource InverseBooleanToVisibilityConverter}}" Grid.Column="1">
         <Ellipse.Fill>
           <SolidColorBrush Color="Blue" />
         </Ellipse.Fill>
@@ -63,7 +63,7 @@
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
       <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
-      <TextBlock Grid.Column="1" Margin="10,0" Text="{Binding Text, Converter={StaticResource TextTrimmingConverter}, ConverterParameter=15}" />
+      <TextBlock Margin="10,0" Text="{Binding Text, Converter={StaticResource TextTrimmingConverter}, ConverterParameter=15}" Grid.Column="1" />
     </Grid>
   </DataTemplate>
 
@@ -74,7 +74,7 @@
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
       <TextBox Text="{Binding Time, UpdateSourceTrigger=PropertyChanged}" />
-      <TextBlock Grid.Column="1" Margin="10,0" Text="{Binding Time, Converter={StaticResource DateTimeToTimeSpanConverter}}" />
+      <TextBlock Margin="10,0" Text="{Binding Time, Converter={StaticResource DateTimeToTimeSpanConverter}}" Grid.Column="1" />
     </Grid>
   </DataTemplate>
 
@@ -85,10 +85,10 @@
         <ColumnDefinition />
       </Grid.ColumnDefinitions>
       <CheckBox IsChecked="{Binding Value, UpdateSourceTrigger=PropertyChanged}">Check to toggle other CheckBox</CheckBox>
-      <CheckBox Grid.Column="1"
-                Margin="10,0"
+      <CheckBox Margin="10,0"
                 IsChecked="{Binding Value, Converter={StaticResource NegationConverter}}"
-                IsEnabled="False" />
+                IsEnabled="False"
+                Grid.Column="1" />
     </Grid>
   </DataTemplate>
 
@@ -112,31 +112,31 @@
         <RowDefinition />
         <RowDefinition />
       </Grid.RowDefinitions>
-      <TextBlock Grid.ColumnSpan="2"
-                 Margin="5"
+      <TextBlock Margin="5"
                  HorizontalAlignment="Center"
                  FontWeight="Bold"
-                 Text="Car" />
-      <TextBlock Grid.Row="1" Margin="5" Text="Brand:" />
-      <TextBox Grid.Row="1"
-               Grid.Column="1"
-               Margin="2"
-               Text="{Binding Brand}" />
-      <TextBlock Grid.Row="2" Margin="5" Text="Model:" />
-      <TextBox Grid.Row="2"
-               Grid.Column="1"
-               Margin="2"
-               Text="{Binding Model}" />
-      <TextBlock Grid.Row="3" Margin="5" Text="Year:" />
-      <TextBox Grid.Row="3"
-               Grid.Column="1"
-               Margin="2"
-               Text="{Binding Year}" />
-      <TextBlock Grid.Row="4" Margin="5" Text="Wheels:" />
-      <TextBlock Grid.Row="4"
-                 Grid.Column="1"
-                 Margin="5"
-                 Text="{Binding Wheels}" />
+                 Text="Car"
+                 Grid.ColumnSpan="2" />
+      <TextBlock Margin="5" Text="Brand:" Grid.Row="1" />
+      <TextBox Margin="2"
+               Text="{Binding Brand}"
+               Grid.Row="1"
+               Grid.Column="1" />
+      <TextBlock Margin="5" Text="Model:" Grid.Row="2" />
+      <TextBox Margin="2"
+               Text="{Binding Model}"
+               Grid.Row="2"
+               Grid.Column="1" />
+      <TextBlock Margin="5" Text="Year:" Grid.Row="3" />
+      <TextBox Margin="2"
+               Text="{Binding Year}"
+               Grid.Row="3"
+               Grid.Column="1" />
+      <TextBlock Margin="5" Text="Wheels:" Grid.Row="4" />
+      <TextBlock Margin="5"
+                 Text="{Binding Wheels}"
+                 Grid.Row="4"
+                 Grid.Column="1" />
     </Grid>
   </DataTemplate>
 
@@ -151,21 +151,21 @@
         <RowDefinition />
         <RowDefinition />
       </Grid.RowDefinitions>
-      <TextBlock Grid.ColumnSpan="2"
-                 Margin="5"
+      <TextBlock Margin="5"
                  HorizontalAlignment="Center"
                  FontWeight="Bold"
-                 Text="Bicycle" />
-      <TextBlock Grid.Row="1" Margin="5" Text="Brand:" />
-      <TextBox Grid.Row="1"
-               Grid.Column="1"
-               Margin="2"
-               Text="{Binding Brand}" />
-      <TextBlock Grid.Row="2" Margin="5" Text="Wheels:" />
-      <TextBlock Grid.Row="2"
-                 Grid.Column="1"
-                 Margin="5"
-                 Text="{Binding Wheels}" />
+                 Text="Bicycle"
+                 Grid.ColumnSpan="2" />
+      <TextBlock Margin="5" Text="Brand:" Grid.Row="1" />
+      <TextBox Margin="2"
+               Text="{Binding Brand}"
+               Grid.Row="1"
+               Grid.Column="1" />
+      <TextBlock Margin="5" Text="Wheels:" Grid.Row="2" />
+      <TextBlock Margin="5"
+                 Text="{Binding Wheels}"
+                 Grid.Row="2"
+                 Grid.Column="1" />
     </Grid>
   </DataTemplate>
 
