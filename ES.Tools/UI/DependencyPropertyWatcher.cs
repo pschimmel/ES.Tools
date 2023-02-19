@@ -18,12 +18,24 @@ namespace ES.Tools.UI
     /// <summary>
     /// Initializes a new instance of the <see cref="DependencyPropertyWatcher{T}"/> class.
     /// </summary>
-    /// <param name="target">Target Dependency Object</param>
-    /// <param name="propertyPath">Path of Property</param>
+    /// <param name="target">Target dependency object</param>
+    /// <param name="propertyPath">Path of property</param>
     public DependencyPropertyWatcher(DependencyObject target, string propertyPath)
     {
       Target = target;
       var binding = new Binding { Source = target, Path = new PropertyPath(propertyPath), Mode = BindingMode.OneWay };
+      BindingOperations.SetBinding(this, ValueProperty, binding);
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DependencyPropertyWatcher{T}"/> class.
+    /// </summary>
+    /// <param name="target">Target dependency object</param>
+    /// <param name="propertyPath">Dependency property</param>
+    public DependencyPropertyWatcher(DependencyObject target, DependencyProperty property)
+    {
+      Target = target;
+      var binding = new Binding { Source = target, Path = new PropertyPath(property), Mode = BindingMode.OneWay };
       BindingOperations.SetBinding(this, ValueProperty, binding);
     }
 

@@ -6,8 +6,8 @@ How to commit new releases:
 4. Switch to Master branch.
 5. Merge Development into Master branch.
 6. Push outging changesets on Master branch.
-7. Create tag on head of Master branch with the version number with format "v0.6.21".
-8. From the Git Changes tab in Visual Studio select "Push all Tags".
+7. Create tag on head of Master branch with the version number in format "v0.6.21".
+8. From the Git Changes tab in Visual Studio select "Push all Tags to -> origin".
 
 This should automatically create a new release in GitHub and a new Nuget package.
 
