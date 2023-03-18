@@ -17,9 +17,10 @@ If there is a problem with deploying the Nuget packages:
 - Go to API keys in the personal menu.
 - Under "Manage", regenerate API key.
 - Copy key.
-- Paste key in Appveyor under Settings\Deployment\API key in the Nuget deployment provider section.
+- Paste key in Appveyor under Project Settings\Deployment\API key in the Nuget deployment provider section.
+- Save
 - Go to export YAML.
-- Copy secure key to local appveyor.yml
+- Copy secure key for NuGet provider to local appveyor.yml
 - Push changes
 
 If there is a problem with deploying the Nuget packages:
@@ -30,5 +31,5 @@ If there is a problem with deploying the Nuget packages:
 - Copy key.
 - Paste key in Appveyor under Settings\Deployment\API key in the GitHub deployment provider section.
 - Go to export YAML.
-- Copy secure key to local appveyor.yml
+- Copy secure key for GitHub provider to local appveyor.yml
 - Push changes
