@@ -16,53 +16,73 @@ namespace ES.Tools.Core.Infrastructure
 
     public static EventService Instance => _service.Value;
 
+    /// <summary>
+    /// Subscribe for an event.
+    /// </summary>
     public void Subscribe<T>(Type type, Action<T> action)
     {
-      Subscribe(type?.FullName ?? throw new ArgumentNullException(nameof(type), "Type name cannot be empty."), action);
+      Subscribe(type?.FullName, action);
     }
 
+    /// <summary>
+    /// Subscribe for an event.
+    /// </summary>
     public void Subscribe<T>(string name, Action<T> action)
     {
+      if (string.IsNullOrWhiteSpace(name))
+      {
+        throw new ArgumentException("Name cannot be null or emtpy.");
+      }
+
       if (action == null)
       {
         throw new ArgumentNullException(nameof(action));
       }
 
-      if (!_events.ContainsKey(name))
+      if (!_events.TryGetValue(name, out var value))
       {
-        _events[name] = new List<Action<T>>();
+        value = new List<Action<T>>();
+        _events[name] = value;
       }
 
-      _events[name].Add(action);
+      value.Add(action);
     }
 
+    /// <summary>
+    /// Unubscribe an event.
+    /// </summary>
     public void Unsubscribe(string name)
     {
       _events.Remove(name);
     }
 
+    /// <summary>
+    /// Publish an event. All subscribers will be notified.
+    /// </summary>
     public void Publish<T>(Type type, T payload)
     {
-      Publish(type?.FullName ?? throw new ArgumentNullException(nameof(type), "Type name cannot be empty."), payload);
+      Publish(type?.FullName, payload);
     }
 
+    /// <summary>
+    /// Publish an event. All subscribers will be notified.
+    /// </summary>
     public void Publish<T>(string name, T payload)
     {
+      if (string.IsNullOrWhiteSpace(name))
+      {
+        throw new ArgumentException("Name cannot be null or emtpy.");
+      }
+
       if (_events.TryGetValue(name, out IList delegateList))
       {
-        if (delegateList == null)
+        if (delegateList != null)
         {
-          throw new ArgumentOutOfRangeException($"The named event '{name}' was not registered.");
+          foreach (var delegateItem in delegateList)
+          {
+            ((Action<T>)delegateItem).Invoke(payload);
+          }
         }
-
-        foreach (var delegateItem in delegateList)
-        {
-          ((Action<T>)delegateItem).Invoke(payload);
-        }
-      }
-      else
-      {
-        throw new ArgumentOutOfRangeException($"The named event '{name}' was not registered.");
       }
     }
   }

@@ -23,7 +23,7 @@ If there is a problem with deploying the Nuget packages:
 - Copy secure key for NuGet provider to local appveyor.yml
 - Push changes
 
-If there is a problem with deploying the Nuget packages:
+If there is a problem with deploying the GitHub packages:
 
 - Log in into GitHub.
 - Go to Settings / Developer settings in the personal menu.
