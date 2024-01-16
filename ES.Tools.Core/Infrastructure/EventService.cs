@@ -17,7 +17,7 @@ namespace ES.Tools.Core.Infrastructure
     public static EventService Instance => _service.Value;
 
     /// <summary>
-    /// Subscribe for an event.
+    /// Subscribe to an event.
     /// </summary>
     public void Subscribe<T>(Type type, Action<T> action)
     {
@@ -25,7 +25,7 @@ namespace ES.Tools.Core.Infrastructure
     }
 
     /// <summary>
-    /// Subscribe for an event.
+    /// Subscribe to an event.
     /// </summary>
     public void Subscribe<T>(string name, Action<T> action)
     {
