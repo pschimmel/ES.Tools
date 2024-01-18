@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
+    <LangVersion>12.0</LangVersion>
     <AssemblyName>ES.Tools</AssemblyName>
     <RootNamespace>ES.Tools</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -15,7 +16,7 @@
     <Description>A collection of some useful WPF controls and helpers.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
     <PackageIcon>ES.Tools Logo.png</PackageIcon>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>12.0</LangVersion>
     <PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/pschimmel/ES.Tools</RepositoryUrl>
