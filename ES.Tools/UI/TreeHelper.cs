@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Markup;
 using System.Windows.Media;
+using System.Xml;
 
 namespace ES.Tools.UI
 {
@@ -146,6 +149,17 @@ namespace ES.Tools.UI
     public static Window GetWindow(this DependencyObject obj)
     {
       return Window.GetWindow(obj);
+    }
+
+    /// <summary>
+    /// Creates a copy of any <see cref="UIElement"/> including all children in the Visual Tree.
+    /// </summary>
+    public static T CloneXaml<T>(this T source) where T : UIElement
+    {
+      string xaml = XamlWriter.Save(source);
+      using var stringReader = new StringReader(xaml);
+      using var xamlReader = XmlReader.Create(stringReader);
+      return (T)XamlReader.Load(xamlReader);
     }
 
     #endregion

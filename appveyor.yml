@@ -6,7 +6,7 @@
 #---------------------------------#
 #      General Configuration      #
 #---------------------------------#
-version: 0.6.30.{build}
+version: 0.6.40.{build}
 
 branches:
   only:
@@ -66,7 +66,7 @@ build:
 deploy:
 - provider: NuGet
   api_key:
-    secure: +5wjRnwLCQ1+GpCYZtUA3gdkAbLqErgYVaJUXDeZ8rHfx4ckg02Ycv9ZU0LPE+8U
+    secure: sZsrlkni9ipUjc/yAibzstYKxVshKXJXu4Ht8WDoQgJ6yRX5EK1kMMrPqVn3XLca
   on:
     #branch: master           # Deploy from release branch only
     APPVEYOR_REPO_TAG: true  # Deploy builds with version tags only

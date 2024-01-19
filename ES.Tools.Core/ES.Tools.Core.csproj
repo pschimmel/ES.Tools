@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net48;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <AssemblyName>ES.Tools.Core</AssemblyName>
     <RootNamespace>ES.Tools.Core</RootNamespace>
@@ -15,7 +15,7 @@
     <Description>Contains core components of ES.Tools. Simple MVVM implementation and more.</Description>
     <PackageProjectUrl>https://github.com/pschimmel/ES.Tools</PackageProjectUrl>
     <PackageIcon>ES.Tools.Core Logo.png</PackageIcon>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>12.0</LangVersion>
     <PackageReleaseNotes>This is a prerelease. Use on your own risk.</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/pschimmel/ES.Tools</RepositoryUrl>

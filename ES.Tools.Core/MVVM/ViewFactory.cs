@@ -139,7 +139,12 @@ namespace ES.Tools.Core.MVVM
 
         if (setOwner && !view.Topmost)
         {
-          view.Owner = ApplicationHelper.ActiveWindow;
+          var owner = ApplicationHelper.ActiveWindow;
+
+          if (!ReferenceEquals(owner, view))
+          {
+            view.Owner = owner;
+          }
         }
 
         return view;
